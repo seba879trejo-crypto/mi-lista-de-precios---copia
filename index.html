@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMS.Papelería</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Video de fondo -->
+    <video src="i.mp4" loop muted autoplay></video>
+
+    <!-- Contenedor Principal -->
+    <main class="container">
+        <!-- ================= BOTÓN FLOTANTE DEL CARRITO (Arriba a la Derecha) ================= -->
+    <div class="cart-floating-btn" onclick="toggleCart()">
+        🛒 Carrito <span id="cart-count">0</span>
+    </div>
+
+    <!-- ================= PANEL LATERAL DEL CARRITO (Deslizante) ================= -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito de Compras 🛒</h3>
+            <button class="close-cart-btn" onclick="toggleCart()">✕</button>
+        </div>
+
+        <!-- Lista de productos agregados -->
+        <div id="cart-items" class="cart-items">
+            <p class="empty-cart-text">Tu carrito está vacío.</p>
+        </div>
+
+        <!-- Footer del Carrito con el botón de WhatsApp -->
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total estimado:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <!-- Botón que genera el mensaje masivo de WhatsApp -->
+            <button onclick="enviarPedidoWhatsApp()" class="btn-whatsapp-cart">
+                📲 Enviar pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+
+        <!-- ENCABEZADO SUPERIOR (Banner y Títulos) -->
+        <header class="main-header">
+            <img src="baner-principal.png" alt="GMS Papelería Banner" class="banner-img">
+            <div class="header-text">
+                <h1>GMS.papeleria</h1>
+                <p class="eslogan">Todo lo que necesitas para estudiar, trabajar y crear ✂️📚</p>
+            </div>
+            
+            <!-- Menú Superior de Pestañas -->
+            <nav class="nav-tabs">
+                <button class="tab-btn active" onclick="cambiarPestana('inicio')">Inicio</button>
+                <button class="tab-btn" onclick="cambiarPestana('productos')">Catálogo General</button>
+                <button class="tab-btn" onclick="cambiarPestana('ofertas')">Ofertas / Especiales 🔥</button>
+            </nav>
+        </header>
+
+
+        <!-- ================= SECCIÓN INICIO: COMBOS ================= -->
+        <section id="seccion-inicio" class="seccion-contenido active">
+            <div class="section-title">
+                <h2>Combos y Promociones Destacadas 🔥</h2>
+                <p>Armá tu pedido rápido haciendo clic en consultar por WhatsApp.</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Combo 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Combo Escolar">
+                    <div class="product-info">
+                        <h3>Combo Escolar Inicial</h3>
+                        <p>Incluye cuaderno, set de lápices, goma, tijera y regla decorada.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Combo%20Escolar%20Inicial" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+
+                <!-- Combo 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+                <!-- Combo 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+                <!-- Combo 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+                <!-- Combo 5 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+                <!-- Combo 6 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+                <!-- Combo 7 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+                <!-- Combo 8 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+                <!-- Combo 9 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&auto=format&fit=crop&q=80" alt="Kit Bullet Journal">
+                    <div class="product-info">
+                        <h3>Kit Bullet Journal / Arte</h3>
+                        <p>Cuaderno de puntos, marcadores pastel y stickers autoadhesivos.</p>
+                        <span class="product-price">$3.500</span>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Kit%20Bullet%20Journal%20y%20arte" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECCIÓN PRODUCTOS CON DISEÑO DE DOS COLUMNAS ================= -->
+        <section id="seccion-productos" class="seccion-contenido">
+            
+            <div class="shop-layout">
+                <!-- COLUMNA IZQUIERDA: ÍNDICE / BUSCADOR / FILTROS -->
+                <aside class="sidebar">
+                    <h3>🔍 Buscar Producto</h3>
+                    <!-- Buscador en tiempo real -->
+                    <input type="text" id="buscador" placeholder="Escribe el nombre..." onkeyup="filtrarProductos()">
+
+                    <h3>📂 Categorías</h3>
+                    <ul class="category-list">
+                        <li><a href="#" onclick="filtrarCategoria('todos'); return false;">Ver Todos (50)</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('cuadernos'); return false;">Cuadernos A4</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('escritura'); return false;">Lápices</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('arte'); return false;">Resaltadores</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Cuadernos A6</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Marcadores Pastel</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Lapiceras</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Tijeras</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Folios</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Reglas</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Oficina y Estudio</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('oficina'); return false;">Oficina y Estudio</a></li>
+                    </ul>
+                </aside>
+
+                <!-- COLUMNA DERECHA: GRILLA DE LOS 50 PRODUCTOS -->
+                <div class="product-catalog-container">
+                    <div class="section-title" style="margin-bottom: 20px;">
+                        <h2>Catálogo de Productos 📚</h2>
+                        <p>Usa el buscador lateral o explora las categorías.</p>
+                    </div>
+                    <div class="product-grid" id="grid-productos">
+                        
+                        <!-- Producto 1 (Categoría: cuadernos) -->
+                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno a5 con espiral">
+                            <img src="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?w=400&auto=format&fit=crop&q=80" alt="Cuadernos">
+                            <div class="product-info">
+                                <h3>Cuadernos A5 Con Espiral</h3>
+                                <p>Diseños variados, hojas rayadas o cuadriculadas.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuadernos%20A5" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>                      
+                        </div>
+
+                                <!-- Producto 2 (Categoría: cuadernos) -->
+                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno a5 con espiral">
+                            <img src="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?w=400&auto=format&fit=crop&q=80" alt="Cuadernos">
+                            <div class="product-info">
+                                <h3>Cuadernos A5 Con Espiral</h3>
+                                <p>Diseños variados, hojas rayadas o cuadriculadas.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuadernos%20A5" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                    
+                        <!-- Producto 3 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+
+                        <!-- Producto 4 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+
+                        <!-- Producto 5 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 6 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 7 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 8 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 9 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 10 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 11 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 12 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 13 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 14 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 15 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 16 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>hola sonio</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 17 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 18 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 19 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 20 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 21 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 22 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 23 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 24 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 25 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 26 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 27 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 28 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 29 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 30 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 31 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 32 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 33 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 34 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 35 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 36 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 37 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 38 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 39 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 40 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 41 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 42 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 43 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 44 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 45 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 46 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 47 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 48 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 49 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        <!-- Producto 50 (Categoría: Resaltadores) -->
+                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel flúo">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&auto=format&fit=crop&q=80" alt="Lapiceras">
+                            <div class="product-info">
+                                <h3>Lapiceras de Gel con Diseño</h3>
+                                <p>Gama completa de colores suaves para resúmenes.</p>
+                                <span class="product-price">$3.500</span>
+                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp"href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiceras" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
+                            </div>
+                        </div>
+                        
+        </section>
+        <!-- ================= SECCIÓN DE OFERTAS / ESPECIALES ================= -->
+        <section id="seccion-ofertas" class="seccion-contenido">
+            <div class="section-title">
+                <h2>Ofertas y Fechas Especiales 🔥</h2>
+                <p>Novedades, liquidaciones y promos por tiempo limitado.</p>
+            </div>
+
+            <!-- Grilla de productos de ofertas -->
+            <div class="product-grid" id="grid-ofertas">
+                
+                <!-- Producto de ejemplo (puedes borrarlo o cambiarlo cuando armes la promo) -->
+                <div class="product-card" data-nombre="producto promo ejemplo">
+                    <img src="i.jpg" alt="Promo">
+                    <div class="product-info">
+                        <h3>Próxima Promo Especial</h3>
+                        <p>Aquí pondremos la súper oferta cuando llegue la fecha.</p>
+                        <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20las%20ofertas%20especiales" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- ================= SECCIÓN DE CONTACTO ================= -->
+        <section class="contact-section">
+            <div class="contact-card">
+                <h2>¿Tenés dudas o querés hacer un pedido personalizado? 📬</h2>
+                <p>Escribinos por nuestras redes o mandanos un correo y te respondemos al instante.</p>
+                
+                <div class="contact-buttons">
+                    <!-- Botón de Instagram -->
+                    <a href="https://instagram.com/gms.papeleria" target="_blank" class="btn-contact btn-ig">
+                        <span>📸</span> Instagram: @gms.papeleria
+                    </a>
+                    
+                    <!-- Botón de Correo -->
+                    <a href="mailto:gmspapeleria@gmail.com" class="btn-contact btn-mail">
+                        <span>@</span> gmspapeleria@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+         <!-- Footer -->
+        <footer>
+            <p>© 2026 GMS.Papeleria - Santiago del Estero</p>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

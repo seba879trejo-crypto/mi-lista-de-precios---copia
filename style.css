@@ -1,0 +1,588 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    padding: 30px 15px;
+}
+
+/* --- VIDEO DE FONDO --- */
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -9;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.75);
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    width: 100%;
+    max-width: 1000px; /* Un poquito más ancho para que entren cómodos 3 productos por fila en PC */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- ENCABEZADO CENTRADO --- */
+.main-header {
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo horizontalmente */
+    text-align: center;   /* Centra los textos */
+    gap: 15px;
+    width: 100%;
+}
+
+.banner-img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.header-text h1 {
+    font-size: 26px;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.eslogan {
+    font-size: 14px;
+    color: #000000;
+}
+
+/* --- BARRA DE NAVEGACIÓN --- */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.08); /* Opcional: una línea sutil de separación */
+    padding-top: 15px;
+}
+
+.tab-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.tab-btn:hover {
+    background-color: #ffffff;
+}
+
+.tab-btn.active {
+    background-color: #4f46e5;
+    color: white;
+}
+
+/* --- CONTROL DE VISIBILIDAD DE PESTAÑAS --- */
+.seccion-contenido {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.seccion-contenido.active {
+    display: flex;
+}
+
+/* --- TÍTULO DE SECCIÓN CON TRANSPARENCIA --- */
+.section-title {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-title h2 {
+    font-size: 20px;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.section-title p {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+/* --- CUADRÍCULA DE PRODUCTOS (Grid responsivo) --- */
+.product-grid {
+    display: grid;
+    /* Se acomodarán automáticamente de a 3 en PC y de a 1 en celular, manteniendo siempre el mismo tamaño */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* TARJETA DE CADA PRODUCTO CON TRANSPARENCIA */
+/* TARJETA DE CADA PRODUCTO */
+.product-card {
+    background-color: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.96);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px; /* Espacio prolijo entre elementos */
+}
+
+.product-info h3 {
+    font-size: 18px;
+    color: #1f2937;
+    margin-bottom: 2px;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.4;
+    flex-grow: 1;
+    margin-bottom: 5px;
+}
+
+/* Precio destacado */
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4f46e5;
+    margin-top: 5px;
+}
+
+/* Contenedor de botones al pie de la tarjeta */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* --- BOTÓN DE WHATSAPP --- */
+.btn-wpp {
+    display: block;
+    width: 100%;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-wpp:hover {
+    background-color: #20ba5a;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    margin-top: 10px;
+}/* (Conserva todo tu CSS anterior y agrega/reemplaza esto al final) */
+
+/* --- DISEÑO DE DOS COLUMNAS (Tienda moderna) --- */
+.shop-layout {
+    display: grid;
+    /* Columna izquierda fija para el buscador (260px) y la derecha ocupa todo el resto flexible */
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* BARRA LATERAL (Sidebar de búsqueda y categorías) */
+.sidebar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar h3 {
+    font-size: 15px;
+    color: #1f2937;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.sidebar h3:first-child {
+    margin-top: 0;
+}
+
+/* Input Buscador */
+#buscador {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#buscador:focus {
+    border-color: #4f46e5;
+}
+
+/* Lista de Categorías */
+.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.category-list li {
+    margin-bottom: 8px;
+}
+
+.category-list a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #4b5563;
+    display: block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.category-list a:hover {
+    background-color: #4f46e5;
+    color: white;
+}
+
+/* Contenedor derecho del catálogo */
+.product-catalog-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Grilla interna de productos para que entren de a 2 o 3 al lado del buscador */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+/* En celulares, la barra lateral pasa arriba y el catálogo abajo automáticamente */
+@media (max-width: 768px) {
+    .shop-layout {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        position: static;
+    }
+}
+/* --- SECCIÓN DE CONTACTO --- */
+.contact-card {
+}
+.contact-section {
+    width: 100%;
+}
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card h2 {
+    font-size: 20px;
+    color: #1f2937;
+}
+
+.contact-card p {
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Se acomoda bien si la pantalla es chica */
+    margin-top: 5px;
+}
+
+.btn-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* Color estilo Instagram */
+.btn-ig {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+/* Color para el correo */
+.btn-mail {
+    background-color: #374151;
+}
+/* --- BOTÓN FLOTANTE DEL CARRITO --- */
+.cart-floating-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4f46e5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+.cart-floating-btn:hover {
+    transform: scale(1.05);
+}
+
+#cart-count {
+    background-color: #ef4444;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* --- PANEL LATERAL DEL CARRITO (SIDEBAR) --- */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Oculto fuera de la pantalla a la derecha */
+    width: 380px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+}
+
+/* Clase para abrir el carrito mediante JavaScript */
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+
+.cart-header h3 {
+    font-size: 18px;
+    color: #1f2937;
+}
+
+.close-cart-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #4b5563;
+}
+
+/* Lista de productos dentro del carrito */
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.empty-cart-text {
+    text-align: center;
+    color: #9ca3af;
+    margin-top: 40px;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid #e5e7eb;
+}
+
+.cart-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.cart-item-price {
+    color: #4b5563;
+    font-size: 13px;
+}
+
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Footer del Carrito */
+.cart-footer {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.btn-whatsapp-cart {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-whatsapp-cart:hover {
+    background-color: #20ba5a;
+}
+
+/* Precio dentro de la tarjeta de producto */
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4f46e5;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn-add-cart {
+    display: block;
+    width: 100%;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add-cart:hover {
+    background-color: #4338ca;
+}
