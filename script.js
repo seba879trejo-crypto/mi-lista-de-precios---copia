@@ -4,6 +4,7 @@ function cambiarPestana(pestana) {
     document.getElementById('seccion-inicio').classList.remove('active');
     document.getElementById('seccion-productos').classList.remove('active');
     document.getElementById('seccion-ofertas').classList.remove('active');
+    document.getElementById('seccion-nosotros').classList.remove('active');
 
     // Quitar la clase 'active' de todos los botones del menú
     const botones = document.querySelectorAll('.tab-btn');
@@ -19,9 +20,11 @@ function cambiarPestana(pestana) {
     } else if (pestana === 'ofertas') {
         document.getElementById('seccion-ofertas').classList.add('active');
         event.currentTarget.classList.add('active');
+    } else if (pestana === 'nosotros') {
+        document.getElementById('seccion-nosotros').classList.add('active');
+        event.currentTarget.classList.add('active');
     }
 }
-
 
 // --- 2. BUSCADOR EN TIEMPO REAL (Catálogo) ---
 function filtrarProductos() {
@@ -40,12 +43,14 @@ function filtrarProductos() {
 
 
 function filtrarCategoria(categoria) {
-    let productos = document.querySelectorAll('.product-card');
-
+    // Antes: document.querySelectorAll('.product-card') afectaba también
+    // a los combos de la sección Inicio. Ahora queda acotado al catálogo.
+    let productos = document.querySelectorAll('#grid-productos .product-card');
+ 
     productos.forEach(card => {
         let catAttr = card.getAttribute('data-categoria') || '';
         let listaCategorias = catAttr.trim().toLowerCase().split(',').map(c => c.trim());
-
+ 
         if (categoria === 'todos' || listaCategorias.includes(categoria.toLowerCase())) {
             card.style.display = '';
         } else {
