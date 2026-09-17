@@ -39,16 +39,17 @@ function filtrarProductos() {
 }
 
 
-// --- 3. FILTRO POR CATEGORÍAS (Catálogo) ---
 function filtrarCategoria(categoria) {
-    let productos = document.querySelectorAll('#grid-productos .product-card');
+    let productos = document.querySelectorAll('.product-card');
 
     productos.forEach(card => {
-        let catCard = card.getAttribute('data-categoria');
-        if (categoria === 'todos' || catCard === categoria) {
-            card.style.display = "flex";
+        let catAttr = card.getAttribute('data-categoria') || '';
+        let listaCategorias = catAttr.trim().toLowerCase().split(',').map(c => c.trim());
+
+        if (categoria === 'todos' || listaCategorias.includes(categoria.toLowerCase())) {
+            card.style.display = '';
         } else {
-            card.style.display = "none";
+            card.style.display = 'none';
         }
     });
 }

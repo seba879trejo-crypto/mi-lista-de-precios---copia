@@ -42,7 +42,7 @@ video {
 
 /* --- ENCABEZADO CENTRADO --- */
 .main-header {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.171);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 20px;
@@ -66,7 +66,7 @@ video {
 
 .header-text h1 {
     font-size: 26px;
-    color: #1f2937;
+    color: #22223b;
     margin-bottom: 4px;
 }
 
@@ -81,7 +81,7 @@ video {
     justify-content: center;
     gap: 10px;
     width: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.08); /* Opcional: una línea sutil de separación */
+    border-top: 1px solid rgba(27, 23, 23, 0.08); /* Opcional: una línea sutil de separación */
     padding-top: 15px;
 }
 
@@ -119,25 +119,21 @@ video {
 }
 
 /* --- TÍTULO DE SECCIÓN CON TRANSPARENCIA --- */
-.section-title {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.banner-promos {
+    width: 100%;
+    max-width: 1000px;
+    margin: 15px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
-.section-title h2 {
-    font-size: 20px;
-    color: #1f2937;
-    margin-bottom: 5px;
-}
-
-.section-title p {
-    font-size: 13px;
-    color: #4b5563;
+.banner-promos img {
+    width: 100%;
+    height: 400px;        /* Alto fijo, ajustalo a gusto */
+    display: block;
+    object-fit: cover;    /* Recorta sin deformar, llenando el alto fijado */
+    object-position: center;
 }
 
 /* --- CUADRÍCULA DE PRODUCTOS (Grid responsivo) --- */
@@ -337,6 +333,16 @@ footer {
 }
 /* --- SECCIÓN DE CONTACTO --- */
 .contact-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .contact-section {
     width: 100%;
