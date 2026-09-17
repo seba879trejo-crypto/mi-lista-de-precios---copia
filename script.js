@@ -140,7 +140,7 @@ function enviarPedidoWhatsApp() {
     mensaje += `%0A*TOTAL ESTIMADO: $${totalGeneral.toLocaleString('es-AR')}*%0A%0AAguardo confirmación de stock y pago. ¡Gracias!`;
     
     // Tu número de WhatsApp
-    let numeroWhatsApp = "3855960415";
+    let numeroWhatsApp = "3855966415";
     let urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
     
     window.open(urlWhatsApp, '_blank');
