@@ -663,3 +663,42 @@ footer {
     color: #444;
     margin: 0;
 }
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.btn-pagina {
+    padding: 8px 16px;
+    border: none;
+    background: linear-gradient(135deg, #FFE5EC, #E0F7FA); /* rosa pastel a celeste pastel */
+    color: #555;
+    border-radius: 50px; /* forma de píldora, más suave que un cuadrado */
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-pagina:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-pagina:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-pagina-activa {
+    background: linear-gradient(135deg, #FF9AA2, #FFB7B2); /* coral/rosa más saturado para destacar */
+    color: white;
+    box-shadow: 0 3px 8px rgba(255, 154, 162, 0.5);
+}
