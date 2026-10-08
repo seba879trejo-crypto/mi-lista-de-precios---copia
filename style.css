@@ -703,3 +703,39 @@ footer {
     color: white;
     box-shadow: 0 3px 8px rgba(255, 154, 162, 0.5);
 }
+.cart-qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.btn-qty {
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid #1f2937;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+}
+
+.btn-qty:hover {
+    background-color: #1f2937;
+    color: #ffffff;
+}
+
+.btn-qty:active {
+    transform: scale(0.92);
+}
+.cart-qty-number {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1f2937;
+}

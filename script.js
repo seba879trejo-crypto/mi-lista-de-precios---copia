@@ -126,7 +126,25 @@ function cambiarPagina(numeroPagina) {
 
 
 // --- 3. LÓGICA DEL CARRITO DE COMPRAS ---
+// Carga el carrito guardado en el navegador (si existe). Si algo falla, arranca vacío.
 let carrito = [];
+try {
+    const carritoGuardado = localStorage.getItem('carrito-gms');
+    if (carritoGuardado) {
+        carrito = JSON.parse(carritoGuardado);
+    }
+} catch (error) {
+    carrito = [];
+}
+
+// Guarda el carrito actual en el navegador
+function guardarCarrito() {
+    try {
+        localStorage.setItem('carrito-gms', JSON.stringify(carrito));
+    } catch (error) {
+        // Si el navegador no permite guardar, el carrito sigue funcionando igual
+    }
+}
 
 function toggleCart() {
     const sidebar = document.getElementById('cart-sidebar');
@@ -143,6 +161,7 @@ function agregarAlCarrito(nombre, precio) {
         carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
     }
 
+    guardarCarrito();
     actualizarCarritoUI();
 
     // Abre el carrito automáticamente al agregar un producto
@@ -151,6 +170,19 @@ function agregarAlCarrito(nombre, precio) {
 
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
+    guardarCarrito();
+    actualizarCarritoUI();
+}
+
+// Suma (+1) o resta (-1) unidades de un producto. Si llega a 0, se quita del carrito.
+function cambiarCantidad(index, cambio) {
+    carrito[index].cantidad += cambio;
+
+    if (carrito[index].cantidad <= 0) {
+        carrito.splice(index, 1);
+    }
+
+    guardarCarrito();
     actualizarCarritoUI();
 }
 
@@ -180,10 +212,15 @@ function actualizarCarritoUI() {
         itemRow.className = 'cart-item-row';
         itemRow.innerHTML = `
             <div class="cart-item-info">
-                <span class="cart-item-title">${item.nombre} (x${item.cantidad})</span>
+                <span class="cart-item-title">${item.nombre}</span>
                 <span class="cart-item-price">$${subtotal.toLocaleString('es-AR')}</span>
+                <div class="cart-qty-controls">
+                    <button onclick="cambiarCantidad(${index}, -1)" class="btn-qty" aria-label="Restar una unidad">−</button>
+                    <span class="cart-qty-number">${item.cantidad}</span>
+                    <button onclick="cambiarCantidad(${index}, 1)" class="btn-qty" aria-label="Sumar una unidad">+</button>
+                </div>
             </div>
-            <button onclick="eliminarDelCarrito(${index})" class="btn-remove-item">🗑️</button>
+            <button onclick="eliminarDelCarrito(${index})" class="btn-remove-item" aria-label="Quitar producto">🗑️</button>
         `;
         cartItemsContainer.appendChild(itemRow);
     });
@@ -220,4 +257,5 @@ function enviarPedidoWhatsApp() {
 // --- 4. INICIALIZAR EL CATÁLOGO CON PAGINACIÓN AL CARGAR LA PÁGINA ---
 document.addEventListener('DOMContentLoaded', () => {
     actualizarVista();
+    actualizarCarritoUI(); // Muestra el carrito guardado (y el contador) al abrir la página
 });
