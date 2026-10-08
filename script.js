@@ -259,3 +259,23 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarVista();
     actualizarCarritoUI(); // Muestra el carrito guardado (y el contador) al abrir la página
 });
+// --- CONTADOR AUTOMÁTICO DE PRODUCTOS ---
+function actualizarContadorProductos() {
+    // Busca todas las tarjetas de productos que hay en la grilla
+    const totalCards = document.querySelectorAll('.product-grid .product-card').length;
+    
+    // Actualiza el número en el menú lateral ("Ver Todos")
+    const contadorMenu = document.getElementById('total-menu');
+    if (contadorMenu) {
+        contadorMenu.innerText = totalCards;
+    }
+
+    // Actualiza el número en el párrafo del catálogo
+    const contadorTexto = document.getElementById('total-productos');
+    if (contadorTexto) {
+        contadorTexto.innerText = totalCards;
+    }
+}
+
+// Ejecutar la función automáticamente cuando carga la página
+window.addEventListener('DOMContentLoaded', actualizarContadorProductos);
