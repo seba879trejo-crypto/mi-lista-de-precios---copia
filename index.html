@@ -46,6 +46,8 @@
                 <span id="cart-total-price">$0</span>
             </div>
             <!-- Botón que genera el mensaje masivo de WhatsApp -->
+            <button onclick="cerrarCarrito()" class="btn-cart-secondary">← Seguir viendo productos</button>
+            <button onclick="vaciarCarrito()" class="btn-cart-clear">🗑️ Vaciar carrito</button>
             <button onclick="enviarPedidoWhatsApp()" class="btn-whatsapp-cart">
                 📲 Enviar pedido por WhatsApp
             </button>
@@ -1086,8 +1088,8 @@
                 <p>Realizamos envíos solamente dentro de Santiago del Estero Capital.</p>
             </div>
             <div class="info-adicional">
-                <h3>🔄 Cambios y Devoluciones</h3>
-                <p>Cambios dentro de las 48hs de recibido el producto, siempre que esté sin usar.</p>
+                <h3>🔄 Modificaciones del pedido</h3>
+                 <p>¿Querés modificar tu pedido? <a href="https://wa.me/5493855966415?text=Hola!%20Quiero%20modificar%20mi%20pedido" target="_blank">Escribinos por WhatsApp</a>.</p>
             </div>
             </div>
         </section>
@@ -1097,6 +1099,28 @@
             aria-label="Consultar por WhatsApp">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="30" height="30">
         </a>
+        <!-- Ventana emergente: botón de arrepentimiento -->
+        <div id="modal-arrepentimiento" class="modal-overlay" onclick="if (event.target === this) cerrarModalArrepentimiento()">
+            <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="arr-titulo">
+               <button type="button" class="modal-close" onclick="cerrarModalArrepentimiento()" aria-label="Cerrar">✕</button>
+               <h3 id="arr-titulo">Botón de arrepentimiento</h3>
+               <p class="modal-texto">Completá los datos y se abrirá WhatsApp con tu solicitud lista para enviar.</p>
+
+               <form id="form-arrepentimiento" onsubmit="enviarArrepentimientoWhatsApp(event)">
+               <label for="arr-nombre">Nombre y apellido</label>
+               <input type="text" id="arr-nombre" required>
+
+               <label for="arr-pedido">¿Qué pedido querés cancelar?</label>
+               <input type="text" id="arr-pedido" placeholder="Producto o fecha del pedido" required>
+
+               <label for="arr-motivo">Motivo <span class="opcional">(opcional)</span></label>
+               <textarea id="arr-motivo" rows="3" placeholder="Si querés, contanos qué pasó"></textarea>
+
+               <button type="submit" class="btn-modal-enviar">Enviar por WhatsApp</button>
+            </form>
+            </div>
+        </div>
+        
 <!-- ================= SECCIÓN DE CONTACTO ================= -->
         <section class="contact-section">
             <div class="contact-card">
@@ -1104,21 +1128,23 @@
                 <p>Escribinos por nuestras redes o mandanos un correo y te respondemos al instante.</p>
                 
                 <div class="contact-buttons">
-                    <!-- Botón de Instagram -->
-                    <a href="https://instagram.com/gms.papeleria" target="_blank" class="btn-contact btn-ig">
-                        <span>📸</span> Instagram: @gms.papeleria
-                    </a>
-                    
-                    <!-- Botón de Correo -->
-                    <a href="mailto:gmspapeleria@gmail.com" class="btn-contact btn-mail">
-                        <span>@</span> gmspapeleria@gmail.com
-                    </a>
-                </div>
+                 <a href="https://instagram.com/gms.papeleria" target="_blank" class="btn-contact btn-ig">
+                   <span>📸</span> Instagram: @gms.papeleria
+                 </a>
+                 <a href="mailto:gmspapeleria@gmail.com" class="btn-contact btn-mail">
+                   <span>@</span> gmspapeleria@gmail.com
+                 </a>
+               </div>
+
+               <div class="contact-buttons">
+                  <button type="button" onclick="abrirModalArrepentimiento()" class="btn-contact btn-arrepentimiento">↩️ Botón de arrepentimiento</button>
+               </div>
             </div>
+        </div>
         </section>
          <!-- Footer -->
         <footer>
-            <p>© 2026 GMS.Papeleria - Santiago del Estero</p>
+            <p>© 2026 GMS.Papelería · Santiago del Estero · Todos los derechos reservados</p>
         </footer>
     </main>
     <script src="script.js"></script>
