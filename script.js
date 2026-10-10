@@ -169,7 +169,6 @@ function vaciarCarrito() {
 
 // Busca la foto del producto que se está agregando (la misma que se ve en su tarjeta)
 function obtenerImagenProducto(nombre) {
-    // 1) Primero intenta con el botón que se apretó
     try {
         const evento = window.event;
         if (evento && evento.target) {
@@ -178,9 +177,7 @@ function obtenerImagenProducto(nombre) {
             if (img) return img.getAttribute('src');
         }
     } catch (error) {
-        // Si falla, probamos el método 2
     }
-
     // 2) Si no, busca la tarjeta cuyo título coincida con el nombre
     const tarjetas = document.querySelectorAll('.product-card');
     for (const tarjeta of tarjetas) {
@@ -362,3 +359,23 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarVista();
     actualizarCarritoUI(); // Muestra el carrito guardado (y el contador) al abrir la página
 });
+// --- CONTADOR AUTOMÁTICO DE PRODUCTOS ---
+function actualizarContadorProductos() {
+    // Busca todas las tarjetas de productos que hay en la grilla
+    const totalCards = document.querySelectorAll('.product-grid .product-card').length;
+    
+    // Actualiza el número en el menú lateral ("Ver Todos")
+    const contadorMenu = document.getElementById('total-menu');
+    if (contadorMenu) {
+        contadorMenu.innerText = totalCards;
+    }
+
+    // Actualiza el número en el párrafo del catálogo
+    const contadorTexto = document.getElementById('total-productos');
+    if (contadorTexto) {
+        contadorTexto.innerText = totalCards;
+    }
+}
+
+// Ejecutar la función automáticamente cuando carga la página
+window.addEventListener('DOMContentLoaded', actualizarContadorProductos);
