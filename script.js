@@ -379,3 +379,27 @@ function actualizarContadorProductos() {
 
 // Ejecutar la función automáticamente cuando carga la página
 window.addEventListener('DOMContentLoaded', actualizarContadorProductos);
+// --- CONTROL DE REPRODUCCIÓN DEL VIDEO POR SCROLL ---
+function controlarVideoPorScroll() {
+    const video = document.getElementById('bg-video');
+    if (!video) return;
+
+    window.addEventListener('scroll', () => {
+        // Si el usuario baja más de 300 píxeles, pausamos el video
+        if (window.scrollY > 300) {
+            if (!video.paused) {
+                video.pause();
+            }
+        } else {
+            // Si vuelve arriba del todo, se vuelve a reproducir
+            if (video.paused) {
+                video.play().catch(error => {
+                    console.log("Reproducción automática evitada por el navegador:", error);
+                });
+            }
+        }
+    });
+}
+
+// Ejecutar cuando cargue la página
+window.addEventListener('DOMContentLoaded', controlarVideoPorScroll);
