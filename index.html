@@ -11,7 +11,7 @@
     <meta property="og:description" content="Útiles escolares, oficina y arte en Santiago del Estero. Pedí por WhatsApp.">
     <meta property="og:image" content="https://seba879trejo-crypto.github.io/mi-lista-de-precios---copia/baner-principal.png">
     <meta name="twitter:card" content="summary_large_image">
-<!-- Ícono de la pestaña (provisorio, mientras no tengas tu logo en tamaño chico) -->
+    <!-- Ícono de la pestaña (provisorio, mientras no tengas tu logo en tamaño chico) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✏️</text></svg>">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,37 +22,38 @@
 
     <!-- Contenedor Principal -->
     <main class="container">
+
         <!-- ================= BOTÓN FLOTANTE DEL CARRITO (Arriba a la Derecha) ================= -->
-    <div class="cart-floating-btn" onclick="toggleCart()">
-        🛒 Carrito <span id="cart-count">0</span>
-    </div>
-
-    <!-- ================= PANEL LATERAL DEL CARRITO (Deslizante) ================= -->
-    <div id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Tu Carrito de Compras 🛒</h3>
-            <button class="close-cart-btn" onclick="toggleCart()">✕</button>
+        <div class="cart-floating-btn" onclick="toggleCart()">
+            🛒 Carrito <span id="cart-count">0</span>
         </div>
 
-        <!-- Lista de productos agregados -->
-        <div id="cart-items" class="cart-items">
-            <p class="empty-cart-text">Tu carrito está vacío.</p>
-        </div>
-
-        <!-- Footer del Carrito con el botón de WhatsApp -->
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total estimado:</span>
-                <span id="cart-total-price">$0</span>
+        <!-- ================= PANEL LATERAL DEL CARRITO (Deslizante) ================= -->
+        <div id="cart-sidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Tu Carrito de Compras 🛒</h3>
+                <button class="close-cart-btn" onclick="toggleCart()">✕</button>
             </div>
-            <!-- Botón que genera el mensaje masivo de WhatsApp -->
-            <button onclick="cerrarCarrito()" class="btn-cart-secondary">← Seguir viendo productos</button>
-            <button onclick="vaciarCarrito()" class="btn-cart-clear">🗑️ Vaciar carrito</button>
-            <button onclick="enviarPedidoWhatsApp()" class="btn-whatsapp-cart">
-                📲 Enviar pedido por WhatsApp
-            </button>
+
+            <!-- Lista de productos agregados -->
+            <div id="cart-items" class="cart-items">
+                <p class="empty-cart-text">Tu carrito está vacío.</p>
+            </div>
+
+            <!-- Footer del Carrito con el botón de WhatsApp -->
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total estimado:</span>
+                    <span id="cart-total-price">$0</span>
+                </div>
+                <button onclick="cerrarCarrito()" class="btn-cart-secondary">← Seguir viendo productos</button>
+                <button onclick="vaciarCarrito()" class="btn-cart-clear">🗑️ Vaciar carrito</button>
+                <!-- Botón que genera el mensaje de WhatsApp con todo el pedido -->
+                <button onclick="enviarPedidoWhatsApp()" class="btn-whatsapp-cart">
+                    📲 Enviar pedido por WhatsApp
+                </button>
+            </div>
         </div>
-    </div>
 
         <!-- ENCABEZADO SUPERIOR (Banner y Títulos) -->
         <header class="main-header">
@@ -61,7 +62,7 @@
                 <h1>GMS.papeleria</h1>
                 <p class="eslogan">Todo lo que necesitas para estudiar, trabajar y crear ✂️📚</p>
             </div>
-            
+
             <!-- Menú Superior de Pestañas -->
             <nav class="nav-tabs">
                 <button class="tab-btn active" onclick="cambiarPestana('inicio')">Inicio</button>
@@ -73,87 +74,19 @@
 
 
         <!-- ================= SECCIÓN INICIO: COMBOS ================= -->
-       <section id="seccion-inicio" class="seccion-contenido active">
-        <div class="banner-promos">
-        <img src="spot.png" alt="Banner Destacados">
-        </div>
-
-            <div class="product-grid">
-                <!-- Combo 1 -->
-                <div class="product-card">
-                    <img src="Img-Productos/images.png" alt="Combo Escolar">
-                    <div class="product-info">
-                        <h3>Combo Escolar Inicial</h3>
-                        <p></p>
-                        <span class="product-price"></span>
-                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Combo%20Escolar%20Inicial" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                        <button onclick="agregarAlCarrito('Combo Escolar Inicial', )" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                    </div>
-                </div>
-
-                <!-- Combo 2 -->
-                <div class="product-card">
-                    <img src="Img-Productos/combo-universitario.jpeg" alt="Kit Bullet Journal">
-                    <div class="product-info">
-                        <h3>Combo Universitario</h3>
-                        <p></p>
-                        <span class="product-price"></span>
-                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20combo%20universitario" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                        <button onclick="agregarAlCarrito('Combo Universitario',)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                    </div>
-                </div>
-                <!-- Combo 3 -->
-                <div class="product-card">
-                    <img src="Img-Productos/Combo-sorpresa.jpg" alt="Kit Bullet Journal">
-                    <div class="product-info">
-                        <h3>Combo Sorpresa</h3>
-                        <p>Combo de 5 productos sorpresa variados.</p>
-                        <span class="product-price"></span>
-                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Combo%20sorpresa" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                        <button onclick="agregarAlCarrito('Combo Sorpresa', )" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                    </div>
-                </div>
-                <!-- Combo 4 -->
-                <div class="product-card">
-                    <img src="Img-Productos/Combo-a-eleccion.jpg" alt="Kit Bullet Journal">
-                    <div class="product-info">
-                        <h3>Combo a Eleccion</h3>
-                        <p>Elegi los productos que quieras y te armamos un combo. (Minimo requerido 5 productos variados)</p>
-                        <span class="product-price"></span>
-                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Combo%20a%20eleccion" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                        <button onclick="agregarAlCarrito('Combo a eleccion',)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                    </div>
-                </div>
-                <!-- Combo 5 -->
-                <div class="product-card">
-                    <img src="Img-Productos/images.png" alt="Kit Bullet Journal">
-                    <div class="product-info">
-                        <h3>Combo de oficina</h3>
-                        <p></p>
-                        <span class="product-price"></span>
-                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Combo%20de%20Oficiona" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                        <button onclick="agregarAlCarrito('Combo de oficina', )" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                    </div>
-                </div>
-                <!-- Combo 6 -->
-                <div class="product-card">
-                    <img src="Img-Productos/images.png" alt="Kit Bullet Journal">
-                    <div class="product-info">
-                        <h3>Combo infantil</h3>
-                        <p></p>
-                        <span class="product-price"></span>
-                        <a href="https://wa.me/3855966415?text=Hola!%20Me%20interesa%20el%20Combo%20Infantil" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                        <button onclick="agregarAlCarrito('Combo Infantil', )" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                    </div>
-                </div>
-                
+        <section id="seccion-inicio" class="seccion-contenido active">
+            <div class="banner-promos">
+                <img src="spot.png" alt="Banner Destacados">
             </div>
+
+            <!-- Los combos se dibujan solos desde productos.js (los que tienen combo: true) -->
+            <div class="product-grid" id="grid-combos"></div>
         </section>
 
 
         <!-- ================= SECCIÓN PRODUCTOS CON DISEÑO DE DOS COLUMNAS ================= -->
         <section id="seccion-productos" class="seccion-contenido">
-            
+
             <div class="shop-layout">
                 <!-- COLUMNA IZQUIERDA: ÍNDICE / BUSCADOR / FILTROS -->
                 <aside class="sidebar">
@@ -182,856 +115,23 @@
                     </ul>
                 </aside>
 
-                <!-- COLUMNA DERECHA: GRILLA DE LOS 50 PRODUCTOS -->
+                <!-- COLUMNA DERECHA: GRILLA DE PRODUCTOS -->
                 <div class="product-catalog-container">
                     <div class="section-title" style="margin-bottom: 20px;">
                         <h2>Catálogo de Productos 📚</h2>
                         <p> Explora las categorías.</p>
                     </div>
-                    <div class="product-grid" id="grid-productos">
-                        
-                               <!-- Producto 1 (Categoría: cuadernos) -->
-                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno a4 con espiral">
-                            <img loading="lazy" src="Img-Productos/Cuadernillo-Husares-A4.jpg" alt="Cuadernos";">
-                            <div class="product-info">
-                                <h3>Cuadernillo A4 Con Espiral cuadriculado</h3>
-                                <p>Diseños variados cuadriculadas.</p>
-                                <span class="product-price">$2.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuadernillo%20A4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cuadernillo A4 Con Espiral cuadriculado', 2500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                                <!-- Producto 2 (Categoría: cuadernos) -->
-                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno a4 con espiral">
-                            <img loading="lazy" src="Img-Productos/Cuadernillo-Husares-A4.jpg" alt="Cuadernos">
-                            <div class="product-info">
-                                <h3>Cuadernillo A4 Con Espiral Rayado</h3>
-                                <p>Diseños variados hojas rayadas.</p>
-                                <span class="product-price">$2.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuadernillo%20A4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cuadernillo A4 Con Espiral Rayado', 2500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                    
-                        <!-- Producto 3 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel">
-                            <img loading="lazy" src="Img-Productos/Resaltador-Rosa-Pastel-Trabi.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Pastel Rosa</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Pastel Rosa', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
 
-                        <!-- Producto 4 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel">
-                            <img loading="lazy" src="Img-Productos/Resaltador-Pastel-Verde.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Pastel Verde</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Pastel Verde', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
+                    <!-- Las tarjetas se dibujan solas desde productos.js -->
+                    <div class="product-grid" id="grid-productos"></div>
 
-                        <!-- Producto 5 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel">
-                            <img loading="lazy" src="Img-Productos/Resaltador-Amarillo-Pastel-Trabi.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Pastel Amarillo</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Pastel Amarillo', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 6 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel">
-                            <img loading="lazy" src="Img-Productos/Resaltador-Celeste-Trabi-Pastel.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Pastel celeste</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Pastel celeste', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 7 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="corrector" data-nombre="corrector">
-                            <img loading="lazy" src="Img-Productos/Corrector-Intro.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Corrector</h3>
-                                <p>Liquid Paper Blanco/Corrector.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Corrector" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Corrector', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 8 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="goma-de-borrar,oficina" data-nombre="goma de borrar">
-                            <img loading="lazy" src="Img-Productos/Borrador-Filgo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Goma de Borrar</h3>
-                                <p>Borrador Blanco Filgo.</p>
-                                <span class="product-price">$250</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Goma%20de%20borrar" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Goma de Borrar', 250)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 9 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="sacapuntas,escolares" data-nombre="sacapuntas">
-                            <img loading="lazy" src="Img-Productos/Sacapuntas-Filgo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Sacapuntas</h3>
-                                <p>Sacapuntas Filgo.</p>
-                                <span class="product-price">$250</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Sacapuntas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Sacapuntas', 250)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 10 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="reglas" data-nombre="reglas">
-                            <img loading="lazy" src="Img-Productos/Regla-15cm-Filgo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Reglas</h3>
-                                <p>Reglas Filgo 15cm.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Regla" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Reglas', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 11 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="lapices" data-nombre="lapices">
-                            <img loading="lazy" src="Img-Productos/Lapices-de-colores-filgo-x12.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Lapices</h3>
-                                <p>Lapices Filgo x 12 Gama completa de colores suaves.</p>
-                                <span class="product-price">$2.000</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapices" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Lapices', 2000)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 12 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="lapiceras" data-nombre="lapicera negra">
-                            <img loading="lazy" src="Img-Productos/Lapicera-Negra.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Lapicera Negra</h3>
-                                <p>Lapicera Negra Filgo Trazo Fino.</p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapicera%20Negra" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Lapicera Negra', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 13 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="lapiceras" data-nombre="lapicera azul">
-                            <img loading="lazy" src="Img-Productos/Lapicera-Azul.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Lapicera Azul</h3>
-                                <p>Lapicera azul Filgo Trazo Grueso.</p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapicera%20Azul" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Lapicera Azul', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 14 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="lapiceras" data-nombre="lapicera roja">
-                            <img loading="lazy" src="Img-Productos/Lapicera-Roja.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Lapicera Roja</h3>
-                                <p>Lapicera Roja Filgo Trazo Fino.</p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapicera%20Roja" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Lapicera Roja', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 15 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="lapiceras" data-nombre="lapicera verde">
-                            <img loading="lazy" src="Img-Productos/Lapicera-verde.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Lapicera Verde</h3>
-                                <p>Lapicera Verde Filgo Trazo Fino.</p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapicera%20Verde" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Lapicera Verde', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 16 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="marcadores" data-nombre="marcadores">
-                            <img loading="lazy" src="Img-Productos/Marcadores-Benabi.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Marcadores</h3>
-                                <p>Marcadores Benabi.</p>
-                                <span class="product-price">$1.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Marcadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Marcadores', 1500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 17 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="folios,oficina" data-nombre="folios">
-                            <img loading="lazy" src="Img-Productos/Folios-Escolares-Luma.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Folios x 10 N3</h3>
-                                <p>Folios escolares standard Luma.</p>
-                                <span class="product-price">$1.800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Folios%20A4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Folios x 10 N3', 1800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 18 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="papel satinado metalizado">
-                            <img loading="lazy" src="Img-Productos/Papel-metalizado.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Papel Satinado Metalizado</h3>
-                                <p>Papel Satinado Metalizado Luma.</p>
-                                <span class="product-price">$500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Papel%20Satinado%20Metalizado" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Papel Satinado Metalizado', 500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 19 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="papel satinado glase/lustre">
-                            <img loading="lazy" src="Img-Productos/Papel-Glacé-Luma.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Papel Satinado Glase/Lustre</h3>
-                                <p></p>
-                                <span class="product-price">$300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Papel%20Satinado%20Glase/lustre" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Papel Satinado Glase/Lustre', 300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 20 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="anillo de carpeta">
-                            <img loading="lazy" src="Img-Productos/Anillos-de-Carpeta.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Anillo de Carpeta</h3>
-                                <p></p>
-                                <span class="product-price">$500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Anillo%20de%20Carpeta" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Anillo de Carpeta', 500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 21 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="reglas" data-nombre="set de reglas">
-                            <img loading="lazy" src="Img-Productos/Kit-Geometria-Benabi.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Set de Reglas</h3>
-                                <p>Set de Reglas Filgo Escolar.</p>
-                                <span class="product-price">$1.600</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Set%20de%20Reglas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Set de Reglas', 1600)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 22 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="marcadores p/pizarra">
-                            <img loading="lazy" src="Img-Productos/Marcador-para-Pizarra-Filgo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Marcadores p/pizarra</h3>
-                                <p>Marcador Negro Filgo.</p>
-                                <span class="product-price">$1.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Marcadores%20p/pizarra" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Marcadores p/pizarra', 1500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 23 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="papel crepe">
-                            <img loading="lazy" src="Img-Productos/Papel-Crepé-Luma.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Papel Crepe</h3>
-                                <p>Papel creepe variedad de colores.</p>
-                                <span class="product-price">$500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Papel%20Crepe" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Papel Crepe', 500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 24 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="papel afiche">
-                            <img loading="lazy" src="Img-Productos/Papel-Afiche-Luma.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Papel Afiche</h3>
-                                <p>Papel afiche variedad de colores.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Papel%20Afiche" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Papel Afiche', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 25 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="carpeta n3">
-                            <img loading="lazy" src="Img-Productos/Carpetas-lisas-N°3.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Carpeta N3 c/anillos</h3>
-                                <p>Carpetas Basicas Tapa Dura.</p>
-                                <span class="product-price">$4.000</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Carpeta%20N3" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Carpeta N3 c/anillos', 4000)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 26 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="repuesto de hojas rivadavia">
-                            <img loading="lazy" src="Img-Productos/Repuesto-Rivadavia-N°3.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Repuesto de Hojas Rivadavia</h3>
-                                <p></p>
-                                <span class="product-price">$9.000</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Repuesto%20de%20Hojas%20Rivadavia" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Repuesto de Hojas Rivadavia', 9000)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 27 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="cartulina">
-                            <img loading="lazy" src="Img-Productos/Cartulinas-Luma.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Cartulinas</h3>
-                                <p>Cartulinas Luma varieadad de colores.</p>
-                                <span class="product-price">$500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cartulinas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cartulinas', 500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 28 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="voligoma">
-                            <img loading="lazy" src="Img-Productos/Adhesivo-Sintetico-Ezco.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Voligoma</h3>
-                                <p>Adhesivo sintetico Ezco (Tipo Voligoma).</p>
-                                <span class="product-price">$1.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Voligoma" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Voligoma', 1500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 29 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="separadores">
-                            <img loading="lazy" src="Img-Productos/Separadores-de-Carpeta N°3.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Separadores</h3>
-                                <p></p>
-                                <span class="product-price">$1.100</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Separadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Separadores', 1100)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 30 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="autoadhesivos">
-                            <img loading="lazy" src="Img-Productos/Etiquetas-Adhesivas-Ori-Tec.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Etiquetas Autoadhesivos</h3>
-                                <p></p>
-                                <span class="product-price">$600</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Autoadhesivos" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Etiquetas Autoadhesivos', 600)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 31 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="papel carbonico">
-                            <img loading="lazy" src="Img-Productos/Papel-Carbonico-Pelikan.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Papel Carbonico Pelikan x 10</h3>
-                                <p></p>
-                                <span class="product-price">$3.800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Papel%20Carbonico" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Papel Carbonico Pelikan x 10', 3800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 32 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores vintage">
-                            <img loading="lazy" src="Img-Productos/Resaltadores-Vintage x4.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Vintage</h3>
-                                <p>Gama de colores variados para resúmenes.</p>
-                                <span class="product-price">$3.200</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores%20Vintage" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Vintage', 3200)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 33 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="infantil" data-nombre="libros interactivos">
-                            <img loading="lazy" src="Img-Productos/Libros-Lectura-Interactiva.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Libros Interactivos</h3>
-                                <p>Libros interactivos infantiles para todas las edades</p>
-                                <span class="product-price">$2.900</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Libros%20Interactivos" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Libros Interactivos', 2900)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 34 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="lapicera borrable">
-                            <img loading="lazy" src="Img-Productos/Lapiceras-Borrables.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Lapicera borrable</h3>
-                                <p>Lapicera azul borrable.</p>
-                                <span class="product-price">$1.200</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapicera%20Borrable" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Lapicera borrable', 1200)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 35 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="repuesto lapicera borrable">
-                            <img loading="lazy" src="Img-Productos/Repuesto-Lapicera-Borrable.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Repuesto lapicera borrable.</h3>
-                                <p></p>
-                                <span class="product-price">$600</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Repuesto%20de%20Lapicera%20Borrable" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Repuesto lapicera borrable', 600)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 36 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="infantil" data-nombre="libro p/pintar c/crayones">
-                            <img loading="lazy" src="Img-Productos/Libros-para-Colorear-+-crayones.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Libro p/pintar c/crayones</h3>
-                                <p>Libros didacticos para pintar con crayones incluidos.</p>
-                                <span class="product-price">$3.900</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Libro%20p/pintar%20c/crayones" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Libro p/pintar c/crayones', 3900)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 37 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="papel crepe bandera">
-                            <img loading="lazy" src="Img-Productos/Papel-Crepe-Bandera.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Papel crepe bandera</h3>
-                                <p></p>
-                                <span class="product-price">$1.300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Papel%20Crepe%20Bandera" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Papel crepe bandera', 1300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 38 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="escarapela">
-                            <img loading="lazy" src="Img-Productos/escarapela-lista.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Escarapela</h3>
-                                <p>Escarapela Argentina.</p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Escarapela" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Escarapela', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 39 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="minas Faber Castell">
-                            <img loading="lazy" src="Img-Productos/Minas-05-HB-FaberCastell.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Minas Faber Castell</h3>
-                                <p>Minas 0.5 HB Faber Castell.</p>
-                                <span class="product-price">$3.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Minas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Minas Faber Castell', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 40 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="libros" data-nombre="libros de mandalas">
-                            <img loading="lazy" src="Img-Productos/Libro-mandalas-36.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Libros de Mandalas 36 hojas</h3>
-                                <p></p>
-                                <span class="product-price">$5.000</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Libros%20de%20Mandalas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Libros de Mandalas 36 hojas', 5000)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 41 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="libros" data-nombre="libros de mandalas">
-                            <img loading="lazy" src="Img-Productos/Libro-mandalas-36.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Libros de Mandalas 12 hojas</h3>
-                                <p></p>
-                                <span class="product-price">$2.200</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Libros%20de%20Mandalas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Libros de Mandalas 12 hojas', 2200)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 42 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="infantil" data-nombre="libro didacticos">
-                            <img loading="lazy" src="Img-Productos/Libros-Lectura-Interactiva.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Libros de Actividades Fantasia</h3>
-                                <p>Libros didacticos de lectura infantil.</p>
-                                <span class="product-price">$2.700</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Libros%20de%20Didacticos" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Libros de Actividades Fantasia', 2700)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 43 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="infantil" data-nombre="libros de juegos">
-                            <img loading="lazy" src="Img-Productos/Libros-pasatiempo-juegos.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Libro Coleccion Juegos</h3>
-                                <p>Coleccion de libros Tripulante de juegos.</p>
-                                <span class="product-price">$2.800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Libros%20de%20Juegos" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Libro Coleccion Juegos', 2800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 44 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="infantil" data-nombre="libros de animales">
-                            <img loading="lazy" src="Img-Productos/ADC_LIBRO-AMOPINTAR_ANIMALES-DE-LA-SELVA_Tapa.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Libros de Animales</h3>
-                                <p></p>
-                                <span class="product-price">$3.300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Libros%20de%20Animales" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Libros de Animales', 3300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 45 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="cinta adhesiva">
-                            <img loading="lazy" src="Img-Productos/Cinta-Adhesiva-Stiko.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Cinta Adhesiva</h3>
-                                <p>Cinta adhesiva Stiko (Tipo scotch)</p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cinta%20Adhesiva" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cinta Scotch', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 46 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="infantil" data-nombre="cuentos">
-                            <img loading="lazy" src="Img-Productos/Libritos-de-Cuestos-Clasicos.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Cuentos Infantiles</h3>
-                                <p>Cuentos clasicos infantiles.</p>
-                                <span class="product-price">$1.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuentos" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cuentos Infantiles', 1500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 47 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="crayones">
-                            <img loading="lazy" src="Img-Productos/Crayones-Cera-Trabi.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Crayones</h3>
-                                <p>Gama completa de colores suaves.</p>
-                                <span class="product-price">$750</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Crayones" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Crayones', 750)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 48 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="infantil" data-nombre="colorear">
-                            <img loading="lazy" src="Img-Productos/Libros-Lectura-Interactiva.jpeg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Aprendo Pintando</h3>
-                                <p></p>
-                                <span class="product-price">$2.600</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Aprendo%20Pintando" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Aprendo Pintando', 2600)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 49 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="pinceles">
-                            <img loading="lazy" src="Img-Productos/Pincel-Tempera.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Pinceles p/tempera</h3>
-                                <p></p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Pinceles" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Pinceles p/tempera', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 50 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="adhesivo en barra">
-                            <img loading="lazy" src="Img-Productos/Adhesivo-en-Barra-8gr-simball.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Adhesivo en Barra</h3>
-                                <p>Adhesivo en barra Simball.</p>
-                                <span class="product-price">$400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Adhesivo%20en%20Barra" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Adhesivo en Barra', 400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 51 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="lapices" data-nombre="lapiz negro">
-                            <img loading="lazy" src="Img-Productos/Lapiz-negro-Filgo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Lapiz Negro</h3>
-                                <p></p>
-                                <span class="product-price">$300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Lapiz%20Negro" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Lapiz Negro', 300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 52 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="tijeras,escolares" data-nombre="tijera">
-                            <img loading="lazy" src="Img-Productos/Tijeras-Filgo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Tijera</h3>
-                                <p></p>
-                                <span class="product-price">$1.300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Tijera" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Tijera', 1300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 53 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores,escolares" data-nombre="resaltadores fluo">
-                            <img loading="lazy" src="Img-Productos/Resaltadores-Filgo-Fluo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltadores Fluo x 4</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$1.300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores%20Flou%20x4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltadores Fluo x 4', 1300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 54 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores,escolares" data-nombre="resaltador fluo">
-                            <img loading="lazy" src="Img-Productos/resaltador-verde-fluo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Fluo Verde </h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$700</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores%20Fluo" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Fluo verde', 700)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 55 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores,escolares" data-nombre="resaltador fluo">
-                            <img loading="lazy" src="Img-Productos/resaltador-violeta-fluo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Fluo Violeta</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$700</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores%20Fluo" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Fluo violeta', 700)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 56 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores,escolares" data-nombre="resaltador fluo">
-                            <img loading="lazy" src="Img-Productos/resaltador-lighter-fine-rosa-669fbb5f40de0-O.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Flou Rosa</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$700</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores%20Fluo" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Fluo Rosa', 700)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 57 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores,escolares" data-nombre="resaltador fluo">
-                            <img loading="lazy" src="Img-Productos/Resaltador-celeste-fluo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Fluo Celeste</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$700</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores%20Fluo" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Fluo celeste', 700)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 58 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores,escolares" data-nombre="resaltador pastel">
-                            <img loading="lazy" src="Img-Productos/Resaltadores-Trabi-pastel-x4.webp" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltadores Pastel x4</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$3.000</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores%20Pastel%20x4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltadores Pastel x4', 3000)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 59 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="folios,escolares" data-nombre="folios">
-                            <img loading="lazy" src="Img-Productos/Folios-Escolares-Luma.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Folios</h3>
-                                <p>Folio escolares x unidad</p>
-                                <span class="product-price">$300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Folios" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Folios x unidad', 300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 60 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="folios,escolares" data-nombre="folios A4">
-                            <img loading="lazy" src="Img-Productos/Folios-A4-Luma.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Folios A4</h3>
-                                <p>Folios A4 x unidad</p>
-                                <span class="product-price">$500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Folios%20A4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Folios A4 x unidad', 500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 61 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="compas">
-                            <img loading="lazy" src="Img-Productos/compas-ezco.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Compas</h3>
-                                <p></p>
-                                <span class="product-price">$3.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Compas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Compas', 3500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 62 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="marcadores,escolares" data-nombre="marcadores permanente">
-                            <img loading="lazy" src="Img-Productos/Marcador-Permanente.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Marcador Negro Permanente</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$1.500</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Marcador%20Negro%20Permanente" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Marcador Negro Permanente', 1500)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 63 (Categoría: cuadernos) -->
-                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno">
-                            <img loading="lazy" src="Img-Productos/Cuaderno-Potosi-24.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Cuadernos Potosi 24 Hojas</h3>
-                                <p>Cuaderno Potosi tapa blanda rayado</p>
-                                <span class="product-price">$950</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuaderno%20Potosi%2024%20Hojas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cuaderno Potosi 24 Hojas', 950)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                         <!-- Producto 64 (Categoría: cuadernos) -->
-                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno">
-                            <img loading="lazy" src="Img-Productos/Cuaderno-Potosi-48-Hojas.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Cuadernos Potosi 48 Hojas</h3>
-                                <p>Cuaderno Potosi tapa blanda rayado</p>
-                                <span class="product-price">$1300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuaderno%20Potosi%2048%20Hojas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cuaderno Potosi 48 Hojas', 1300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                         <!-- Producto 65 (Categoría: marcadores) -->
-                        <div class="product-card" data-categoria="marcadores" data-nombre="marcadores permanentes">
-                            <img loading="lazy" src="Img-Productos/Marcador-Permanente-Trabi.webp" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Marcador Permanente 411 Plus x4 Unidades</h3>
-                                <p></p>
-                                <span class="product-price">$4400</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Marcadores%20Permanente" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Marcador Permanente 411 Plus x4 Unidades', 4400)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 66 (Categoría: Oficina) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="broche">
-                            <img loading="lazy" src="Img-Productos/Broches-N10.jpeg">  
-                            <div class="product-info">
-                                <h3>Broche N°10 para Abrochadora</h3>
-                                <p></p>
-                                <span class="product-price">$1000</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20BrocheN10" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Broche N°10 para Abrochadora', 1000)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 67 (Categoría: Escolares) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="temperas">
-                            <img loading="lazy" src="Img-Productos/Temperas-señorita.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Temperas Colores Varios</h3>
-                                <p>Tempera Señoritas variedad de colores.</p>
-                                <span class="product-price">$300</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20temperas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Temperas Colores Varios', 300)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 68 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel">
-                            <img loading="lazy" src="Img-Productos/Resaltador-Violeta-Pastel.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Pastel Violeta</h3>
-                                <p>Resaltador violeta pastel Trabi.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Pastel Celeste', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 69 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores pastel">
-                            <img loading="lazy" src="Img-Productos/Resaltador-Naranja-Pastel.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Pastel Naranja</h3>
-                                <p>Resaltador naranja Pastel Trabi.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Pastel Naranja', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 70 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores">
-                            <img loading="lazy" src="Img-Productos/resaltador-amarillo-fluo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Fluo Amarillo</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Fluo Amarillo', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        <!-- Producto 71 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="resaltadores" data-nombre="resaltadores">
-                            <img loading="lazy" src="Img-Productos/resaltador-naranja-fluo.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Resaltador Fluo Naranja</h3>
-                                <p>Gama completa de colores suaves para resúmenes.</p>
-                                <span class="product-price">$800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Resaltadores" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Resaltador Fluo Naranja', 800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                         <!-- Producto 72 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="oficina" data-nombre="adhesivos transparentes">
-                            <img loading="lazy" src="Img-Productos/adhesivo-transparente.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Adhesivos Transparentes Notas</h3>
-                                <p></p>
-                                <span class="product-price">$1.800</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Adhesivos%20Transparentes%20Notas" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Adhesivos Transparentes Notas', 1800)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                         <!-- Producto 73 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="repuesto color">
-                            <img loading="lazy" src="Img-Productos/Repuesto-dibujo-N°3.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Repuesto Color N5</h3>
-                                <p>Gama completa de colores.</p>
-                                <span class="product-price">$1.200</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Repuesto%20Color%20N5" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Repuesto Color N5', 1200)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                         <!-- Producto 74 (Categoría: Resaltadores) -->
-                        <div class="product-card" data-categoria="escolares" data-nombre="repuesto blanco">
-                            <img loading="lazy" src="Img-Productos/Repuestos-Hojas-Dibujo-N5-blanco.jpg" alt="Lapiceras">
-                            <div class="product-info">
-                                <h3>Repuesto Blanco N5</h3>
-                                <p></p>
-                                <span class="product-price">$870</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Repuesto%20Blanco%20N5" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Repuesto Blanco N5', 870)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                         <!-- Producto 75 (Categoría: cuadernos) -->
-                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno a4 con espiral">
-                            <img loading="lazy" src="Img-Productos/Cuadernillo-Husares-A4.jpg" alt="Cuadernos";">
-                            <div class="product-info">
-                                <h3>Cuadernos A5 Con Espiral rayadas</h3>
-                                <p>Diseños variados hojas rayadas.</p>
-                                <span class="product-price">$1.900</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuadernos%20A4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral rayadas', 1900)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                         <!-- Producto 76 (Categoría: cuadernos) -->
-                        <div class="product-card" data-categoria="cuadernos" data-nombre="cuaderno a4 con espiral">
-                            <img loading="lazy" src="Img-Productos/Cuadernillo-Husares-A4.jpg" alt="Cuadernos";">
-                            <div class="product-info">
-                                <h3>Cuadernos A5 Con Espiral cuadriculado</h3>
-                                <p>Diseños variados  cuadriculadas.</p>
-                                <span class="product-price">$1.900</span>
-                                <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20Cuadernos%20A4" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
-                                <button onclick="agregarAlCarrito('Cuadernos A5 Con Espiral cuadriculado', 1900)" class="btn-add-cart">Agregar al Carrito 🛒</button>
-                            </div>
-                        </div>
-                        
-                <div id="paginacion" class="paginacion"></div>         
+                    <!-- Botones de página (también los dibuja el script) -->
+                    <div id="paginacion" class="paginacion"></div>
+                </div>
+            </div>
         </section>
+
+
         <!-- ================= SECCIÓN DE OFERTAS / ESPECIALES ================= -->
         <section id="seccion-ofertas" class="seccion-contenido">
             <div class="section-title">
@@ -1041,112 +141,126 @@
 
             <!-- Grilla de productos de ofertas -->
             <div class="product-grid" id="grid-ofertas">
-                
+
                 <!-- Producto de ejemplo (puedes borrarlo o cambiarlo cuando armes la promo) -->
-                <div class="product-card" data-nombre="producto promo ejemplo">
+                <div class="product-card">
                     <img src="i.jpg" alt="Promo">
                     <div class="product-info">
                         <h3>Próxima Promo Especial</h3>
                         <p>Aquí pondremos la súper oferta cuando llegue la fecha.</p>
-                        <a href="https://wa.me/3855966415?text=Hola!%20Quiero%20consultar%20por%20las%20ofertas%20especiales" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                        <a href="#" data-wpp="Hola! Quiero consultar por las ofertas especiales" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Sección Quiénes Somos -->
+
+
+        <!-- ================= SECCIÓN QUIÉNES SOMOS ================= -->
         <section id="seccion-nosotros" class="seccion-contenido">
             <div class="section-title">
-                 <h2>¿Quiénes Somos?</h2>
+                <h2>¿Quiénes Somos?</h2>
                 <p>Conocé un poco más sobre GMS.Papelería</p>
             </div>
 
             <div class="nosotros-container">
-               <p>
-            Somos GMS.Papelería, un emprendimiento familiar de Santiago del Estero dedicado a ofrecerte 
-            todo lo que necesitás para estudiar, trabajar y crear. Nos manejamos por WhatsApp e 
-            Instagram para darte una atención cercana y personalizada en cada pedido.
-             </p>
-            <p>
-            Trabajamos para ir sumando cada vez más productos y combos pensados para estudiantes, 
-            docentes y cualquiera que ame la papelería tanto como nosotros. ¡Gracias por elegirnos!
-            </p>
-            <div class="medios-pago">
-                <h3>💳 Medios de Pago</h3>
-                <ul>
-                <li>💵 Efectivo</li>
-                <li>🏦 Transferencia bancaria</li>
-                <li>📲 MercadoPago</li>
-                </ul>
-            </div>
-            <div class="info-adicional">
-                <h3>🕐 Horarios de Atención</h3>
-                <p>Lunes a Sábados de 8:00 a 21:00 hs</p>
-            </div>
+                <p>
+                    Somos GMS.Papelería, un emprendimiento familiar de Santiago del Estero dedicado a ofrecerte
+                    todo lo que necesitás para estudiar, trabajar y crear. Nos manejamos por WhatsApp e
+                    Instagram para darte una atención cercana y personalizada en cada pedido.
+                </p>
+                <p>
+                    Trabajamos para ir sumando cada vez más productos y combos pensados para estudiantes,
+                    docentes y cualquiera que ame la papelería tanto como nosotros. ¡Gracias por elegirnos!
+                </p>
 
-            <div class="info-adicional">
-                <h3>🚚 Envíos</h3>
-                <p>Realizamos envíos solamente dentro de Santiago del Estero Capital.</p>
-            </div>
-            <div class="info-adicional">
-                <h3>🔄 Modificaciones del pedido</h3>
-                 <p>¿Querés modificar tu pedido? <a href="https://wa.me/5493855966415?text=Hola!%20Quiero%20modificar%20mi%20pedido" target="_blank">Escribinos por WhatsApp</a>.</p>
-            </div>
+                <div class="medios-pago">
+                    <h3>💳 Medios de Pago</h3>
+                    <ul>
+                        <li>💵 Efectivo</li>
+                        <li>🏦 Transferencia bancaria</li>
+                        <li>📲 MercadoPago</li>
+                    </ul>
+                </div>
+
+                <div class="info-adicional">
+                    <h3>🕐 Horarios de Atención</h3>
+                    <p>Lunes a Sábados de 8:00 a 21:00 hs</p>
+                </div>
+
+                <div class="info-adicional">
+                    <h3>🚚 Envíos</h3>
+                    <p>Realizamos envíos solamente dentro de Santiago del Estero Capital.</p>
+                </div>
+
+                <div class="info-adicional">
+                    <h3>🔄 Modificaciones del pedido</h3>
+                    <p>¿Querés modificar tu pedido? <a href="#" data-wpp="Hola! Quiero modificar mi pedido" target="_blank">Escribinos por WhatsApp</a>.</p>
+                </div>
             </div>
         </section>
-        <a href="https://wa.me/3855966415?text=Hola!%20Tengo%20una%20consulta%20sobre%20sus%20productos" 
-            target="_blank" 
+
+
+        <!-- ================= BOTÓN FLOTANTE DE WHATSAPP ================= -->
+        <a href="#" data-wpp="Hola! Tengo una consulta sobre sus productos"
+            target="_blank"
             class="btn-wpp-flotante"
             aria-label="Consultar por WhatsApp">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="30" height="30">
         </a>
-        <!-- Ventana emergente: botón de arrepentimiento -->
+
+        <!-- ================= VENTANA EMERGENTE: BOTÓN DE ARREPENTIMIENTO ================= -->
         <div id="modal-arrepentimiento" class="modal-overlay" onclick="if (event.target === this) cerrarModalArrepentimiento()">
             <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="arr-titulo">
-               <button type="button" class="modal-close" onclick="cerrarModalArrepentimiento()" aria-label="Cerrar">✕</button>
-               <h3 id="arr-titulo">Botón de arrepentimiento</h3>
-               <p class="modal-texto">Completá los datos y se abrirá WhatsApp con tu solicitud lista para enviar.</p>
+                <button type="button" class="modal-close" onclick="cerrarModalArrepentimiento()" aria-label="Cerrar">✕</button>
+                <h3 id="arr-titulo">Botón de arrepentimiento</h3>
+                <p class="modal-texto">Completá los datos y se abrirá WhatsApp con tu solicitud lista para enviar.</p>
 
-               <form id="form-arrepentimiento" onsubmit="enviarArrepentimientoWhatsApp(event)">
-               <label for="arr-nombre">Nombre y apellido</label>
-               <input type="text" id="arr-nombre" required>
+                <form id="form-arrepentimiento" onsubmit="enviarArrepentimientoWhatsApp(event)">
+                    <label for="arr-nombre">Nombre y apellido</label>
+                    <input type="text" id="arr-nombre" required>
 
-               <label for="arr-pedido">¿Qué pedido querés cancelar?</label>
-               <input type="text" id="arr-pedido" placeholder="Producto o fecha del pedido" required>
+                    <label for="arr-pedido">¿Qué pedido querés cancelar?</label>
+                    <input type="text" id="arr-pedido" placeholder="Producto o fecha del pedido" required>
 
-               <label for="arr-motivo">Motivo <span class="opcional">(opcional)</span></label>
-               <textarea id="arr-motivo" rows="3" placeholder="Si querés, contanos qué pasó"></textarea>
+                    <label for="arr-motivo">Motivo <span class="opcional">(opcional)</span></label>
+                    <textarea id="arr-motivo" rows="3" placeholder="Si querés, contanos qué pasó"></textarea>
 
-               <button type="submit" class="btn-modal-enviar">Enviar por WhatsApp</button>
-            </form>
+                    <button type="submit" class="btn-modal-enviar">Enviar por WhatsApp</button>
+                </form>
             </div>
         </div>
-        
-<!-- ================= SECCIÓN DE CONTACTO ================= -->
+
+
+        <!-- ================= SECCIÓN DE CONTACTO ================= -->
         <section class="contact-section">
             <div class="contact-card">
                 <h2>¿Tenés dudas o querés hacer un pedido personalizado? 📬</h2>
                 <p>Escribinos por nuestras redes o mandanos un correo y te respondemos al instante.</p>
-                
-                <div class="contact-buttons">
-                 <a href="https://instagram.com/gms.papeleria" target="_blank" class="btn-contact btn-ig">
-                   <span>📸</span> Instagram: @gms.papeleria
-                 </a>
-                 <a href="mailto:gmspapeleria@gmail.com" class="btn-contact btn-mail">
-                   <span>@</span> gmspapeleria@gmail.com
-                 </a>
-               </div>
 
-               <div class="contact-buttons">
-                  <button type="button" onclick="abrirModalArrepentimiento()" class="btn-contact btn-arrepentimiento">↩️ Botón de arrepentimiento</button>
-               </div>
+                <div class="contact-buttons">
+                    <a href="https://instagram.com/gms.papeleria" target="_blank" class="btn-contact btn-ig">
+                        <span>📸</span> Instagram: @gms.papeleria
+                    </a>
+                    <a href="mailto:gmspapeleria@gmail.com" class="btn-contact btn-mail">
+                        <span>@</span> gmspapeleria@gmail.com
+                    </a>
+                </div>
+
+                <div class="contact-buttons">
+                    <button type="button" onclick="abrirModalArrepentimiento()" class="btn-contact btn-arrepentimiento">↩️ Botón de arrepentimiento</button>
+                </div>
             </div>
-        </div>
         </section>
-         <!-- Footer -->
+
+
+        <!-- Footer -->
         <footer>
             <p>© 2026 GMS.Papelería · Santiago del Estero · Todos los derechos reservados</p>
         </footer>
     </main>
+
+    <!-- IMPORTANTE: productos.js tiene que ir ANTES que script.js -->
+    <script src="productos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

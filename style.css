@@ -884,3 +884,11 @@ footer {
     color: #128c4a;
     font-weight: 600;
 }
+.sin-resultados {
+    grid-column: 1 / -1;
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    color: #374151;
+}

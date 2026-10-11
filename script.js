@@ -1,4 +1,78 @@
-// --- 1. CONTROL DE PESTAÑAS (Inicio, Catálogo, Ofertas, Nosotros) ---
+// =====================================================================
+//  GMS.PAPELERÍA - script.js
+//  Necesita que productos.js esté cargado ANTES (ver el final del index.html).
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+//  1. CONFIGURACIÓN (lo único que probablemente tengas que tocar acá)
+// ---------------------------------------------------------------------
+
+// Número de WhatsApp de la tienda, en formato internacional:
+// 54 + 9 + código de área sin 0 + número sin 15.
+// Es el ÚNICO lugar donde se cambia: botones, carrito y arrepentimiento lo leen de acá.
+const NUMERO_WHATSAPP = "5493855966415";
+
+// Cuántos productos se muestran por página en el catálogo
+const PRODUCTOS_POR_PAGINA = 12;
+
+
+// ---------------------------------------------------------------------
+//  2. DATOS Y HERRAMIENTAS GENERALES
+// ---------------------------------------------------------------------
+
+// Si productos.js falla o no carga, la página no se rompe: solo queda sin productos
+const LISTA_COMPLETA = (typeof PRODUCTOS !== 'undefined') ? PRODUCTOS : [];
+if (LISTA_COMPLETA.length === 0) {
+    console.error('No se encontró la lista de productos. Revisá que productos.js esté cargado antes que script.js.');
+}
+
+const PRODUCTOS_ACTIVOS = LISTA_COMPLETA.filter(p => p.activo !== false);
+const PRODUCTOS_POR_ID = new Map(PRODUCTOS_ACTIVOS.map(p => [p.id, p]));
+const COMBOS = PRODUCTOS_ACTIVOS.filter(p => p.combo);
+const CATALOGO = PRODUCTOS_ACTIVOS.filter(p => !p.combo);
+
+// Arma el link de WhatsApp con el mensaje ya codificado
+function urlWhatsApp(texto) {
+    return 'https://wa.me/' + NUMERO_WHATSAPP + '?text=' + encodeURIComponent(texto);
+}
+
+// 2500 -> "$2.500"
+function formatearPrecio(valor) {
+    return '$' + valor.toLocaleString('es-AR');
+}
+
+// ¿El producto tiene un precio válido para poder comprarse?
+function tienePrecio(producto) {
+    return typeof producto.precio === 'number' && producto.precio > 0;
+}
+
+// Evita que comillas o símbolos en un nombre rompan el HTML
+function escaparHTML(texto) {
+    return String(texto)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+// Pasa a minúsculas y saca tildes: "Lápiz" -> "lapiz"
+function normalizarTexto(texto) {
+    return String(texto).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+// Los botones/links con data-wpp="mensaje" toman el número de la configuración
+function configurarEnlacesWhatsApp() {
+    document.querySelectorAll('[data-wpp]').forEach(enlace => {
+        enlace.href = urlWhatsApp(enlace.getAttribute('data-wpp'));
+    });
+}
+
+
+// ---------------------------------------------------------------------
+//  3. CONTROL DE PESTAÑAS (Inicio, Catálogo, Ofertas, Nosotros)
+// ---------------------------------------------------------------------
 function cambiarPestana(pestana) {
     // Ocultar todas las secciones
     document.getElementById('seccion-inicio').classList.remove('active');
@@ -27,55 +101,101 @@ function cambiarPestana(pestana) {
 }
 
 
-// --- 2. FILTRADO + PAGINACIÓN (Catálogo) ---
+// ---------------------------------------------------------------------
+//  4. TARJETAS DE PRODUCTO (se dibujan desde productos.js)
+// ---------------------------------------------------------------------
+function crearTarjetaHTML(p, cargaDiferida) {
+    const consulta = urlWhatsApp('Hola! Quiero consultar por ' + p.nombre);
+    const conPrecio = tienePrecio(p);
+    const textoPrecio = conPrecio ? formatearPrecio(p.precio) : 'Consultar precio';
+    const botonCarrito = conPrecio
+        ? `<button onclick="agregarAlCarrito('${p.id}')" class="btn-add-cart">Agregar al Carrito 🛒</button>`
+        : '';
 
-const PRODUCTOS_POR_PAGINA = 12; // Ajustá este número si querés mostrar más o menos por página
+    return `
+        <div class="product-card">
+            <img ${cargaDiferida ? 'loading="lazy" ' : ''}src="${escaparHTML(p.imagen)}" alt="${escaparHTML(p.nombre)}">
+            <div class="product-info">
+                <h3>${escaparHTML(p.nombre)}</h3>
+                <p>${escaparHTML(p.descripcion || '')}</p>
+                <span class="product-price">${textoPrecio}</span>
+                <a href="${consulta}" target="_blank" class="btn-wpp">Consultar por WhatsApp</a>
+                ${botonCarrito}
+            </div>
+        </div>`;
+}
 
+// Combos de la pestaña Inicio
+function renderizarCombos() {
+    const contenedor = document.getElementById('grid-combos');
+    if (!contenedor) return;
+    contenedor.innerHTML = COMBOS.map(p => crearTarjetaHTML(p, false)).join('');
+}
+
+
+// ---------------------------------------------------------------------
+//  5. CATÁLOGO: BUSCADOR + CATEGORÍAS + PAGINACIÓN
+// ---------------------------------------------------------------------
 let categoriaActual = 'todos';
 let busquedaActual = '';
 let paginaActual = 1;
 
+// ¿El producto coincide con lo que se escribió en el buscador?
+// Mira nombre, descripción, categorías y palabras extra. "resaltadores" también encuentra "resaltador".
+function coincideConBusqueda(p, consulta) {
+    if (!consulta) return true;
+
+    const texto = normalizarTexto(
+        [p.nombre, p.descripcion, (p.categorias || []).join(' '), p.buscar].filter(Boolean).join(' ')
+    );
+
+    return consulta.split(/\s+/).every(palabra => {
+        let raiz = palabra;
+        if (raiz.length > 4 && raiz.endsWith('es')) {
+            raiz = raiz.slice(0, -2);
+        } else if (raiz.length > 3 && raiz.endsWith('s')) {
+            raiz = raiz.slice(0, -1);
+        }
+        return texto.includes(raiz);
+    });
+}
+
 // Buscador en tiempo real
 function filtrarProductos() {
-    busquedaActual = document.getElementById('buscador').value.toLowerCase();
+    busquedaActual = normalizarTexto(document.getElementById('buscador').value.trim());
     paginaActual = 1; // Al buscar, siempre volvemos a la página 1
     actualizarVista();
 }
 
-// Filtro por categoría (sidebar)
+// Filtro por categoría (menú lateral)
 function filtrarCategoria(categoria) {
     categoriaActual = categoria.toLowerCase();
     paginaActual = 1; // Al cambiar de categoría, volvemos a la página 1
     actualizarVista();
 }
 
-// Función central: aplica búsqueda + categoría, y después pagina el resultado
+// Aplica búsqueda + categoría, corta en páginas y dibuja las tarjetas
 function actualizarVista() {
-    let productos = Array.from(document.querySelectorAll('#grid-productos .product-card'));
+    const contenedor = document.getElementById('grid-productos');
+    if (!contenedor) return;
 
-    // 1. Filtrar por categoría y búsqueda al mismo tiempo
-    let filtrados = productos.filter(card => {
-        let nombre = card.getAttribute('data-nombre') || '';
-        let catAttr = card.getAttribute('data-categoria') || '';
-        let listaCategorias = catAttr.trim().toLowerCase().split(',').map(c => c.trim());
-
-        let coincideCategoria = categoriaActual === 'todos' || listaCategorias.includes(categoriaActual);
-        let coincideBusqueda = nombre.includes(busquedaActual);
-
-        return coincideCategoria && coincideBusqueda;
+    const filtrados = CATALOGO.filter(p => {
+        const coincideCategoria = categoriaActual === 'todos' || (p.categorias || []).includes(categoriaActual);
+        return coincideCategoria && coincideConBusqueda(p, busquedaActual);
     });
 
-    // 2. Ocultar todas las tarjetas primero
-    productos.forEach(card => card.style.display = 'none');
+    const totalPaginas = Math.max(1, Math.ceil(filtrados.length / PRODUCTOS_POR_PAGINA));
+    if (paginaActual > totalPaginas) paginaActual = totalPaginas;
 
-    // 3. Mostrar solo las que corresponden a la página actual
     const inicio = (paginaActual - 1) * PRODUCTOS_POR_PAGINA;
-    const fin = inicio + PRODUCTOS_POR_PAGINA;
-    const productosDeEstaPagina = filtrados.slice(inicio, fin);
+    const paginaDeProductos = filtrados.slice(inicio, inicio + PRODUCTOS_POR_PAGINA);
 
-    productosDeEstaPagina.forEach(card => card.style.display = 'flex');
+    if (paginaDeProductos.length === 0) {
+        contenedor.innerHTML = '<div class="sin-resultados">No encontramos productos con esa búsqueda. ¡Escribinos por WhatsApp y te ayudamos!</div>';
+    } else {
+        contenedor.innerHTML = paginaDeProductos.map(p => crearTarjetaHTML(p, true)).join('');
+    }
 
-    // 4. Dibujar los botones de paginación según cuántos resultados hay en total
     renderizarPaginacion(filtrados.length);
 }
 
@@ -83,13 +203,13 @@ function actualizarVista() {
 function renderizarPaginacion(totalProductos) {
     const totalPaginas = Math.ceil(totalProductos / PRODUCTOS_POR_PAGINA);
     const contenedor = document.getElementById('paginacion');
+    if (!contenedor) return;
 
     contenedor.innerHTML = '';
 
     // Si hay una sola página (o ninguna), no mostramos botones
     if (totalPaginas <= 1) return;
 
-    // Botón "Anterior"
     const btnAnterior = document.createElement('button');
     btnAnterior.textContent = '← Anterior';
     btnAnterior.className = 'btn-pagina';
@@ -97,7 +217,6 @@ function renderizarPaginacion(totalProductos) {
     btnAnterior.onclick = () => cambiarPagina(paginaActual - 1);
     contenedor.appendChild(btnAnterior);
 
-    // Un botón por cada número de página
     for (let i = 1; i <= totalPaginas; i++) {
         const btnPagina = document.createElement('button');
         btnPagina.textContent = i;
@@ -106,7 +225,6 @@ function renderizarPaginacion(totalProductos) {
         contenedor.appendChild(btnPagina);
     }
 
-    // Botón "Siguiente"
     const btnSiguiente = document.createElement('button');
     btnSiguiente.textContent = 'Siguiente →';
     btnSiguiente.className = 'btn-pagina';
@@ -115,24 +233,40 @@ function renderizarPaginacion(totalProductos) {
     contenedor.appendChild(btnSiguiente);
 }
 
-// Cambia de página y vuelve a dibujar todo
+// Cambia de página y vuelve a dibujar
 function cambiarPagina(numeroPagina) {
     paginaActual = numeroPagina;
     actualizarVista();
 
-    // Sube el scroll hasta el inicio del catálogo, para que no quede "perdido" abajo
+    // Sube hasta el inicio del catálogo para que no quede "perdido" abajo
     document.getElementById('grid-productos').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// Muestra la cantidad total de productos del catálogo (menú lateral)
+function actualizarContadorProductos() {
+    ['total-menu', 'total-productos'].forEach(id => {
+        const elemento = document.getElementById(id);
+        if (elemento) elemento.innerText = CATALOGO.length;
+    });
+}
 
-// --- 3. LÓGICA DEL CARRITO DE COMPRAS ---
-// Carga el carrito guardado en el navegador (si existe). Si algo falla, arranca vacío.
+
+// ---------------------------------------------------------------------
+//  6. CARRITO DE COMPRAS
+//  El carrito guarda solo el id y la cantidad. El nombre, la foto y el PRECIO
+//  se leen siempre de productos.js, así que no se pueden alterar desde el navegador.
+// ---------------------------------------------------------------------
 let carrito = [];
+
+// Recupera el carrito guardado en el navegador (y convierte el formato viejo si hace falta)
 try {
-    const carritoGuardado = localStorage.getItem('carrito-gms');
-    if (carritoGuardado) {
-        carrito = JSON.parse(carritoGuardado);
-    }
+    const guardado = JSON.parse(localStorage.getItem('carrito-gms') || '[]');
+    carrito = guardado.map(item => {
+        // Formato nuevo: { id, cantidad }  |  Formato viejo: { nombre, precio, cantidad, imagen }
+        const producto = PRODUCTOS_POR_ID.get(item.id) || PRODUCTOS_ACTIVOS.find(p => p.nombre === item.nombre);
+        if (!producto || !tienePrecio(producto)) return null;
+        return { id: producto.id, cantidad: Math.max(1, parseInt(item.cantidad, 10) || 1) };
+    }).filter(Boolean);
 } catch (error) {
     carrito = [];
 }
@@ -167,48 +301,20 @@ function vaciarCarrito() {
     }
 }
 
-// Busca la foto del producto que se está agregando (la misma que se ve en su tarjeta)
-function obtenerImagenProducto(nombre) {
-    try {
-        const evento = window.event;
-        if (evento && evento.target) {
-            const tarjeta = evento.target.closest('.product-card');
-            const img = tarjeta ? tarjeta.querySelector('img') : null;
-            if (img) return img.getAttribute('src');
-        }
-    } catch (error) {
-    }
-    // 2) Si no, busca la tarjeta cuyo título coincida con el nombre
-    const tarjetas = document.querySelectorAll('.product-card');
-    for (const tarjeta of tarjetas) {
-        const titulo = tarjeta.querySelector('h3');
-        if (titulo && titulo.textContent.trim() === nombre) {
-            const img = tarjeta.querySelector('img');
-            if (img) return img.getAttribute('src');
-        }
-    }
+function agregarAlCarrito(id) {
+    const producto = PRODUCTOS_POR_ID.get(id);
+    if (!producto || !tienePrecio(producto)) return;
 
-    return ''; // Si no encuentra foto, el producto se agrega igual, sin imagen
-}
-
-function agregarAlCarrito(nombre, precio) {
-    // Buscar si el producto ya está en el carrito
-    let productoExistente = carrito.find(item => item.nombre === nombre);
-    let imagen = obtenerImagenProducto(nombre);
-
-    if (productoExistente) {
-        productoExistente.cantidad += 1;
-        // Si el producto venía de un carrito guardado antes de existir las fotos, se la agregamos
-        if (!productoExistente.imagen && imagen) {
-            productoExistente.imagen = imagen;
-        }
+    const existente = carrito.find(item => item.id === id);
+    if (existente) {
+        existente.cantidad += 1;
     } else {
-        carrito.push({ nombre: nombre, precio: precio, cantidad: 1, imagen: imagen });
+        carrito.push({ id: id, cantidad: 1 });
     }
 
     guardarCarrito();
     actualizarCarritoUI();
-    // El carrito ya no se abre solo: el cliente lo abre cuando quiere
+    // El carrito no se abre solo: el cliente lo abre cuando quiere
 }
 
 function eliminarDelCarrito(index) {
@@ -217,7 +323,7 @@ function eliminarDelCarrito(index) {
     actualizarCarritoUI();
 }
 
-// Suma (+1) o resta (-1) unidades de un producto. Si llega a 0, se quita del carrito.
+// Suma (+1) o resta (-1) unidades. Si llega a 0, se quita del carrito.
 function cambiarCantidad(index, cambio) {
     carrito[index].cantidad += cambio;
 
@@ -247,21 +353,20 @@ function actualizarCarritoUI() {
     let totalItems = 0;
 
     carrito.forEach((item, index) => {
-        let subtotal = item.precio * item.cantidad;
+        const producto = PRODUCTOS_POR_ID.get(item.id);
+        if (!producto) return;
+
+        const subtotal = producto.precio * item.cantidad;
         totalGeneral += subtotal;
         totalItems += item.cantidad;
 
-        let itemRow = document.createElement('div');
+        const itemRow = document.createElement('div');
         itemRow.className = 'cart-item-row';
-        let imagenHTML = item.imagen
-            ? `<img src="${item.imagen}" alt="${item.nombre}" class="cart-item-img">`
-            : '';
-
         itemRow.innerHTML = `
-            ${imagenHTML}
+            <img src="${escaparHTML(producto.imagen)}" alt="${escaparHTML(producto.nombre)}" class="cart-item-img">
             <div class="cart-item-info">
-                <span class="cart-item-title">${item.nombre}</span>
-                <span class="cart-item-price">$${subtotal.toLocaleString('es-AR')}</span>
+                <span class="cart-item-title">${escaparHTML(producto.nombre)}</span>
+                <span class="cart-item-price">${formatearPrecio(subtotal)}</span>
                 <div class="cart-qty-controls">
                     <button onclick="cambiarCantidad(${index}, -1)" class="btn-qty" aria-label="Restar una unidad">−</button>
                     <span class="cart-qty-number">${item.cantidad}</span>
@@ -274,7 +379,7 @@ function actualizarCarritoUI() {
     });
 
     cartCount.innerText = totalItems;
-    cartTotalPrice.innerText = `$${totalGeneral.toLocaleString('es-AR')}`;
+    cartTotalPrice.innerText = formatearPrecio(totalGeneral);
 }
 
 function enviarPedidoWhatsApp() {
@@ -283,29 +388,27 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
-    let mensaje = "¡Hola! GMS.Papelería 👋 Quiero realizar el siguiente pedido:%0A%0A";
+    let mensaje = '¡Hola! GMS.Papelería 👋 Quiero realizar el siguiente pedido:\n\n';
     let totalGeneral = 0;
 
     carrito.forEach(item => {
-        let subtotal = item.precio * item.cantidad;
+        const producto = PRODUCTOS_POR_ID.get(item.id);
+        if (!producto) return;
+
+        const subtotal = producto.precio * item.cantidad;
         totalGeneral += subtotal;
-        mensaje += `• ${item.nombre} x${item.cantidad} - Subtotal: $${subtotal.toLocaleString('es-AR')}%0A`;
+        mensaje += `• ${producto.nombre} x${item.cantidad} - Subtotal: ${formatearPrecio(subtotal)}\n`;
     });
 
-    mensaje += `%0A*TOTAL ESTIMADO: $${totalGeneral.toLocaleString('es-AR')}*%0A%0AAguardo confirmación de stock y pago. ¡Gracias!`;
+    mensaje += `\n*TOTAL ESTIMADO: ${formatearPrecio(totalGeneral)}*\n\nAguardo confirmación de stock y pago. ¡Gracias!`;
 
-    // Tu número de WhatsApp
-    let numeroWhatsApp = "3855966415";
-    let urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
-
-    window.open(urlWhatsApp, '_blank');
+    window.open(urlWhatsApp(mensaje), '_blank');
 }
 
 
-// --- 4. BOTÓN DE ARREPENTIMIENTO (ventana emergente que envía por WhatsApp) ---
-// Formato internacional para WhatsApp: 54 + 9 + código de área (sin 0) + número (sin 15)
-const NUMERO_WHATSAPP_ARREPENTIMIENTO = "5493855966415";
-
+// ---------------------------------------------------------------------
+//  7. BOTÓN DE ARREPENTIMIENTO (ventana emergente que envía por WhatsApp)
+// ---------------------------------------------------------------------
 function abrirModalArrepentimiento() {
     const modal = document.getElementById('modal-arrepentimiento');
     if (!modal) return;
@@ -325,7 +428,7 @@ function enviarArrepentimientoWhatsApp(evento) {
     const pedido = document.getElementById('arr-pedido').value.trim();
     const motivo = document.getElementById('arr-motivo').value.trim(); // Opcional
 
-    // Código de referencia (fecha y hora) para que ambos puedan identificar la solicitud
+    // Código de referencia (fecha y hora) para identificar la solicitud
     const ahora = new Date();
     const dos = n => String(n).padStart(2, '0');
     const codigo = 'ARR-' + ahora.getFullYear() + dos(ahora.getMonth() + 1) + dos(ahora.getDate())
@@ -340,9 +443,7 @@ function enviarArrepentimientoWhatsApp(evento) {
         mensaje += 'Motivo: ' + motivo + '\n';
     }
 
-    // encodeURIComponent protege el mensaje si el cliente escribe &, #, tildes, etc.
-    const url = 'https://wa.me/' + NUMERO_WHATSAPP_ARREPENTIMIENTO + '?text=' + encodeURIComponent(mensaje);
-    window.open(url, '_blank');
+    window.open(urlWhatsApp(mensaje), '_blank');
 
     cerrarModalArrepentimiento();
     document.getElementById('form-arrepentimiento').reset();
@@ -354,52 +455,38 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// --- 5. INICIALIZAR EL CATÁLOGO CON PAGINACIÓN AL CARGAR LA PÁGINA ---
-document.addEventListener('DOMContentLoaded', () => {
-    actualizarVista();
-    actualizarCarritoUI(); // Muestra el carrito guardado (y el contador) al abrir la página
-});
-// --- CONTADOR AUTOMÁTICO DE PRODUCTOS ---
-function actualizarContadorProductos() {
-    // Busca todas las tarjetas de productos que hay en la grilla
-    const totalCards = document.querySelectorAll('.product-grid .product-card').length;
-    
-    // Actualiza el número en el menú lateral ("Ver Todos")
-    const contadorMenu = document.getElementById('total-menu');
-    if (contadorMenu) {
-        contadorMenu.innerText = totalCards;
-    }
-
-    // Actualiza el número en el párrafo del catálogo
-    const contadorTexto = document.getElementById('total-productos');
-    if (contadorTexto) {
-        contadorTexto.innerText = totalCards;
-    }
-}
-
-// Ejecutar la función automáticamente cuando carga la página
-window.addEventListener('DOMContentLoaded', actualizarContadorProductos);
-// --- CONTROL DE REPRODUCCIÓN DEL VIDEO POR SCROLL ---
+// ---------------------------------------------------------------------
+//  8. VIDEO DE FONDO: se pausa al bajar y se reanuda al volver arriba
+//  (Necesita que el <video> tenga id="bg-video" en el index.html)
+// ---------------------------------------------------------------------
 function controlarVideoPorScroll() {
     const video = document.getElementById('bg-video');
     if (!video) return;
 
     window.addEventListener('scroll', () => {
-        // Si el usuario baja más de 300 píxeles, pausamos el video
         if (window.scrollY > 300) {
             if (!video.paused) {
                 video.pause();
             }
         } else {
-            // Si vuelve arriba del todo, se vuelve a reproducir
             if (video.paused) {
                 video.play().catch(error => {
                     console.log("Reproducción automática evitada por el navegador:", error);
                 });
             }
         }
-    });
+    }, { passive: true });
 }
 
-// Ejecutar cuando cargue la página
-window.addEventListener('DOMContentLoaded', controlarVideoPorScroll);
+
+// ---------------------------------------------------------------------
+//  9. AL CARGAR LA PÁGINA
+// ---------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    renderizarCombos();
+    actualizarVista();
+    actualizarCarritoUI();
+    actualizarContadorProductos();
+    configurarEnlacesWhatsApp();
+    controlarVideoPorScroll();
+});
