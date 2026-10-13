@@ -498,7 +498,7 @@ const PRODUCTOS = [
     id: "resaltadores-fluo-x-4",
     nombre: "Resaltadores Fluo x 4",
     descripcion: "Gama completa de colores suaves para resúmenes.",
-    precio: 1300,
+    precio: 2000,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/Resaltadores-Filgo-Fluo.jpg"
   },
