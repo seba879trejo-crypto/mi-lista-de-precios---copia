@@ -17,8 +17,9 @@
 </head>
 <body>
 
-    <!-- Video de fondo -->
-    <video id="bg-video" src="i.mp4" poster="Fondo-Poster.jpg" loop muted autoplay playsinline></video>
+    <!-- Fondo: en celulares se ve solo la imagen fija (poster) y el video NO se descarga.
+         En computadoras, el script carga el video (data-src) cuando la página terminó de cargar. -->
+    <video id="bg-video" data-src="i.mp4" poster="Fondo-Poster.jpg" loop muted playsinline preload="none"></video>
 
     <!-- Contenedor Principal -->
     <main class="container">
@@ -76,7 +77,7 @@
         <!-- ================= SECCIÓN INICIO: COMBOS ================= -->
         <section id="seccion-inicio" class="seccion-contenido active">
             <div class="banner-promos">
-                <img src="spot.png" alt="Banner Destacados" fetchpriority="high">
+                <img src="spot.png" alt="Banner Destacados">
             </div>
 
             <!-- Los combos se dibujan solos desde productos.js (los que tienen combo: true) -->

@@ -456,14 +456,54 @@ document.addEventListener('keydown', (e) => {
 
 
 // ---------------------------------------------------------------------
-//  8. VIDEO DE FONDO: se pausa al bajar y se reanuda al volver arriba
-//  (Necesita que el <video> tenga id="bg-video" en el index.html)
+//  8. VIDEO DE FONDO
+//  - Celulares: no se descarga. Queda la imagen fija (poster) del <video>.
+//  - Computadoras: se carga recién cuando la página terminó de cargar.
+//  - Se pausa al bajar y se reanuda al volver arriba.
+//  (Necesita <video id="bg-video" data-src="i.mp4" poster="..."> en el index.html)
 // ---------------------------------------------------------------------
+
+// Decide si conviene cargar el video. Si no, el cliente ve solo la imagen fija.
+function cargarVideoDeFondo() {
+    const video = document.getElementById('bg-video');
+    if (!video || video.hasAttribute('src')) return;
+
+    const pantallaGrande = window.matchMedia('(min-width: 769px)').matches;
+    const conexion = navigator.connection || {};
+    const ahorroDeDatos = conexion.saveData === true                    // modo "ahorro de datos" activado
+        || conexion.type === 'cellular'                                 // conectado por datos móviles
+        || /(^|-)2g$/.test(conexion.effectiveType || '');               // conexión muy lenta
+    const menosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!pantallaGrande || ahorroDeDatos || menosMovimiento) return;
+
+    video.src = video.getAttribute('data-src');
+
+    // Si ya estaba scrolleado más abajo, no lo arrancamos (se activa al volver arriba)
+    if (window.scrollY <= 300) {
+        video.play().catch(error => {
+            console.log("Reproducción automática evitada por el navegador:", error);
+        });
+    }
+}
+
+// Espera a que termine de cargar toda la página (fotos incluidas) antes de pedir el video
+function programarVideoDeFondo() {
+    if (document.readyState === 'complete') {
+        cargarVideoDeFondo();
+    } else {
+        window.addEventListener('load', cargarVideoDeFondo);
+    }
+}
+
 function controlarVideoPorScroll() {
     const video = document.getElementById('bg-video');
     if (!video) return;
 
     window.addEventListener('scroll', () => {
+        // Si el video no se cargó (celulares), no hay nada que pausar ni reanudar
+        if (!video.hasAttribute('src')) return;
+
         if (window.scrollY > 300) {
             if (!video.paused) {
                 video.pause();
@@ -489,4 +529,5 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarContadorProductos();
     configurarEnlacesWhatsApp();
     controlarVideoPorScroll();
+    programarVideoDeFondo();
 });
