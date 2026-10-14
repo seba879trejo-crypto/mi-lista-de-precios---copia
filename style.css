@@ -893,7 +893,7 @@ footer {
     color: #374151;
 }
 @media (max-width: 768px) {
-    /* El banner conserva su proporción y no se recorta */
+    /* El banner en celular conserva su proporción y no se recorta */
     .banner-promos img {
         height: auto;
     }
@@ -908,4 +908,7 @@ footer {
         padding: 8px 16px;
         font-size: 13px;
     }
+}
+#grid-combos:empty {
+    min-height: 100vh;
 }
