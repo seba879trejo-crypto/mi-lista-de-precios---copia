@@ -201,7 +201,7 @@ const PRODUCTOS = [
     id: "marcadores",
     nombre: "Marcadores",
     descripcion: "Marcadores Benabi.",
-    precio: 1500,
+    precio: 3000,
     categorias: ["marcadores"],
     imagen: "Img-Productos/Marcadores-Benabi.jpeg"
   },
@@ -250,7 +250,7 @@ const PRODUCTOS = [
     nombre: "Marcadores p/pizarra",
     descripcion: "Marcador Negro Filgo.",
     precio: 1500,
-    categorias: ["escolares"],
+    categorias: ["escolares","oficina"],
     imagen: "Img-Productos/Marcador-para-Pizarra-Filgo.jpg"
   },
   {
@@ -385,7 +385,7 @@ const PRODUCTOS = [
     id: "minas-faber-castell",
     nombre: "Minas Faber Castell",
     descripcion: "Minas 0.5 HB Faber Castell.",
-    precio: 3500,
+    precio: 1500,
     categorias: ["oficina"],
     imagen: "Img-Productos/Minas-05-HB-FaberCastell.jpg"
   },
@@ -569,9 +569,9 @@ const PRODUCTOS = [
   {
     id: "marcador-negro-permanente",
     nombre: "Marcador Negro Permanente",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Marcador permanente negro Trabi",
     precio: 1500,
-    categorias: ["marcadores", "escolares"],
+    categorias: ["marcadores", "escolares", "oficina"],
     imagen: "Img-Productos/Marcador-Permanente.jpg"
   },
   {
@@ -596,7 +596,7 @@ const PRODUCTOS = [
     descripcion: "",
     precio: 4400,
     categorias: ["marcadores"],
-    imagen: "Img-Productos/Marcador-Permanente-Trabi.webp",
+    imagen: "Img-Productos/Marcadores-x4-trabi.jpg",
     buscar: "permanentes"
   },
   {
@@ -686,5 +686,29 @@ const PRODUCTOS = [
     precio: 1900,
     categorias: ["cuadernos"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
+  },
+  {
+    id: "Marcador-azul-permanente",
+    nombre: "Marcador Permanente Trabi",
+    descripcion: "Marcador permanente azul Trabi",
+    precio: 1500,
+    categorias: ["marcadores", "oficina", "escolares"],
+    imagen: "Img-Productos/marcador-trabi-azul.jpg"
+  },
+  {
+    id: "Marcador-rojo-permanente",
+    nombre: "Marcador Permanente Trabi",
+    descripcion: "Marcador permanente rojo Trabi",
+    precio: 1500,
+    categorias: ["marcadores", "oficina", "escolares"],
+    imagen: "Img-Productos/marcador-trabi-rojo.jpg"
+  },
+  {
+    id: "Marcador-verde-permanente",
+    nombre: "Marcador Permanente Trabi",
+    descripcion: "Marcador permanente verde Trabi",
+    precio: 1500,
+    categorias: ["marcadores", "oficina", "escolares"],
+    imagen: "Img-Productos/marcador-trabi-verde.jpg"
   },
 ];
