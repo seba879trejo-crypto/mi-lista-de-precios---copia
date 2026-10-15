@@ -693,7 +693,7 @@ const PRODUCTOS = [
     descripcion: "Marcador permanente azul Trabi",
     precio: 1500,
     categorias: ["marcadores", "oficina", "escolares"],
-    imagen: "Img-Productos/marcador-trabi-azul.jpg"
+    imagen: "Img-Productos/marcador-trabi-azul.png"
   },
   {
     id: "Marcador-rojo-permanente",
