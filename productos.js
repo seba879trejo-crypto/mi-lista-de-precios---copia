@@ -96,34 +96,34 @@ const PRODUCTOS = [
   {
     id: "resaltador-pastel-rosa",
     nombre: "Resaltador Pastel Rosa",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador rosa pastel Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
-    imagen: "Img-Productos/Resaltador-Rosa-Pastel-Trabi.jpg"
+    imagen: "Img-Productos/Filgo-pastel-rosa.jpg"
   },
   {
     id: "resaltador-pastel-verde",
     nombre: "Resaltador Pastel Verde",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador verde pastel Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
-    imagen: "Img-Productos/Resaltador-Pastel-Verde.jpg"
+    imagen: "Img-Productos/Filgo-pastel-verde.jpg"
   },
   {
     id: "resaltador-pastel-amarillo",
     nombre: "Resaltador Pastel Amarillo",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador amarillo pastel Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
-    imagen: "Img-Productos/Resaltador-Amarillo-Pastel-Trabi.jpg"
+    imagen: "Img-Productos/Filgo-pastel-amarillo.jpg"
   },
   {
     id: "resaltador-pastel-celeste",
     nombre: "Resaltador Pastel celeste",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltadore pastel celeste Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
-    imagen: "Img-Productos/Resaltador-Celeste-Trabi-Pastel.jpg"
+    imagen: "Img-Productos/Filgo-pastel-celeste.jpg"
   },
   {
     id: "corrector",
@@ -618,10 +618,10 @@ const PRODUCTOS = [
   {
     id: "resaltador-pastel-violeta",
     nombre: "Resaltador Pastel Violeta",
-    descripcion: "Resaltador violeta pastel Trabi.",
+    descripcion: "Resaltador violeta pastel Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
-    imagen: "Img-Productos/Resaltador-Violeta-Pastel.jpg"
+    imagen: "Img-Productos/Filgo-pastel-violeta.jpg"
   },
   {
     id: "resaltador-pastel-naranja",
@@ -629,7 +629,7 @@ const PRODUCTOS = [
     descripcion: "Resaltador naranja Pastel Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
-    imagen: "Img-Productos/Resaltador-Naranja-Pastel.jpg"
+    imagen: "Img-Productos/Filgo-pastel-naranja.jpg"
   },
   {
     id: "resaltador-fluo-amarillo",
