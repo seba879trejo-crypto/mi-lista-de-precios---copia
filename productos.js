@@ -626,7 +626,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-pastel-naranja",
     nombre: "Resaltador Pastel Naranja",
-    descripcion: "Resaltador naranja Pastel Trabi.",
+    descripcion: "Resaltador naranja Pastel Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
     imagen: "Img-Productos/Resaltador-Naranja-Pastel.jpg"
