@@ -709,6 +709,6 @@ const PRODUCTOS = [
     descripcion: "Marcador permanente verde Trabi",
     precio: 1500,
     categorias: ["marcadores", "oficina", "escolares"],
-    imagen: "Img-Productos/marcador-trabi-verde.jpg"
+    imagen: "Img-Productos/Marcador-trabi-verde.jpg"
   },
 ];
