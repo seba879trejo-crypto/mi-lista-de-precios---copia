@@ -80,7 +80,7 @@ const PRODUCTOS = [
   {
     id: "cuadernillo-a4-con-espiral-cuadriculado",
     nombre: "Cuadernillo A4 Con Espiral cuadriculado",
-    descripcion: "Diseños variados cuadriculadas.",
+    descripcion: "Cuadernillo Húsares cuadriculado.",
     precio: 2500,
     categorias: ["cuadernos"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
@@ -88,7 +88,7 @@ const PRODUCTOS = [
   {
     id: "cuadernillo-a4-con-espiral-rayado",
     nombre: "Cuadernillo A4 Con Espiral Rayado",
-    descripcion: "Diseños variados hojas rayadas.",
+    descripcion: "Cuadernillo Húsares rayado .",
     precio: 2500,
     categorias: ["cuadernos"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
@@ -120,7 +120,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-pastel-celeste",
     nombre: "Resaltador Pastel celeste",
-    descripcion: "Resaltadore pastel celeste Filgo.",
+    descripcion: "Resaltador pastel celeste Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
     imagen: "Img-Productos/Filgo-pastel-celeste.jpg"
@@ -128,7 +128,7 @@ const PRODUCTOS = [
   {
     id: "corrector",
     nombre: "Corrector",
-    descripcion: "Liquid Paper Blanco/Corrector.",
+    descripcion: "Liquid Paper Blanco/Corrector Intro.",
     precio: 800,
     categorias: ["corrector"],
     imagen: "Img-Productos/Corrector-Intro.jpg"
@@ -224,7 +224,7 @@ const PRODUCTOS = [
   {
     id: "papel-satinado-glase-lustre",
     nombre: "Papel Satinado Glase/Lustre",
-    descripcion: "",
+    descripcion: "Papel Satinado glase/lustre Luma",
     precio: 300,
     categorias: ["oficina"],
     imagen: "Img-Productos/Papel-Glacé-Luma.jpeg"
@@ -280,7 +280,7 @@ const PRODUCTOS = [
   {
     id: "repuesto-de-hojas-rivadavia",
     nombre: "Repuesto de Hojas Rivadavia",
-    descripcion: "",
+    descripcion: "Respuesto 96 hojas N3 Rivadavia",
     precio: 9000,
     categorias: ["oficina"],
     imagen: "Img-Productos/Repuesto-Rivadavia-N°3.jpg"
@@ -304,7 +304,7 @@ const PRODUCTOS = [
   {
     id: "separadores",
     nombre: "Separadores",
-    descripcion: "",
+    descripcion: "Separador Skycolor N3",
     precio: 1100,
     categorias: ["escolares"],
     imagen: "Img-Productos/Separadores-de-Carpeta N°3.jpg"
@@ -312,7 +312,7 @@ const PRODUCTOS = [
   {
     id: "etiquetas-autoadhesivos",
     nombre: "Etiquetas Autoadhesivos",
-    descripcion: "",
+    descripcion: "Etiquetas Autoadhesivas Ori-Tec",
     precio: 600,
     categorias: ["oficina"],
     imagen: "Img-Productos/Etiquetas-Adhesivas-Ori-Tec.jpg"
@@ -328,7 +328,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-vintage",
     nombre: "Resaltador Vintage",
-    descripcion: "Gama de colores variados para resúmenes.",
+    descripcion: "Resaltadores Trabi Vintage.",
     precio: 3200,
     categorias: ["resaltadores"],
     imagen: "Img-Productos/Resaltadores-Vintage x4.jpg"
@@ -344,7 +344,7 @@ const PRODUCTOS = [
   {
     id: "lapicera-borrable",
     nombre: "Lapicera borrable",
-    descripcion: "Lapicera azul borrable.",
+    descripcion: "Lapicera azul borrable Simball.",
     precio: 1200,
     categorias: ["escolares"],
     imagen: "Img-Productos/Lapiceras-Borrables.jpeg"
@@ -352,7 +352,7 @@ const PRODUCTOS = [
   {
     id: "repuesto-lapicera-borrable",
     nombre: "Repuesto lapicera borrable",
-    descripcion: "",
+    descripcion: "Repuesto lapicera azul borrable Simball",
     precio: 600,
     categorias: ["escolares"],
     imagen: "Img-Productos/Repuesto-Lapicera-Borrable.jpeg"
@@ -360,7 +360,7 @@ const PRODUCTOS = [
   {
     id: "libro-p-pintar-c-crayones",
     nombre: "Libro p/pintar c/crayones",
-    descripcion: "Libros didacticos para pintar con crayones incluidos.",
+    descripcion: "Libros didacticos para pintar con crayones incluidos Juega y Modela.",
     precio: 3900,
     categorias: ["infantil"],
     imagen: "Img-Productos/Libros-para-Colorear-+-crayones.jpeg"
@@ -392,7 +392,7 @@ const PRODUCTOS = [
   {
     id: "libros-de-mandalas-36-hojas",
     nombre: "Libros de Mandalas 36 hojas",
-    descripcion: "",
+    descripcion: "Mandalas estilo Hindú para colorear",
     precio: 5000,
     categorias: ["libros"],
     imagen: "Img-Productos/Libro-mandalas-36.jpg"
@@ -400,7 +400,7 @@ const PRODUCTOS = [
   {
     id: "libros-de-mandalas-12-hojas",
     nombre: "Libros de Mandalas 12 hojas",
-    descripcion: "",
+    descripcion: "Mandalas estilo Hindú para colorear",
     precio: 2200,
     categorias: ["libros"],
     imagen: "Img-Productos/Libro-mandalas-36.jpg"
@@ -408,7 +408,7 @@ const PRODUCTOS = [
   {
     id: "libros-de-actividades-fantasia",
     nombre: "Libros de Actividades Fantasia",
-    descripcion: "Libros didacticos de lectura infantil.",
+    descripcion: "Libros didacticos de lectura infantil Biblioteca Interactiva.",
     precio: 2700,
     categorias: ["infantil"],
     imagen: "Img-Productos/Libros-Lectura-Interactiva.jpeg"
@@ -424,7 +424,7 @@ const PRODUCTOS = [
   {
     id: "libros-de-animales",
     nombre: "Libros de Animales",
-    descripcion: "",
+    descripcion: "Libros de Animales Alegria de Crear",
     precio: 3300,
     categorias: ["infantil"],
     imagen: "Img-Productos/ADC_LIBRO-AMOPINTAR_ANIMALES-DE-LA-SELVA_Tapa.jpg"
@@ -432,7 +432,7 @@ const PRODUCTOS = [
   {
     id: "cinta-adhesiva",
     nombre: "Cinta Adhesiva",
-    descripcion: "Cinta adhesiva Stiko (Tipo scotch)",
+    descripcion: "Cinta adhesiva Stiko",
     precio: 400,
     categorias: ["oficina"],
     imagen: "Img-Productos/Cinta-Adhesiva-Stiko.jpg"
@@ -440,7 +440,7 @@ const PRODUCTOS = [
   {
     id: "cuentos-infantiles",
     nombre: "Cuentos Infantiles",
-    descripcion: "Cuentos clasicos infantiles.",
+    descripcion: "Cuentos clasicos infantiles Tripulante.",
     precio: 1500,
     categorias: ["infantil"],
     imagen: "Img-Productos/Libritos-de-Cuestos-Clasicos.jpeg"
@@ -448,7 +448,7 @@ const PRODUCTOS = [
   {
     id: "crayones",
     nombre: "Crayones",
-    descripcion: "Gama completa de colores suaves.",
+    descripcion: "Crayones Trabi colores varios .",
     precio: 750,
     categorias: ["escolares"],
     imagen: "Img-Productos/Crayones-Cera-Trabi.jpg"
@@ -456,7 +456,7 @@ const PRODUCTOS = [
   {
     id: "aprendo-pintando",
     nombre: "Aprendo Pintando",
-    descripcion: "",
+    descripcion: "Libros didacticos para pintar Aprendo Pintando",
     precio: 2600,
     categorias: ["infantil"],
     imagen: "Img-Productos/Libros-Lectura-Interactiva.jpeg",
@@ -481,7 +481,7 @@ const PRODUCTOS = [
   {
     id: "lapiz-negro",
     nombre: "Lapiz Negro",
-    descripcion: "",
+    descripcion: "Lapiz negro HB N2 Filgo",
     precio: 300,
     categorias: ["lapices"],
     imagen: "Img-Productos/Lapiz-negro-Filgo.jpg"
@@ -489,7 +489,7 @@ const PRODUCTOS = [
   {
     id: "tijera",
     nombre: "Tijera",
-    descripcion: "",
+    descripcion: "Tijeras para niños Filgo",
     precio: 1300,
     categorias: ["tijeras", "escolares"],
     imagen: "Img-Productos/Tijeras-Filgo.jpg"
@@ -497,7 +497,7 @@ const PRODUCTOS = [
   {
     id: "resaltadores-fluo-x-4",
     nombre: "Resaltadores Fluo x 4",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltadores fluo Filgo.",
     precio: 2000,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/Resaltadores-Filgo-Fluo.jpg"
@@ -505,7 +505,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-fluo-verde",
     nombre: "Resaltador Fluo Verde",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador verde fluo Filgo.",
     precio: 700,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/resaltador-verde-fluo.jpg"
@@ -513,7 +513,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-fluo-violeta",
     nombre: "Resaltador Fluo Violeta",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador violeta fluo Filgo.",
     precio: 700,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/resaltador-violeta-fluo.jpg"
@@ -521,7 +521,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-fluo-rosa",
     nombre: "Resaltador Fluo Rosa",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador rosa fluo Filgo.",
     precio: 700,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/resaltador-lighter-fine-rosa-669fbb5f40de0-O.jpg"
@@ -529,7 +529,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-fluo-celeste",
     nombre: "Resaltador Fluo Celeste",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador celeste fluo Filgo.",
     precio: 700,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/Resaltador-celeste-fluo.jpg"
@@ -537,7 +537,7 @@ const PRODUCTOS = [
   {
     id: "resaltadores-pastel-x4",
     nombre: "Resaltadores Pastel x4",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltadores pastel Trabi.",
     precio: 3000,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/Resaltadores-Trabi-pastel-x4.webp"
@@ -545,7 +545,7 @@ const PRODUCTOS = [
   {
     id: "folios",
     nombre: "Folios",
-    descripcion: "Folio escolares x unidad",
+    descripcion: "Folio escolares x unidad Luma",
     precio: 300,
     categorias: ["folios", "escolares"],
     imagen: "Img-Productos/Folios-Escolares-Luma.jpg"
@@ -553,7 +553,7 @@ const PRODUCTOS = [
   {
     id: "folios-a4",
     nombre: "Folios A4",
-    descripcion: "Folios A4 x unidad",
+    descripcion: "Folios A4 x unidad Luma",
     precio: 500,
     categorias: ["folios", "escolares"],
     imagen: "Img-Productos/Folios-A4-Luma.jpg"
@@ -561,7 +561,7 @@ const PRODUCTOS = [
   {
     id: "compas",
     nombre: "Compas",
-    descripcion: "",
+    descripcion: "Compas Ezco",
     precio: 3500,
     categorias: ["escolares"],
     imagen: "Img-Productos/compas-ezco.jpg"
@@ -593,7 +593,7 @@ const PRODUCTOS = [
   {
     id: "marcador-permanente-411-plus-x4-unidades",
     nombre: "Marcador Permanente 411 Plus x4 Unidades",
-    descripcion: "",
+    descripcion: "Marcador Permanente 411 Plus Trabi",
     precio: 4400,
     categorias: ["marcadores"],
     imagen: "Img-Productos/Marcadores-x4-trabi.jpg",
@@ -602,7 +602,7 @@ const PRODUCTOS = [
   {
     id: "broche-n-10-para-abrochadora",
     nombre: "Broche N°10 para Abrochadora",
-    descripcion: "",
+    descripcion: "Broche 2010 flexibles Skycolor",
     precio: 1000,
     categorias: ["oficina"],
     imagen: "Img-Productos/Broches-N10.jpeg"
@@ -634,7 +634,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-fluo-amarillo",
     nombre: "Resaltador Fluo Amarillo",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador amarillo fluo Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
     imagen: "Img-Productos/resaltador-amarillo-fluo.jpg"
@@ -642,7 +642,7 @@ const PRODUCTOS = [
   {
     id: "resaltador-fluo-naranja",
     nombre: "Resaltador Fluo Naranja",
-    descripcion: "Gama completa de colores suaves para resúmenes.",
+    descripcion: "Resaltador naranja fluo Filgo.",
     precio: 800,
     categorias: ["resaltadores"],
     imagen: "Img-Productos/resaltador-naranja-fluo.jpg"
@@ -650,7 +650,7 @@ const PRODUCTOS = [
   {
     id: "adhesivos-transparentes-notas",
     nombre: "Adhesivos Transparentes Notas",
-    descripcion: "",
+    descripcion: "Adhesivos transparentes Post-it",
     precio: 1800,
     categorias: ["oficina"],
     imagen: "Img-Productos/adhesivo-transparente.jpg"
@@ -674,7 +674,7 @@ const PRODUCTOS = [
   {
     id: "cuadernos-a5-con-espiral-rayadas",
     nombre: "Cuadernos A5 Con Espiral rayadas",
-    descripcion: "Diseños variados hojas rayadas.",
+    descripcion: "Cuadernos A5 rayado Húsares.",
     precio: 1900,
     categorias: ["cuadernos"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
@@ -682,7 +682,7 @@ const PRODUCTOS = [
   {
     id: "cuadernos-a5-con-espiral-cuadriculado",
     nombre: "Cuadernos A5 Con Espiral cuadriculado",
-    descripcion: "Diseños variados cuadriculadas.",
+    descripcion: "Cuadernos A5 cuadriculado Húsares.",
     precio: 1900,
     categorias: ["cuadernos"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
@@ -710,5 +710,13 @@ const PRODUCTOS = [
     precio: 1500,
     categorias: ["marcadores", "oficina", "escolares"],
     imagen: "Img-Productos/Marcador-trabi-verde.jpg"
+  },
+  {
+    id: "goma-de-borrar",
+    nombre: "Goma de Borrar",
+    descripcion: "Borrador Blanco/Azul Silmball.",
+    precio: 300,
+    categorias: ["goma-de-borrar", "oficina"],
+    imagen: "Img-Productos/borrador-simball.jpg"
   },
 ];
