@@ -59,16 +59,13 @@
         <!-- ENCABEZADO SUPERIOR (Banner y Títulos) -->
         <header class="main-header">
             <img src="baner-principal.png" alt="GMS Papelería Banner" class="banner-img" fetchpriority="high">
-            <div class="header-text">
-                <h1>GMS.papeleria</h1>
-                <p class="eslogan">Todo lo que necesitas para estudiar, trabajar y crear ✂️📚</p>
-            </div>
 
             <!-- Menú Superior de Pestañas -->
             <nav class="nav-tabs">
                 <button class="tab-btn active" onclick="cambiarPestana('inicio')">Inicio</button>
                 <button class="tab-btn" onclick="cambiarPestana('productos')">Catálogo General</button>
-                <button class="tab-btn" onclick="cambiarPestana('ofertas')">Ofertas / Especiales 🔥</button>
+                <!-- PESTAÑA OFERTAS OCULTA: cuando tengas una promo real, volvé a activar el botón de abajo sacándole el comentario -->
+<!-- <button class="tab-btn" onclick="cambiarPestana('ofertas')">Ofertas / Especiales</button> -->
                 <button class="tab-btn" onclick="cambiarPestana('nosotros')">Quiénes Somos</button>
             </nav>
         </header>
@@ -93,10 +90,16 @@
                 <aside class="sidebar">
                     <h3>🔍 Buscar Producto</h3>
                     <!-- Buscador en tiempo real -->
-                    <input type="text" id="buscador" placeholder="Escribe el nombre..." onkeyup="filtrarProductos()">
+                    <input type="text" id="buscador" placeholder="Escribí el nombre..." onkeyup="filtrarProductos()">
+                    <h3 class="titulo-categorias">Categorías</h3>
+                    <!-- Botón de categorías: aparece SOLO en celular (en PC la lista queda siempre abierta) -->
+                    <button type="button" id="btn-categorias" class="btn-categorias" onclick="toggleCategorias()" aria-expanded="false" aria-controls="lista-categorias">
+                        <span class="icono-menu">☰</span>
+                        <span class="texto" id="texto-categorias">Categorías</span>
+                        <span class="flecha">▾</span>
+                    </button>
 
-                    <h3>📂 Categorías</h3>
-                    <ul class="category-list">
+                    <ul class="category-list" id="lista-categorias">
                         <li><a href="#" onclick="filtrarCategoria('todos'); return false;">Ver Todos (<span id="total-menu">0</span>)</a></li>
                         <li><a href="#" onclick="filtrarCategoria('cuadernos'); return false;">Cuadernos</a></li>
                         <li><a href="#" onclick="filtrarCategoria('lapices'); return false;">Lápices</a></li>
@@ -119,8 +122,9 @@
                 <!-- COLUMNA DERECHA: GRILLA DE PRODUCTOS -->
                 <div class="product-catalog-container">
                     <div class="section-title" style="margin-bottom: 20px;">
-                        <h2>Catálogo de Productos 📚</h2>
-                        <p> Explora las categorías.</p>
+                        <p>CATÁLOGO</p>
+                        <h2>Todos los Productos</h2>
+                        
                     </div>
 
                     <!-- Las tarjetas se dibujan solas desde productos.js -->
@@ -133,17 +137,19 @@
         </section>
 
 
-        <!-- ================= SECCIÓN DE OFERTAS / ESPECIALES ================= -->
+        <!-- ================= SECCIÓN DE OFERTAS / ESPECIALES (oculta: no tiene botón en el menú) =================
+             No la borres: el script la necesita. Cuando tengas una promo real, cambiá el producto de ejemplo
+             y volvé a activar el botón "Ofertas / Especiales" arriba. -->
         <section id="seccion-ofertas" class="seccion-contenido">
             <div class="section-title">
-                <h2>Ofertas y Fechas Especiales 🔥</h2>
+                <h2>Ofertas y Fechas Especiales</h2>
                 <p>Novedades, liquidaciones y promos por tiempo limitado.</p>
             </div>
 
             <!-- Grilla de productos de ofertas -->
             <div class="product-grid" id="grid-ofertas">
 
-                <!-- Producto de ejemplo (puedes borrarlo o cambiarlo cuando armes la promo) -->
+                <!-- Producto de ejemplo (cambialo cuando armes la promo) -->
                 <div class="product-card">
                     <img src="i.jpg" alt="Promo">
                     <div class="product-info">
@@ -233,6 +239,32 @@
 
 
         <!-- ================= SECCIÓN DE CONTACTO ================= -->
+         <!-- ================= PREGUNTAS FRECUENTES ================= -->
+<section class="faq-section">
+    <div class="faq-card">
+        <h2>Preguntas frecuentes</h2>
+
+        <details class="faq-item">
+            <summary>¿Hacen envíos?</summary>
+            <p class="faq-respuesta">Sí, realizamos envíos solamente dentro de Santiago del Estero Capital. El envío lo coordinamos con vos por WhatsApp.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Qué medios de pago aceptan?</summary>
+            <p class="faq-respuesta">Aceptamos efectivo, transferencia bancaria y MercadoPago.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Puedo cambiar mi compra?</summary>
+            <p class="faq-respuesta">Si querés modificar tu pedido, <a href="#" data-wpp="Hola! Quiero modificar mi pedido" target="_blank">escribinos por WhatsApp</a> y lo vemos. Si preferís cancelarlo, usá el botón de arrepentimiento que está al final de esta página.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Cómo consulto por un producto?</summary>
+            <p class="faq-respuesta">En cada producto tenés el botón "Consultar por WhatsApp". También podés agregar productos al carrito y enviarnos el pedido completo. Atendemos de lunes a sábados de 8 a 21 hs.</p>
+        </details>
+    </div>
+</section>
         <section class="contact-section">
             <div class="contact-card">
                 <h2>¿Tenés dudas o querés hacer un pedido personalizado? 📬</h2>

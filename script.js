@@ -168,10 +168,40 @@ function filtrarProductos() {
 }
 
 // Filtro por categoría (menú lateral)
+// Abre y cierra la lista de categorías (solo se usa en celular)
+function toggleCategorias() {
+    const lista = document.getElementById('lista-categorias');
+    const boton = document.getElementById('btn-categorias');
+    const abierta = lista.classList.toggle('abierta');
+    boton.setAttribute('aria-expanded', abierta ? 'true' : 'false');
+}
+
+// Cierra la lista de categorías
+function cerrarCategorias() {
+    const lista = document.getElementById('lista-categorias');
+    const boton = document.getElementById('btn-categorias');
+    if (lista) lista.classList.remove('abierta');
+    if (boton) boton.setAttribute('aria-expanded', 'false');
+}
+
+// Filtro por categoría (menú lateral)
 function filtrarCategoria(categoria) {
     categoriaActual = categoria.toLowerCase();
     paginaActual = 1; // Al cambiar de categoría, volvemos a la página 1
     actualizarVista();
+
+    // El botón muestra qué categoría se está viendo: "Categorías: Lapiceras"
+    const texto = document.getElementById('texto-categorias');
+    if (texto) {
+        const enlace = Array.from(document.querySelectorAll('.category-list a'))
+            .find(a => (a.getAttribute('onclick') || '').includes("'" + categoria + "'"));
+        texto.textContent = (categoria === 'todos' || !enlace)
+            ? 'Categorías'
+            : 'Categorías: ' + enlace.textContent.trim();
+    }
+
+    // En celular, la lista se cierra sola para que el cliente vea los productos
+    cerrarCategorias();
 }
 
 // Aplica búsqueda + categoría, corta en páginas y dibuja las tarjetas
