@@ -11,7 +11,7 @@
 // Número de WhatsApp de la tienda, en formato internacional:
 // 54 + 9 + código de área sin 0 + número sin 15.
 // Es el ÚNICO lugar donde se cambia: botones, carrito y arrepentimiento lo leen de acá.
-const NUMERO_WHATSAPP = "5493855966415";
+const NUMERO_WHATSAPP = "5493856228317";
 
 // Cuántos productos se muestran por página en el catálogo
 const PRODUCTOS_POR_PAGINA = 12;
@@ -113,7 +113,7 @@ function crearTarjetaHTML(p, cargaDiferida) {
         : '';
 
     return `
-        <div class="product-card">
+        <div class="product-card" data-id="${escaparHTML(p.id)}">
             <img ${cargaDiferida ? 'loading="lazy" ' : ''}src="${escaparHTML(p.imagen)}" alt="${escaparHTML(p.nombre)}">
             <div class="product-info">
                 <h3>${escaparHTML(p.nombre)}</h3>
