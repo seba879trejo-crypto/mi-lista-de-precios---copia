@@ -166,6 +166,14 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Lapices-de-colores-filgo-x12.jpg"
   },
   {
+    id: "lapices",
+    nombre: "Lapices + 2 Lapices HB",
+    descripcion: "Lapices Filgo x 12 + 2 Lapices HB.",
+    precio: 2300,
+    categorias: ["lapices", "escolares"],
+    imagen: "Img-Productos/Lapiz-Filgo-2HB.jpg"
+  },
+  {
     id: "lapicera-negra",
     nombre: "Lapicera Negra",
     descripcion: "Lapicera Negra Filgo Trazo Fino.",
@@ -648,14 +656,6 @@ const PRODUCTOS = [
     imagen: "Img-Productos/resaltador-naranja-fluo.jpg"
   },
   {
-    id: "adhesivos-transparentes-notas",
-    nombre: "Adhesivos Transparentes Notas",
-    descripcion: "Adhesivos transparentes Post-it",
-    precio: 1800,
-    categorias: ["oficina"],
-    imagen: "Img-Productos/adhesivo-transparente.jpg"
-  },
-  {
     id: "repuesto-color-n5",
     nombre: "Repuesto Color N5",
     descripcion: "Gama completa de colores.",
@@ -718,5 +718,61 @@ const PRODUCTOS = [
     precio: 300,
     categorias: ["goma-de-borrar", "oficina"],
     imagen: "Img-Productos/borrador-simball.jpg"
+  },
+  {
+    id: "fibras",
+    nombre: "Fibras",
+    descripcion: "Marcadores escolares 2210 x10 .",
+    precio: 1500,
+    categorias: ["fibras", "escolares"],
+    imagen: "Img-Productos/Fibras-Filgo-x10.jpg"
+  },
+ {
+    id: "notas-adhesivas",
+    nombre: "Notas Adhesivas Skycolor",
+    descripcion: "Notas adhesivas Skycolor trasparentes 50 hojas/75x75mm.",
+    precio: 1800,
+    categorias: ["notas-adhesivas", "escolares", "oficina"],
+    imagen: "Img-Productos/Notas-Transp.jpg"
+  },
+  {
+    id: "notas-adhesivas",
+    nombre: "Notas Adhesivas Skycolor",
+    descripcion: "Notas adhesivas Skycolor trasparentes verde 50 hojas/75x75mm.",
+    precio: 1800,
+    categorias: ["notas-adhesivas", "escolares", "oficina"],
+    imagen: "Img-Productos/Notas-verde.jpg"
+  },
+  {
+    id: "notas-adhesivas",
+    nombre: "Notas Adhesivas Skycolor",
+    descripcion: "Notas adhesivas Skycolor trasparentes amarillo 50 hojas/75x75mm.",
+    precio: 1800,
+    categorias: ["notas-adhesivas", "escolares", "oficina"],
+    imagen: "Img-Productos/Notas-amarilla.jpg"
+  },
+  {
+    id: "notas-adhesivas",
+    nombre: "Notas Adhesivas Skycolor",
+    descripcion: "Notas adhesivas Skycolor trasparentes azul 50 hojas/75x75mm.",
+    precio: 1800,
+    categorias: ["notas-adhesivas", "escolares", "oficina"],
+    imagen: "Img-Productos/Notas-azul.jpg"
+  },
+  {
+    id: "notas-adhesivas",
+    nombre: "Notas Adhesivas Skycolor",
+    descripcion: "Notas adhesivas Skycolor trasparentes naranja 50 hojas/75x75mm.",
+    precio: 1800,
+    categorias: ["notas-adhesivas", "escolares", "oficina"],
+    imagen: "Img-Productos/Notas-Naranja.jpg"
+  },
+  {
+    id: "señaladores",
+    nombre: "Señaladores Medoro",
+    descripcion: "Señaladores Medoro colores varios 5x25, 1.2x4.5cm",
+    precio: 1800,
+    categorias: ["señaladores", "escolares", "oficina"],
+    imagen: "Img-Productos/Señalador-Medoro.jpg"
   },
 ];
