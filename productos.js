@@ -768,6 +768,14 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Notas-Naranja.jpg"
   },
   {
+    id: "notas-adhesivas",
+    nombre: "Notas Adhesivas Skycolor",
+    descripcion: "Notas adhesivas Skycolor trasparentes rosa 50 hojas/75x75mm.",
+    precio: 1800,
+    categorias: ["notas-adhesivas", "escolares", "oficina"],
+    imagen: "Img-Productos/Notas-Rosa.jpg"
+  },
+  {
     id: "señaladores",
     nombre: "Señaladores Medoro",
     descripcion: "Señaladores Medoro colores varios 5x25, 1.2x4.5cm",
