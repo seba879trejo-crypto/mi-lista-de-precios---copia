@@ -728,48 +728,48 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Fibras-Filgo-x10.jpg"
   },
  {
-    id: "notas-adhesivas",
-    nombre: "Notas Adhesivas Skycolor",
+    id: "notas-adhesivas-transparentes",
+    nombre: "Notas Adhesivas Skycolor Transparentes",
     descripcion: "Notas adhesivas Skycolor trasparentes 50 hojas/75x75mm.",
     precio: 1800,
     categorias: ["notas-adhesivas", "escolares", "oficina"],
     imagen: "Img-Productos/Notas-Transp.jpg"
   },
   {
-    id: "notas-adhesivas",
-    nombre: "Notas Adhesivas Skycolor",
+    id: "notas-adhesivas-verdes",
+    nombre: "Notas Adhesivas Skycolor Verde",
     descripcion: "Notas adhesivas Skycolor trasparentes verde 50 hojas/75x75mm.",
     precio: 1800,
     categorias: ["notas-adhesivas", "escolares", "oficina"],
     imagen: "Img-Productos/Notas-verde.jpg"
   },
   {
-    id: "notas-adhesivas",
-    nombre: "Notas Adhesivas Skycolor",
+    id: "notas-adhesivas-amarillo",
+    nombre: "Notas Adhesivas Skycolor Amarillo",
     descripcion: "Notas adhesivas Skycolor trasparentes amarillo 50 hojas/75x75mm.",
     precio: 1800,
     categorias: ["notas-adhesivas", "escolares", "oficina"],
     imagen: "Img-Productos/Notas-amarilla.jpg"
   },
   {
-    id: "notas-adhesivas",
-    nombre: "Notas Adhesivas Skycolor",
+    id: "notas-adhesivas-azul",
+    nombre: "Notas Adhesivas Skycolor Azul",
     descripcion: "Notas adhesivas Skycolor trasparentes azul 50 hojas/75x75mm.",
     precio: 1800,
     categorias: ["notas-adhesivas", "escolares", "oficina"],
     imagen: "Img-Productos/Notas-azul.jpg"
   },
   {
-    id: "notas-adhesivas",
-    nombre: "Notas Adhesivas Skycolor",
+    id: "notas-adhesivas-naranja",
+    nombre: "Notas Adhesivas Skycolor Naranja",
     descripcion: "Notas adhesivas Skycolor trasparentes naranja 50 hojas/75x75mm.",
     precio: 1800,
     categorias: ["notas-adhesivas", "escolares", "oficina"],
     imagen: "Img-Productos/Notas-Naranja.jpg"
   },
   {
-    id: "notas-adhesivas",
-    nombre: "Notas Adhesivas Skycolor",
+    id: "notas-adhesivas-rosa",
+    nombre: "Notas Adhesivas Skycolor Rosa",
     descripcion: "Notas adhesivas Skycolor trasparentes rosa 50 hojas/75x75mm.",
     precio: 1800,
     categorias: ["notas-adhesivas", "escolares", "oficina"],
