@@ -1484,16 +1484,3 @@ footer {
         padding: 0 28px;
     }
 }
-
-/* Si la persona tiene activada la opción "reducir movimiento", queda quieta */
-@media (prefers-reduced-motion: reduce) {
-    .barra-aviso-pista {
-        animation: none;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .barra-aviso-pista span[aria-hidden="true"] {
-        display: none;
-    }
-}
