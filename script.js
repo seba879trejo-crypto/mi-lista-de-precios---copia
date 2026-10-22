@@ -561,3 +561,16 @@ document.addEventListener('DOMContentLoaded', () => {
     controlarVideoPorScroll();
     programarVideoDeFondo();
 });
+/* ---------- Botón "volver arriba" ---------- */
+(function () {
+    const btnSubir = document.getElementById('btn-subir');
+    if (!btnSubir) return;
+
+    window.addEventListener('scroll', function () {
+        btnSubir.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+
+    btnSubir.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();

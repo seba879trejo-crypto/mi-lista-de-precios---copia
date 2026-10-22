@@ -24,10 +24,26 @@
 
     <!-- Contenedor Principal -->
     <main class="container">
+                    <!-- BARRA DE AVISO SUPERIOR (se desplaza sola) -->
+        <div class="barra-aviso" aria-label="Información de envíos y horarios">
+            <div class="barra-aviso-pista">
+                <span>🚚 Envíos en Capital</span>
+                <span>🕐 Lunes a sábados de 8 a 21 hs</span>
+                <span>📲 Pedí por WhatsApp</span>
+                <span>💳 Efectivo, transferencia y MercadoPago</span>
+
+                <span aria-hidden="true">🚚 Envíos en Capital</span>
+                <span aria-hidden="true">🕐 Lunes a sábados de 8 a 21 hs</span>
+                <span aria-hidden="true">📲 Pedí por WhatsApp</span>
+                <span aria-hidden="true">💳 Efectivo, transferencia y MercadoPago</span>
+            </div>
+        </div>
+                <!-- BOTÓN VOLVER ARRIBA -->
+        <button type="button" id="btn-subir" class="btn-subir" aria-label="Volver arriba">↑</button>
 
         <!-- ================= BOTÓN FLOTANTE DEL CARRITO (Arriba a la Derecha) ================= -->
         <div class="cart-floating-btn" onclick="toggleCart()">
-            🛒 Carrito <span id="cart-count">0</span>
+            🛒 <span id="cart-count">0</span>
         </div>
 
         <!-- ================= PANEL LATERAL DEL CARRITO (Deslizante) ================= -->
@@ -80,6 +96,38 @@
 
             <!-- Los combos se dibujan solos desde productos.js (los que tienen combo: true) -->
             <div class="product-grid" id="grid-combos"></div>
+              <!-- ================= SECCIÓN DE CONTACTO ================= -->
+         <!-- ================= PREGUNTAS FRECUENTES ================= -->
+<section class="faq-section">
+    <div class="faq-card">
+        <h2>Preguntas frecuentes</h2>
+
+        <details class="faq-item">
+            <summary>¿Hacen envíos?</summary>
+            <p class="faq-respuesta">Sí, realizamos envíos solamente dentro de Santiago del Estero, Capital. El envío lo coordinamos con vos por WhatsApp.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Qué medios de pago aceptan?</summary>
+            <p class="faq-respuesta">Aceptamos efectivo, transferencia bancaria y MercadoPago.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Puedo cambiar mi compra?</summary>
+            <p class="faq-respuesta">Si querés modificar tu pedido, <a href="#" data-wpp="Hola! Quiero modificar mi pedido" target="_blank">escribinos por WhatsApp</a> y lo vemos. Si preferís cancelarlo, usá el botón de arrepentimiento que está al final de esta página.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Cómo consulto por un producto?</summary>
+            <p class="faq-respuesta">En cada producto tenés el botón "Consultar por WhatsApp". También podés agregar productos al carrito y enviarnos el pedido completo. Atendemos de lunes a sábados de 8 a 21 hs.</p>
+        </details>
+        <details class="faq-item">
+           <summary>¿Cómo hago una devolución o me arrepiento de mi compra?</summary>
+           <p class="faq-respuesta">Tenés 10 días corridos desde que recibís el producto para arrepentirte de tu compra. Para hacerlo, usá el "Botón de arrepentimiento" que está al final de esta página o escribinos por WhatsApp. Te vamos a responder dentro de las 24 horas con un código de identificación de tu solicitud.</p>
+           <p class="faq-respuesta">El producto tiene que estar sin uso y en su envase original. Coordinamos la devolución con vos por WhatsApp y los gastos de devolución no los pagás vos.</p>
+        </details>
+    </div>
+</section>
         </section>
 
 
@@ -241,39 +289,6 @@
             </div>
         </div>
 
-
-        <!-- ================= SECCIÓN DE CONTACTO ================= -->
-         <!-- ================= PREGUNTAS FRECUENTES ================= -->
-<section class="faq-section">
-    <div class="faq-card">
-        <h2>Preguntas frecuentes</h2>
-
-        <details class="faq-item">
-            <summary>¿Hacen envíos?</summary>
-            <p class="faq-respuesta">Sí, realizamos envíos solamente dentro de Santiago del Estero, Capital. El envío lo coordinamos con vos por WhatsApp.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Qué medios de pago aceptan?</summary>
-            <p class="faq-respuesta">Aceptamos efectivo, transferencia bancaria y MercadoPago.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Puedo cambiar mi compra?</summary>
-            <p class="faq-respuesta">Si querés modificar tu pedido, <a href="#" data-wpp="Hola! Quiero modificar mi pedido" target="_blank">escribinos por WhatsApp</a> y lo vemos. Si preferís cancelarlo, usá el botón de arrepentimiento que está al final de esta página.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Cómo consulto por un producto?</summary>
-            <p class="faq-respuesta">En cada producto tenés el botón "Consultar por WhatsApp". También podés agregar productos al carrito y enviarnos el pedido completo. Atendemos de lunes a sábados de 8 a 21 hs.</p>
-        </details>
-        <details class="faq-item">
-           <summary>¿Cómo hago una devolución o me arrepiento de mi compra?</summary>
-           <p class="faq-respuesta">Tenés 10 días corridos desde que recibís el producto para arrepentirte de tu compra. Para hacerlo, usá el "Botón de arrepentimiento" que está al final de esta página o escribinos por WhatsApp. Te vamos a responder dentro de las 24 horas con un código de identificación de tu solicitud.</p>
-           <p class="faq-respuesta">El producto tiene que estar sin uso y en su envase original. Coordinamos la devolución con vos por WhatsApp y los gastos de devolución no los pagás vos.</p>
-        </details>
-    </div>
-</section>
         <section class="contact-section">
             <div class="contact-card">
                 <h2>¿Tenés dudas o querés hacer un pedido personalizado? 📬</h2>
@@ -291,14 +306,13 @@
                 <div class="contact-buttons">
                     <button type="button" onclick="abrirModalArrepentimiento()" class="btn-contact btn-arrepentimiento">↩️ Botón de arrepentimiento</button>
                 </div>
-            </div>
-        </section>
-
-
-        <!-- Footer -->
+                 <!-- Footer -->
         <footer>
             <p>© 2026 GMS.Papelería · Santiago del Estero · Todos los derechos reservados</p>
         </footer>
+            </div>
+        </section>
+
     </main>
 
     <!-- IMPORTANTE: productos.js tiene que ir ANTES que script.js -->

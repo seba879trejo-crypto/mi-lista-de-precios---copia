@@ -435,7 +435,7 @@ video {
 }
 
 .faq-card {
-    background-color: rgba(172, 170, 170, 0.13);
+    background-color: rgba(255, 255, 255, 0.171);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 30px;
@@ -512,7 +512,7 @@ video {
 }
 
 .contact-card {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.171);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 30px;
@@ -579,9 +579,9 @@ video {
 /* --- FOOTER --- */
 footer {
     text-align: center;
-    color: #ffffff;
+    color: #181717fb;
     font-size: 12px;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 1px 4px rgb(37, 37, 37);
     margin-top: 10px;
 }
 
@@ -970,7 +970,7 @@ footer {
         width: 100%;
         margin-top: 12px;
         padding: 12px 14px;
-        background-color: rgba(172, 170, 170, 0.774);
+        background-color: rgba(172, 170, 170, 0.699);
         color: #0a0a0a;
         border: none;
         border-radius: 10px;
@@ -1062,5 +1062,438 @@ footer {
     #grid-productos .btn-add-cart {
         font-size: 12px;
         padding: 8px 0;
+    }
+}
+    /* =====================================================================
+   COMPUTADORAS Y TABLETS GRANDES (desde 769 px)
+   Página a todo el ancho que se adapta a cualquier pantalla.
+   Va al final a propósito. En celular no se aplica nada de esto.
+   ===================================================================== */
+@media (min-width: 769px) {
+
+    :root {
+        --pad: clamp(16px, 3vw, 48px);   /* margen lateral: crece con la pantalla */
+        --max: 1600px;                   /* ancho máximo del contenido (monitores enormes) */
+    }
+
+    /* La página ocupa todo el ancho y arranca desde arriba */
+    body {
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .container {
+        max-width: none;
+        gap: 0;
+    }
+
+    /* --- ENCABEZADO: de punta a punta --- */
+    .main-header {
+        border-radius: 0;
+        padding: 14px var(--pad);
+        padding-right: 200px;            /* deja lugar al botón del carrito */
+    }
+
+    .banner-img {
+        max-height: 110px;
+    }
+
+    .cart-floating-btn {
+        top: 26px;
+        right: var(--pad);
+    }
+
+    /* --- SECCIONES: contenido centrado con ancho máximo --- */
+    .seccion-contenido {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    #seccion-inicio {
+        padding-top: 0;                  /* el banner va pegado al encabezado */
+    }
+
+    .seccion-contenido > *:not(.banner-promos),
+    #seccion-detalle > *,
+    .faq-section,
+    .contact-section,
+    footer {
+        width: min(100% - 2 * var(--pad), var(--max));
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- BANNER DE INICIO: de punta a punta --- */
+    .banner-promos {
+        max-width: none;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .banner-promos img {
+        height: clamp(260px, 28vw, 480px);
+    }
+
+    /* --- PRODUCTOS: más columnas cuanto más ancha la pantalla --- */
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 22px;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+
+    .shop-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 28px;
+    }
+
+    /* --- DETALLE DE PRODUCTO: que la foto no se estire de más --- */
+    .dp-top,
+    .dp-descripcion {
+        max-width: 1250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- TEXTOS: cómodos de leer, no estirados --- */
+    .nosotros-container {
+        max-width: 900px;
+    }
+
+    .faq-section,
+    .contact-section {
+        width: min(100% - 2 * var(--pad), 1100px);
+    }
+
+    footer {
+        padding-bottom: 20px;
+    }
+}
+/* =====================================================================
+   PC: 4 PRODUCTOS POR FILA, TARJETAS DE TAMAÑO CÓMODO + BANNER SIN CORTES
+   ===================================================================== */
+@media (min-width: 769px) {
+    /* Ancho máximo del contenido (antes 1600): así las tarjetas no se agrandan de más */
+    :root {
+        --max: 1200px;
+    }
+
+    /* Banner: se ve ENTERO, sin recortarse (la altura sale sola de la imagen) */
+    .banner-promos img {
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+@media (min-width: 1100px) {
+    /* Combos de Inicio: 4 por fila, en un ancho parecido al de antes */
+    #grid-combos {
+        width: min(100% - 2 * var(--pad), 1000px);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    /* Catálogo: 4 por fila al lado del buscador */
+    #grid-productos {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    /* Foto con la misma altura que tenías antes */
+    #grid-combos .product-card img,
+    #grid-productos .product-card img {
+        height: 190px;
+        object-fit: contain;
+    }
+
+    #grid-combos .product-info,
+    #grid-productos .product-info {
+        padding: 14px;
+    }
+
+    #grid-combos .product-info h3,
+    #grid-productos .product-info h3 {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+    #grid-combos .product-info p,
+    #grid-productos .product-info p {
+        font-size: 13px;
+    }
+}
+/* =====================================================================
+   PC: CONTACTO IGUAL QUE EL ENCABEZADO (de punta a punta)
+   ===================================================================== */
+@media (min-width: 769px) {
+
+    .contact-section {
+        width: 100%;
+        max-width: none;
+        margin: 30px 0 0;
+    }
+
+    .contact-card {
+        background-color: rgba(255, 255, 255, 0.171);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 0;
+        padding: 30px var(--pad);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+}
+/* Footer dentro del recuadro de contacto */
+.contact-card footer {
+    width: auto;
+    margin: 10px 0 0;
+    padding: 12px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.685);
+}
+/* =====================================================================
+   PC: ENCABEZADO CENTRADO
+   ===================================================================== */
+@media (min-width: 769px) {
+    .main-header {
+        padding-left: var(--pad);
+        padding-right: var(--pad);       /* mismo margen a los dos lados */
+    }
+}
+/* =====================================================================
+   PC: TODO EL CONTENIDO DEL MEDIO CON EL MISMO ANCHO Y MISMAS ESQUINAS
+   ===================================================================== */
+@media (min-width: 769px) {
+
+    /* Banner: mismo ancho que los productos, con esquinas redondeadas como las tarjetas */
+    #seccion-inicio {
+        padding-top: 24px;
+    }
+
+    .banner-promos {
+        width: min(100% - 2 * var(--pad), var(--max));
+        margin: 0 auto;
+        border-radius: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .banner-promos img {
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Combos: mismo ancho que el banner (antes eran más angostos) */
+    #grid-combos {
+        width: min(100% - 2 * var(--pad), var(--max));
+    }
+
+    /* Preguntas frecuentes: mismo ancho que los productos */
+    .faq-section {
+        width: min(100% - 2 * var(--pad), var(--max));
+    }
+
+    /* Un poco de aire antes del contacto */
+    .faq-section {
+        margin-bottom: 10px;
+    }
+}
+/* =====================================================================
+   PC: ENCABEZADO FIJO AL SCROLLEAR (logo más grande, fondo más sólido)
+   ===================================================================== */
+@media (min-width: 769px) {
+    .main-header {
+        position: sticky;
+        top: 0;
+        z-index: 900;                    /* por debajo del carrito (1000) */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 8px;
+        background-color: rgba(255, 255, 255, 0.171);  /* más sólido: se lee mejor */
+    }
+
+    .banner-img {
+        max-height: 95px;                /* logo más grande (antes 70) */
+    }
+
+    .nav-tabs {
+        padding-top: 8px;
+    }
+
+    /* El buscador lateral del catálogo queda debajo del encabezado fijo */
+    .sidebar {
+        top: 175px;
+    }
+}
+/* =====================================================================
+   CELULAR: ENCABEZADO FIJO + CONTACTO DE PUNTA A PUNTA
+   Solo se aplica hasta 768 px. Va al final a propósito.
+   ===================================================================== */
+@media (max-width: 768px) {
+
+    /* La página ocupa todo el ancho, sin márgenes del body */
+    body {
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .container {
+        gap: 0;
+    }
+
+    /* El contenido del medio conserva sus márgenes laterales */
+    .seccion-contenido {
+        padding: 15px;
+    }
+
+    /* --- ENCABEZADO: de punta a punta, fijo y compacto --- */
+    .main-header {
+        position: sticky;
+        top: 0;
+        z-index: 900;                    /* por debajo del carrito (1000) */
+        border-radius: 0;
+        padding: 8px 12px;
+        gap: 6px;
+        background-color: rgba(255, 255, 255, 0.137);
+    }
+
+    .banner-img {
+        max-height: 64px;                /* logo chico para no tapar la pantalla */
+    }
+
+    /* Los 3 botones del menú en una sola fila */
+    .nav-tabs {
+        flex-wrap: nowrap;
+        gap: 6px;
+        padding-top: 6px;
+    }
+
+    .tab-btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    /* Carrito más chico, arriba a la derecha */
+    .cart-floating-btn {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    /* --- CONTACTO: igual que el encabezado, de punta a punta --- */
+    .contact-section {
+        margin-top: 20px;
+    }
+
+    .contact-card {
+        border-radius: 0;
+        padding: 24px 15px;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.85);
+    }
+}
+/* CELULAR: carrito solo con ícono */
+@media (max-width: 768px) {
+    .cart-floating-btn {
+        padding: 8px 12px;
+        gap: 6px;
+        font-size: 16px;
+    }
+}
+/* =====================================================================
+   BARRA DE AVISO + BOTÓN VOLVER ARRIBA
+   ===================================================================== */
+.btn-subir {
+    position: fixed;
+    bottom: 90px;                 /* arriba del botón de WhatsApp */
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background-color: #4f46e5;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+}
+
+.btn-subir.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-subir:hover {
+    transform: translateY(-3px);
+}
+.btn-subir {
+        bottom: 84px;
+        right: 22px;
+}
+
+/* =====================================================================
+   BARRA DE AVISO MÓVIL (marquesina)
+   ===================================================================== */
+.barra-aviso {
+    background-color: #ece8e842;
+    color: #0c0c0c;
+    font-size: 13px;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+}
+
+.barra-aviso-pista {
+    display: inline-flex;
+    width: max-content;
+    animation: aviso-desplazar 30s linear infinite;
+}
+
+.barra-aviso-pista span {
+    padding: 0 40px;
+}
+
+/* Se frena al pasar el mouse o tocar la barra */
+.barra-aviso:hover .barra-aviso-pista,
+.barra-aviso:active .barra-aviso-pista {
+    animation-play-state: paused;
+}
+
+@keyframes aviso-desplazar {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Celular: un poco más chica y más rápida (el texto recorre menos pantalla) */
+@media (max-width: 768px) {
+    .barra-aviso {
+        font-size: 11px;
+        padding: 6px 0;
+    }
+
+    .barra-aviso-pista {
+        animation-duration: 22s;
+    }
+
+    .barra-aviso-pista span {
+        padding: 0 28px;
+    }
+}
+
+/* Si la persona tiene activada la opción "reducir movimiento", queda quieta */
+@media (prefers-reduced-motion: reduce) {
+    .barra-aviso-pista {
+        animation: none;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .barra-aviso-pista span[aria-hidden="true"] {
+        display: none;
     }
 }
