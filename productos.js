@@ -33,19 +33,10 @@ const PRODUCTOS = [
   {
     id: "combo-universitario",
     nombre: "Combo Universitario",
-    descripcion: "",
-    precio: null,
+    descripcion: "1 Corrector Intro - 1 Lapiz Negro Filgo - 2 Borradores - 4 Lapiceras de Color Filgo - 1 Cuadernillo A4 Húsares - 1 Cuaderno A5 Húsares - 1 Caja de Resaltadores Pastel Trabi.",
+    precio: 9000,
     categorias: [],
     imagen: "Img-Productos/combo-universitario.jpeg",
-    combo: true
-  },
-  {
-    id: "combo-sorpresa",
-    nombre: "Combo Sorpresa",
-    descripcion: "Combo de 5 productos sorpresa variados.",
-    precio: null,
-    categorias: [],
-    imagen: "Img-Productos/Combo-sorpresa.jpg",
     combo: true
   },
   {
@@ -58,21 +49,48 @@ const PRODUCTOS = [
     combo: true
   },
   {
-    id: "combo-de-oficina",
-    nombre: "Combo de oficina",
-    descripcion: "",
-    precio: null,
+    id: "combo-n2",
+    nombre: "Combo N°2",
+    descripcion: "1 Corrector Intro - 2 Borradores - 1 Lapices Negros Filgo - 4 Lapiceras de Color Filgo - 3 Resaltadores Fluo Filgo - 3 Resaltadores Pastel Filgo - 1 Cuadernillo A4 Húsares.",
+    precio: 8500,
     categorias: [],
-    imagen: "Img-Productos/images.png",
+    imagen: "Img-Productos/Combo-2.jpeg",
     combo: true
   },
   {
-    id: "combo-infantil",
-    nombre: "Combo infantil",
-    descripcion: "",
-    precio: null,
+    id: "combo-n3",
+    nombre: "Combo N°3",
+    descripcion: "1 Corrector Intro - 2 Borradores - 2 Lapices Negros Filgo - 4 Lapiceras de Color Filgo - 1 Cuadernillo A4 Húsares - 1 Caja de Resaltadores Pastel Trabi.",
+    precio: 7800,
     categorias: [],
-    imagen: "Img-Productos/images.png",
+    imagen: "Img-Productos/Combo-3.jpeg",
+    combo: true
+  },
+  {
+    id: "combo-n4",
+    nombre: "Combo N°4",
+    descripcion: "1 Block de Notas adhesivas Transparentes Skycolor - 1 cuadernillo A4 Húsares - 2 Resaltadores Vintage Trabi- 4 Resaltadores Filgo (2 pastel y 2 fluo).",
+    precio: 8000,
+    categorias: [],
+    imagen: "Img-Productos/Combo-4.jpeg",
+    combo: true
+  },
+  {
+    id: "combo-n5",
+    nombre: "Combo N°5",
+    descripcion: "1 Block de Notas Transparentes Skycolor - 2 Resaltadores Vintage Trabi - 5 Resaltadores Filgo (3 pastel y 2 fluo) - 4 Lapiceras Filgo - 1 Corrector Intro.",
+    precio: 9000,
+    categorias: [],
+    imagen: "Img-Productos/Combo-5.jpeg",
+    combo: true
+  },
+  {
+    id: "combo-n6",
+    nombre: "Combo N°6",
+    descripcion: "1 Block de Notas adhesivas Transparentes Skycolor- 1 cuadernillo A4 Húsares - 5 Resaltadores Filgo (3 pastel y 2 fluo) - 4 Lapiceras Filgo - 1 Corrector Intro.",
+    precio: 9500,
+    categorias: [],
+    imagen: "Img-Productos/Combo-6.jpeg",
     combo: true
   },
 
