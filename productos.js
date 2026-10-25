@@ -31,21 +31,21 @@ const PRODUCTOS = [
     combo: true
   },
   {
-    id: "combo-universitario",
-    nombre: "Combo Universitario",
-    descripcion: "1 Corrector Intro - 1 Lapiz Negro Filgo - 2 Borradores - 4 Lapiceras de Color Filgo - 1 Cuadernillo A4 Húsares - 1 Cuaderno A5 Húsares - 1 Caja de Resaltadores Pastel Trabi.",
-    precio: 9000,
-    categorias: [],
-    imagen: "Img-Productos/combo-universitario.jpeg",
-    combo: true
-  },
-  {
     id: "combo-a-eleccion",
     nombre: "Combo a Eleccion",
     descripcion: "Elegi los productos que quieras y te armamos un combo. (Minimo requerido 5 productos variados)",
     precio: null,
     categorias: [],
     imagen: "Img-Productos/Combo-a-eleccion.jpg",
+    combo: true
+  },
+   {
+    id: "combo-universitario",
+    nombre: "Combo Universitario",
+    descripcion: "1 Corrector Intro - 1 Lapiz Negro Filgo - 2 Borradores - 4 Lapiceras de Color Filgo - 1 Cuadernillo A4 Húsares - 1 Cuaderno A5 Húsares - 1 Caja de Resaltadores Pastel Trabi.",
+    precio: 9000,
+    categorias: [],
+    imagen: "Img-Productos/combo-universitario.jpeg",
     combo: true
   },
   {
@@ -85,12 +85,21 @@ const PRODUCTOS = [
     combo: true
   },
   {
-    id: "combo-n6",
-    nombre: "Combo N°6",
-    descripcion: "1 Block de Notas adhesivas Transparentes Skycolor- 1 cuadernillo A4 Húsares - 5 Resaltadores Filgo (3 pastel y 2 fluo) - 4 Lapiceras Filgo - 1 Corrector Intro.",
-    precio: 9500,
+    id: "combo-infantil-N1",
+    nombre: "Combo Infantil N°1",
+    descripcion: "1 Tijera Filgo - 1 Borrador - 1 Sacapunta Filgo - 2 Lapices Negros Filgo - 1 Fibras Filgo - 1 Libro de Biblioteca Interactiva a eleccion.",
+    precio: 6300,
     categorias: [],
-    imagen: "Img-Productos/Combo-6.jpeg",
+    imagen: "Img-Productos/Combo-inf-1.jpg",
+    combo: true
+  },
+  {
+    id: "combo-infantil-N2",
+    nombre: "Combo Infantil N°2",
+    descripcion: "1 Tijera Filgo - 1 Borrador - 2 Sacapunta Filgo - 2 Lápices Negros Filgo - 1 Caja de Lapices de colores Filgo - 1 Libro de Biblioteca Interactiva a eleccion.",
+    precio: 7000,
+    categorias: [],
+    imagen: "Img-Productos/Combo-inf-2.jpg",
     combo: true
   },
 
