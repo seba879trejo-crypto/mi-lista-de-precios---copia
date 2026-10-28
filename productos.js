@@ -329,9 +329,9 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Cartulinas-Luma.jpg"
   },
   {
-    id: "voligoma",
-    nombre: "Voligoma",
-    descripcion: "Adhesivo sintetico Ezco (Tipo Voligoma).",
+    id: "adhesivo-sintetico",
+    nombre: "Adhesivo Sintetico Ezco",
+    descripcion: "Adhesivo sintetico Ezco.",
     precio: 1500,
     categorias: ["escolares"],
     imagen: "Img-Productos/Adhesivo-Sintetico-Ezco.jpg"
@@ -390,7 +390,16 @@ const PRODUCTOS = [
     descripcion: "Libros didacticos para pintar con crayones incluidos Juega y Modela.",
     precio: 3900,
     categorias: ["infantil"],
-    imagen: "Img-Productos/Libros-para-Colorear-+-crayones.jpeg"
+    imagen: "Img-Productos/Libros-para-Colorear-+-crayones.jpeg",
+    imagenes: [ 
+      "Img-Productos/crayones1.jpg",
+        "Img-Productos/crayones2.jpg",
+        "Img-Productos/crayones3.jpg",
+        "Img-Productos/crayones4.jpg",
+        "Img-Productos/crayones5.jpg",
+        "Img-Productos/crayones6.jpg",
+        "Img-Productos/crayones7.jpg"
+    ]
   },
   {
     id: "papel-crepe-bandera",
@@ -451,10 +460,17 @@ const PRODUCTOS = [
   {
     id: "libros-de-actividades-fantasia",
     nombre: "Libros de Actividades Fantasia",
-    descripcion: "Libros didacticos de lectura infantil Biblioteca Interactiva. 4 tomos diferentes, la eleccion del tomo se coordina al momento del pago.",
+    descripcion: "Libros didacticos de lectura infantil Biblioteca Interactiva. 5 tomos diferentes, la eleccion del tomo se coordina al momento del pago.",
     precio: 2700,
     categorias: ["infantil", "libros"],
-    imagen: "Img-Productos/Libros-Lectura-Interactiva.jpeg"
+    imagen: "Img-Productos/Libros-Lectura-Interactiva.jpeg",
+    imagenes: [ 
+      "Img-Productos/biblio-inte1.jpg",
+        "Img-Productos/biblio-inte2.jpg",
+        "Img-Productos/biblio-inte3.jpg",
+        "Img-Productos/biblio-inte4.jpg",
+        "Img-Productos/biblio-inte5.jpg"
+    ]
   },
   {
     id: "libro-coleccion-juegos",
@@ -532,7 +548,12 @@ const PRODUCTOS = [
     descripcion: "Libros didacticos para pintar Aprendo Pintando",
     precio: 2600,
     categorias: ["infantil"],
-    imagen: "Img-Productos/Libros-Lectura-Interactiva.jpeg",
+    imagen: "Img-Productos/todos-AP.jpg",
+    imagenes: [ 
+      "Img-Productos/aprendo-pintando1.jpg",
+        "Img-Productos/aprendo-pintando2.jpg",
+        "Img-Productos/aprendo-pintando3.jpg",
+    ],
     buscar: "colorear"
   },
   {
