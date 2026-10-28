@@ -349,7 +349,7 @@ const PRODUCTOS = [
     nombre: "Etiquetas Autoadhesivos",
     descripcion: "Etiquetas Autoadhesivas Ori-Tec",
     precio: 600,
-    categorias: ["oficina"],
+    categorias: ["oficina", "notas-adhesivas"],
     imagen: "Img-Productos/Etiquetas-Adhesivas-Ori-Tec.jpg"
   },
   {
@@ -367,14 +367,6 @@ const PRODUCTOS = [
     precio: 3200,
     categorias: ["resaltadores"],
     imagen: "Img-Productos/Resaltadores-Vintage x4.jpg"
-  },
-  {
-    id: "libros-interactivos",
-    nombre: "Libros Interactivos",
-    descripcion: "Libros interactivos infantiles para todas las edades",
-    precio: 2900,
-    categorias: ["infantil"],
-    imagen: "Img-Productos/Libros-Lectura-Interactiva.jpeg"
   },
   {
     id: "lapicera-borrable",
@@ -429,39 +421,85 @@ const PRODUCTOS = [
     nombre: "Libros de Mandalas 36 hojas",
     descripcion: "Mandalas estilo Hindú para colorear",
     precio: 5000,
-    categorias: ["libros"],
+    categorias: ["libros", "mandalas"],
     imagen: "Img-Productos/Libro-mandalas-36.jpg"
   },
   {
     id: "libros-de-mandalas-12-hojas",
-    nombre: "Libros de Mandalas 12 hojas",
+    nombre: "Libros de Mandalas Pedrito 12 hojas",
     descripcion: "Mandalas estilo Hindú para colorear",
     precio: 2200,
-    categorias: ["libros"],
-    imagen: "Img-Productos/Libro-mandalas-36.jpg"
+    categorias: ["libros", "mandalas"],
+    imagen: "Img-Productos/mandalas-12-hojas.jpg"
+  },
+  {
+    id: "libros-de-mandalas-40-hojas",
+    nombre: "Mandalas Libsa",
+    descripcion: "Mandalas Libsa de diseño para ninos de 32 hojas",
+    precio: 8000,
+    categorias: ["mandalas"],
+    imagen: "Img-Productos/mandala-libsa2.jpg"
+  },
+  {
+    id: "mandalas-40-hojas",
+    nombre: "Mandalas Libsa",
+    descripcion: "Mandalas Libsa 40 hojas. Colección Mandala Zen. Patrones geométricos y círculos decorativos cargados de espiritualidad.",
+    precio: 8000,
+    categorias: ["mandalas"],
+    imagen: "Img-Productos/mandala-libsa.jpg"
   },
   {
     id: "libros-de-actividades-fantasia",
     nombre: "Libros de Actividades Fantasia",
-    descripcion: "Libros didacticos de lectura infantil Biblioteca Interactiva.",
+    descripcion: "Libros didacticos de lectura infantil Biblioteca Interactiva. 4 tomos diferentes, la eleccion del tomo se coordina al momento del pago.",
     precio: 2700,
-    categorias: ["infantil"],
+    categorias: ["infantil", "libros"],
     imagen: "Img-Productos/Libros-Lectura-Interactiva.jpeg"
   },
   {
     id: "libro-coleccion-juegos",
-    nombre: "Libro Coleccion Juegos",
-    descripcion: "Coleccion de libros Tripulante de juegos.",
+    nombre: "Libro Pasatiempos Vol.1 ",
+    descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
     precio: 2800,
-    categorias: ["infantil"],
-    imagen: "Img-Productos/Libros-pasatiempo-juegos.jpg"
+    categorias: ["infantil", "libros"],
+    imagen: "Img-Productos/pasatiempo-vol1.jpg"
+  },
+  {
+    id: "libro-coleccion-juegos",
+    nombre: "Libro Pasatiempos Vol.3",
+    descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
+    precio: 2800,
+    categorias: ["infantil", "libros"],
+    imagen: "Img-Productos/pasatiempo-vol3.jpg"
+  },
+  {
+    id: "libro-coleccion-juegos",
+    nombre: "Libro Pasatiempos Vol.4",
+    descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
+    precio: 2800,
+    categorias: ["infantil", "libros"],
+    imagen: "Img-Productos/pasatiempos4.jpg"
+  },
+  {
+    id: "libro-de-mandalas-pedrito",
+    nombre: "Libro Mandalas Pedrito",
+    descripcion: "Libros de colección Pedrito 8 hojas. 4 tomos diferentes, la eleccion del tomo se coordina al momento del pago.",
+    precio: 2200,
+    categorias: ["libros", "mandalas"],
+    imagen: "Img-Productos/todasmandalas.jpg",
+    imagenes: [ 
+      "Img-Productos/mandala1.jpg",
+        "Img-Productos/mandala2.jpg",
+        "Img-Productos/mandala3.jpg",
+        "Img-Productos/mandala4.jpg"
+    ]
   },
   {
     id: "libros-de-animales",
     nombre: "Libros de Animales",
     descripcion: "Libros de Animales Alegria de Crear",
     precio: 3300,
-    categorias: ["infantil"],
+    categorias: ["infantil", "libros"],
     imagen: "Img-Productos/ADC_LIBRO-AMOPINTAR_ANIMALES-DE-LA-SELVA_Tapa.jpg"
   },
   {
@@ -475,7 +513,7 @@ const PRODUCTOS = [
   {
     id: "cuentos-infantiles",
     nombre: "Cuentos Infantiles",
-    descripcion: "Cuentos clasicos infantiles Tripulante.",
+    descripcion: "Cuentos clasicos infantiles Tripulante. 4 Cuentos diferentes. La eleccion del tomo se coordina en el momento de la compra.",
     precio: 1500,
     categorias: ["infantil"],
     imagen: "Img-Productos/Libritos-de-Cuestos-Clasicos.jpeg"
