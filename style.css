@@ -1,8 +1,46 @@
 /* =====================================================================
-   GMS.PAPELERÍA - style.css (versión ordenada)
+   GMS.PAPELERÍA - style.css (ordenado)
+
+   ORDEN DEL ARCHIVO
+    1. Variables (colores y medidas)
+    2. General
+    3. Encabezado y menú
+    4. Barra de aviso (marquesina)
+    5. Secciones e Inicio (banner)
+    6. Tarjetas de producto y botones
+    7. Catálogo (buscador, categorías, paginación)
+    8. Quiénes somos
+    9. Preguntas frecuentes
+   10. Contacto y footer
+   11. Botones flotantes (WhatsApp, carrito, volver arriba)
+   12. Panel del carrito
+   13. Ventana emergente (botón de arrepentimiento)
+   14. SOLO CELULAR (hasta 768 px)
+   15. SOLO CELULAR CHICO (hasta 600 px)
+   16. SOLO PC (desde 769 px)
+   17. SOLO PC GRANDE (desde 1100 px)
+
+   REGLA DE ORO: lo que está arriba (secciones 2 a 13) vale para el CELULAR.
+   La PC cambia solo lo que se redefine en las secciones 16 y 17.
+   Las reglas de celular y PC van al final a propósito.
    ===================================================================== */
 
-/* --- CONFIGURACIÓN GENERAL --- */
+
+/* =====================================================================
+   1. VARIABLES
+   ===================================================================== */
+:root {
+    --violeta: #4f46e5;
+    --violeta-oscuro: #4338ca;
+    --color-precio: #312e81;                 /* color de los precios (negro suave) */
+    --pad: clamp(16px, 3vw, 48px);           /* margen lateral en PC: crece con la pantalla */
+    --max: 1200px;                           /* ancho máximo del contenido en PC */
+}
+
+
+/* =====================================================================
+   2. GENERAL
+   ===================================================================== */
 * {
     padding: 0;
     margin: 0;
@@ -10,19 +48,23 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, sans-serif;
     background-color: #f4f6f9;
     color: #333;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     overflow-x: hidden;
-    padding: 30px 15px;
 }
 
-/* --- VIDEO DE FONDO --- */
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+/* Video de fondo */
 video {
     position: fixed;
     top: 0;
@@ -34,84 +76,138 @@ video {
     filter: brightness(0.75);
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
 .container {
     width: 100%;
-    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
-/* --- ENCABEZADO --- */
+
+/* =====================================================================
+   3. ENCABEZADO Y MENÚ
+   De punta a punta y fijo al scrollear (en todas las pantallas).
+   ===================================================================== */
 .main-header {
-    background-color: rgba(255, 255, 255, 0.171);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 900;                            /* por debajo del carrito (1000) */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 15px;
-    width: 100%;
+    padding: 8px 12px;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.137);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .banner-img {
     width: 100%;
-    max-height: 160px;
+    max-height: 64px;                        /* logo en celular */
     object-fit: contain;
     display: block;
     margin: 0 auto;
 }
 
-/* --- BARRA DE NAVEGACIÓN (pestañas) --- */
 .nav-tabs {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 6px;
     width: 100%;
     border-top: 1px solid rgba(27, 23, 23, 0.08);
-    padding-top: 15px;
+    padding-top: 6px;
 }
 
 .tab-btn {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    padding: 10px 24px;
+    background-color: #ffffff;
+    color: var(--violeta);
+    border: 2px solid var(--violeta);
+    padding: 5px 8px;                        /* un poco menos, para compensar el borde */
     border-radius: 30px;
     font-weight: 600;
-    font-size: 14px;
-    color: #374151;
+    font-size: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-.tab-btn:hover {
-    background-color: #ffffff;
+/* Hover solo con mouse: en el celular se quedaría pegado después de tocar */
+@media (hover: hover) {
+    .tab-btn:hover {
+        background-color: var(--violeta);
+        color: #ffffff;
+    }
 }
 
+.tab-btn:active {
+    background-color: var(--violeta-oscuro);
+    border-color: var(--violeta-oscuro);
+    color: #ffffff;
+}
+
+/* La pestaña donde estás: violeta llena (tiene que ir después de los otros) */
 .tab-btn.active {
-    background-color: #4f46e5;
-    color: white;
+    background-color: var(--violeta);
+    color: #ffffff;
 }
 
-/* --- VISIBILIDAD DE PESTAÑAS --- */
+
+/* =====================================================================
+   4. BARRA DE AVISO (marquesina)
+   El mensaje está repetido dos veces en el HTML para que el bucle no
+   tenga saltos. Si borrás un mensaje, borralo de las dos mitades.
+   ===================================================================== */
+.barra-aviso {
+    background-color: #ffffff2a;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 0;
+}
+
+.barra-aviso-pista {
+    display: inline-flex;
+    width: max-content;
+    animation: aviso-desplazar 22s linear infinite;
+}
+
+.barra-aviso-pista span {
+    padding: 0 28px;
+}
+
+/* Se frena al pasar el mouse o tocar la barra */
+.barra-aviso:hover .barra-aviso-pista,
+.barra-aviso:active .barra-aviso-pista {
+    animation-play-state: paused;
+}
+
+@keyframes aviso-desplazar {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+
+/* =====================================================================
+   5. SECCIONES E INICIO
+   ===================================================================== */
 .seccion-contenido {
     display: none;
     flex-direction: column;
     gap: 20px;
+    padding: 15px;
 }
 
 .seccion-contenido.active {
     display: flex;
 }
 
-/* --- BANNER DE INICIO --- */
 .banner-promos {
     width: 100%;
     max-width: 1000px;
@@ -123,10 +219,8 @@ video {
 
 .banner-promos img {
     width: 100%;
-    height: 400px;
+    height: auto;                            /* el banner se ve entero, sin recortes */
     display: block;
-    object-fit: cover;
-    object-position: center;
 }
 
 /* Evita saltos de diseño mientras se dibujan los combos */
@@ -134,7 +228,10 @@ video {
     min-height: 100vh;
 }
 
-/* --- CUADRÍCULA Y TARJETAS DE PRODUCTO --- */
+
+/* =====================================================================
+   6. TARJETAS DE PRODUCTO Y BOTONES
+   ===================================================================== */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -190,12 +287,13 @@ video {
 .product-price {
     font-size: 16px;
     font-weight: bold;
-    color: #4f46e5;
+    color: var(--color-precio);
     margin-top: 5px;
     margin-bottom: 10px;
     display: block;
 }
 
+/* Botón de WhatsApp (verde, relleno) */
 .btn-wpp {
     display: block;
     width: 100%;
@@ -214,22 +312,40 @@ video {
     background-color: #20ba5a;
 }
 
+/* Botón "Agregar al carrito": borde violeta y centro blanco.
+   Se rellena de violeta al pasar el mouse (PC) o al apoyar el dedo (celular). */
 .btn-add-cart {
     display: block;
     width: 100%;
-    background-color: #4f46e5;
-    color: white;
-    border: none;
-    padding: 10px 0;
+    background-color: #ffffff;
+    color: var(--violeta);
+    border: 2px solid var(--violeta);
+    padding: 8px 0;
     border-radius: 8px;
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
 }
 
-.btn-add-cart:hover {
-    background-color: #4338ca;
+/* El hover solo en dispositivos con mouse: en el celular se quedaría pegado después de tocar */
+@media (hover: hover) {
+    .btn-add-cart:hover {
+        background-color: var(--violeta);
+        color: #ffffff;
+    }
+}
+
+.btn-add-cart:active {
+    background-color: var(--violeta-oscuro);
+    border-color: var(--violeta-oscuro);
+    color: #ffffff;
+    transform: scale(0.98);
+}
+
+.btn-add-cart:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.35);
+    outline-offset: 2px;
 }
 
 .sin-resultados {
@@ -241,10 +357,38 @@ video {
     color: #374151;
 }
 
-/* --- CATÁLOGO: DOS COLUMNAS (buscador a la izquierda, productos a la derecha) --- */
+/* --- Catálogo y "También te puede interesar": tarjetas más limpias ---
+   Se ve solo nombre, precio y "Agregar al carrito". La descripción y el botón
+   de WhatsApp se ven al entrar al producto. Los combos de Inicio no cambian.
+   (Los selectores son largos a propósito para ganarle a detalle.css.) */
+#grid-productos .product-card .product-info p,
+#grid-relacionados .product-card .product-info p {
+    display: none;
+}
+
+#grid-productos .product-card .btn-wpp,
+#grid-relacionados .product-card .btn-wpp {
+    display: none;
+}
+
+/* Sin descripción, el precio baja al fondo y los botones quedan alineados */
+#grid-productos .product-price,
+#grid-relacionados .product-price {
+    margin-top: auto;
+}
+
+/* Precio dentro de la página del producto (pisa el violeta de detalle.css) */
+.dp-pagina .dp-precio {
+    color: var(--color-precio);
+}
+
+
+/* =====================================================================
+   7. CATÁLOGO (buscador a la izquierda, productos a la derecha)
+   ===================================================================== */
 .shop-layout {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 1fr;              /* celular: una columna */
     gap: 20px;
     align-items: flex-start;
 }
@@ -256,8 +400,6 @@ video {
     padding: 20px;
     border-radius: 14px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 20px;
 }
 
 .sidebar h3 {
@@ -282,7 +424,7 @@ video {
 }
 
 #buscador:focus {
-    border-color: #4f46e5;
+    border-color: var(--violeta);
 }
 
 .category-list {
@@ -305,11 +447,11 @@ video {
 }
 
 .category-list a:hover {
-    background-color: #4f46e5;
+    background-color: var(--violeta);
     color: white;
 }
 
-/* Botón de categorías: solo se ve en celular (ver bloque de celulares más abajo) */
+/* Botón plegable de categorías: solo se ve en celular (ver sección 14) */
 .btn-categorias {
     display: none;
 }
@@ -321,7 +463,7 @@ video {
     gap: 20px;
 }
 
-/* --- PAGINACIÓN --- */
+/* Paginación */
 .paginacion {
     display: flex;
     justify-content: center;
@@ -357,12 +499,15 @@ video {
 }
 
 .btn-pagina-activa {
-    background: linear-gradient(135deg, #FF9AA2, #FFB7B2);
+    background: linear-gradient(135deg, #4f46e5, #4f46e5);
     color: white;
-    box-shadow: 0 3px 8px rgba(255, 154, 162, 0.5);
+    box-shadow: 0 3px 8px rgba(238, 154, 255, 0.589);
 }
 
-/* --- QUIÉNES SOMOS --- */
+
+/* =====================================================================
+   8. QUIÉNES SOMOS
+   ===================================================================== */
 .nosotros-container {
     background-color: rgba(255, 255, 255, 0.95);
     max-width: 700px;
@@ -429,7 +574,10 @@ video {
     font-weight: 600;
 }
 
-/* --- PREGUNTAS FRECUENTES --- */
+
+/* =====================================================================
+   9. PREGUNTAS FRECUENTES (solo en Inicio)
+   ===================================================================== */
 .faq-section {
     width: 100%;
 }
@@ -506,18 +654,23 @@ video {
     font-weight: 600;
 }
 
-/* --- CONTACTO --- */
+
+/* =====================================================================
+   10. CONTACTO Y FOOTER
+   De punta a punta, igual que el encabezado. El footer va adentro del recuadro.
+   ===================================================================== */
 .contact-section {
     width: 100%;
+    margin-top: 20px;
 }
 
 .contact-card {
     background-color: rgba(255, 255, 255, 0.171);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    padding: 30px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    padding: 24px 15px;
+    border-radius: 0;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.85);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -576,16 +729,20 @@ video {
     font-family: inherit;
 }
 
-/* --- FOOTER --- */
 footer {
     text-align: center;
     color: #181717fb;
     font-size: 12px;
     text-shadow: 0 1px 4px rgb(37, 37, 37);
     margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.685);
 }
 
-/* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+
+/* =====================================================================
+   11. BOTONES FLOTANTES
+   ===================================================================== */
 .btn-wpp-flotante {
     position: fixed;
     bottom: 20px;
@@ -606,23 +763,23 @@ footer {
     transform: scale(1.1);
 }
 
-/* --- BOTÓN FLOTANTE DEL CARRITO --- */
+/* Carrito (arriba a la derecha). En celular: solo el ícono y el numerito */
 .cart-floating-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #4f46e5;
+    top: 10px;
+    right: 10px;
+    background-color: var(--violeta);
     color: white;
-    padding: 10px 20px;
+    padding: 8px 12px;
     border-radius: 30px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     transition: transform 0.2s;
 }
 
@@ -638,7 +795,40 @@ footer {
     font-size: 12px;
 }
 
-/* --- PANEL LATERAL DEL CARRITO --- */
+/* Volver arriba (aparece después de bajar 500 px, lo maneja script.js) */
+.btn-subir {
+    position: fixed;
+    bottom: 84px;                            /* justo arriba del botón de WhatsApp */
+    right: 22px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--violeta);
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+}
+
+.btn-subir.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-subir:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================================
+   12. PANEL DEL CARRITO
+   ===================================================================== */
 .cart-sidebar {
     position: fixed;
     top: 0;
@@ -794,7 +984,9 @@ footer {
     color: #1f2937;
 }
 
-.btn-cart-secondary {
+/* "Seguir viendo productos" y "Vaciar carrito" se ven iguales */
+.btn-cart-secondary,
+.btn-cart-clear {
     background-color: #ffffff;
     color: #1f2937;
     border: 1.5px solid #1f2937;
@@ -806,26 +998,10 @@ footer {
     transition: background-color 0.2s, color 0.2s;
 }
 
-.btn-cart-secondary:hover {
-    background-color: #1f2937;
-    color: #ffffff;
-}
-
-.btn-cart-clear {
-    background-color: #ffffff;
-    border: 1.5px solid #1f2937;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: 600;
-    color: #0e0d0d;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
-}
-
+.btn-cart-secondary:hover,
 .btn-cart-clear:hover {
     background-color: #1f2937;
-    color: #f4f6f9;
+    color: #ffffff;
 }
 
 .btn-whatsapp-cart {
@@ -845,7 +1021,10 @@ footer {
     background-color: #20ba5a;
 }
 
-/* --- VENTANA EMERGENTE (botón de arrepentimiento) --- */
+
+/* =====================================================================
+   13. VENTANA EMERGENTE (botón de arrepentimiento)
+   ===================================================================== */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -922,7 +1101,7 @@ footer {
 
 .modal-box input:focus,
 .modal-box textarea:focus {
-    border-color: #4f46e5;
+    border-color: var(--violeta);
 }
 
 .btn-modal-enviar {
@@ -943,26 +1122,13 @@ footer {
     background-color: #20ba5a;
 }
 
+
 /* =====================================================================
-   CELULARES Y TABLETS CHICAS (hasta 768 px)
-   Va al final a propósito: estas reglas tienen que pisar a las de arriba.
+   14. SOLO CELULAR (hasta 768 px)
+   Categorías plegables.
    ===================================================================== */
 @media (max-width: 768px) {
-    /* El catálogo pasa a una sola columna: buscador arriba, productos abajo */
-    .shop-layout {
-        grid-template-columns: 1fr;
-    }
 
-    .sidebar {
-        position: static;
-    }
-
-    /* El banner conserva su proporción y no se recorta */
-    .banner-promos img {
-        height: auto;
-    }
-
-    /* Botón plegable de categorías */
     .btn-categorias {
         display: flex;
         align-items: center;
@@ -993,7 +1159,7 @@ footer {
         transform: rotate(180deg);
     }
 
-    /* En celular el botón ya dice "Categorías", así que el título se oculta */
+    /* El botón ya dice "Categorías", así que el título se oculta */
     .titulo-categorias {
         display: none;
     }
@@ -1009,21 +1175,13 @@ footer {
     }
 }
 
+
 /* =====================================================================
-   CELULARES (hasta 600 px)
+   15. SOLO CELULAR CHICO (hasta 600 px)
+   Catálogo de a 2 productos por fila (los combos de Inicio siguen de a 1).
    ===================================================================== */
 @media (max-width: 600px) {
-    /* Los botones del menú pasan a dos filas en vez de cortarse */
-    .nav-tabs {
-        flex-wrap: wrap;
-    }
 
-    .tab-btn {
-        padding: 8px 16px;
-        font-size: 13px;
-    }
-
-    /* Catálogo: 2 productos por fila (los combos de Inicio siguen de a 1) */
     #grid-productos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
@@ -1043,98 +1201,89 @@ footer {
         line-height: 1.25;
     }
 
-    /* Descripción cortada a 2 líneas para que las tarjetas queden parejas */
-    #grid-productos .product-info p {
-        font-size: 12px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
     #grid-productos .product-price {
         font-size: 14px;
         margin-bottom: 4px;
     }
 
-    #grid-productos .btn-wpp,
     #grid-productos .btn-add-cart {
         font-size: 12px;
-        padding: 8px 0;
+        padding: 6px 0;
     }
 }
-    /* =====================================================================
-   COMPUTADORAS Y TABLETS GRANDES (desde 769 px)
-   Página a todo el ancho que se adapta a cualquier pantalla.
-   Va al final a propósito. En celular no se aplica nada de esto.
+
+
+/* =====================================================================
+   16. SOLO PC (desde 769 px)
+   Página a todo el ancho. El encabezado y el contacto van de punta a punta;
+   todo lo del medio comparte el mismo ancho (--max) y las mismas esquinas.
    ===================================================================== */
 @media (min-width: 769px) {
 
-    :root {
-        --pad: clamp(16px, 3vw, 48px);   /* margen lateral: crece con la pantalla */
-        --max: 1600px;                   /* ancho máximo del contenido (monitores enormes) */
-    }
-
-    /* La página ocupa todo el ancho y arranca desde arriba */
-    body {
-        padding: 0;
-        align-items: flex-start;
-    }
-
-    .container {
-        max-width: none;
-        gap: 0;
-    }
-
-    /* --- ENCABEZADO: de punta a punta --- */
+    /* --- Encabezado --- */
     .main-header {
-        border-radius: 0;
-        padding: 14px var(--pad);
-        padding-right: 200px;            /* deja lugar al botón del carrito */
+        padding: 10px var(--pad);
+        gap: 8px;
+        background-color: rgba(255, 255, 255, 0.171);
     }
 
     .banner-img {
-        max-height: 110px;
+        max-height: 95px;
+    }
+
+    .nav-tabs {
+        gap: 10px;
+        padding-top: 8px;
+    }
+
+    .tab-btn {
+        padding: 8px 22px;
+        font-size: 14px;
     }
 
     .cart-floating-btn {
         top: 26px;
         right: var(--pad);
+        padding: 10px 20px;
+        gap: 8px;
+        font-size: 14px;
     }
 
-    /* --- SECCIONES: contenido centrado con ancho máximo --- */
+    /* --- Barra de aviso --- */
+    .barra-aviso {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+
+    .barra-aviso-pista {
+        animation-duration: 30s;
+    }
+
+    .barra-aviso-pista span {
+        padding: 0 40px;
+    }
+
+    /* --- Secciones: el contenido del medio, centrado y con el mismo ancho --- */
     .seccion-contenido {
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
-
-    #seccion-inicio {
-        padding-top: 0;                  /* el banner va pegado al encabezado */
+        padding: 24px 0;
     }
 
     .seccion-contenido > *:not(.banner-promos),
-    #seccion-detalle > *,
-    .faq-section,
-    .contact-section,
-    footer {
+    #seccion-detalle > * {
         width: min(100% - 2 * var(--pad), var(--max));
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* --- BANNER DE INICIO: de punta a punta --- */
     .banner-promos {
+        width: min(100% - 2 * var(--pad), var(--max));
         max-width: none;
-        margin: 0;
-        border-radius: 0;
+        margin: 0 auto;
+        border-radius: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
 
-    .banner-promos img {
-        height: clamp(260px, 28vw, 480px);
-    }
-
-    /* --- PRODUCTOS: más columnas cuanto más ancha la pantalla --- */
+    /* --- Productos --- */
     .product-grid {
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
         gap: 22px;
@@ -1149,63 +1298,48 @@ footer {
         gap: 28px;
     }
 
-    /* --- DETALLE DE PRODUCTO: que la foto no se estire de más --- */
-    .dp-top,
-    .dp-descripcion {
-        max-width: 1250px;
-        margin-left: auto;
-        margin-right: auto;
+    .sidebar {
+        position: sticky;
+        top: 175px;                          /* debajo del encabezado fijo */
     }
 
-    /* --- TEXTOS: cómodos de leer, no estirados --- */
+    /* --- Textos --- */
     .nosotros-container {
         max-width: 900px;
     }
 
-    .faq-section,
+    .faq-section {
+        margin-bottom: 10px;
+    }
+
+    /* --- Contacto: de punta a punta --- */
     .contact-section {
-        width: min(100% - 2 * var(--pad), 1100px);
+        margin-top: 30px;
     }
 
-    footer {
-        padding-bottom: 20px;
+    .contact-card {
+        padding: 30px var(--pad);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
 }
+
+
 /* =====================================================================
-   PC: 4 PRODUCTOS POR FILA, TARJETAS DE TAMAÑO CÓMODO + BANNER SIN CORTES
+   17. SOLO PC GRANDE (desde 1100 px)
+   4 productos por fila en Inicio y en Catálogo.
+   Entre 769 y 1099 px (tablets) quedan las columnas automáticas.
    ===================================================================== */
-@media (min-width: 769px) {
-    /* Ancho máximo del contenido (antes 1600): así las tarjetas no se agrandan de más */
-    :root {
-        --max: 1200px;
-    }
-
-    /* Banner: se ve ENTERO, sin recortarse (la altura sale sola de la imagen) */
-    .banner-promos img {
-        height: auto;
-        object-fit: contain;
-    }
-}
-
 @media (min-width: 1100px) {
-    /* Combos de Inicio: 4 por fila, en un ancho parecido al de antes */
-    #grid-combos {
-        width: min(100% - 2 * var(--pad), 1000px);
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 20px;
-    }
 
-    /* Catálogo: 4 por fila al lado del buscador */
+    #grid-combos,
     #grid-productos {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 20px;
     }
 
-    /* Foto con la misma altura que tenías antes */
     #grid-combos .product-card img,
     #grid-productos .product-card img {
         height: 190px;
-        object-fit: contain;
     }
 
     #grid-combos .product-info,
@@ -1219,268 +1353,55 @@ footer {
         line-height: 1.3;
     }
 
-    #grid-combos .product-info p,
-    #grid-productos .product-info p {
+    #grid-combos .product-info p {
         font-size: 13px;
     }
 }
-/* =====================================================================
-   PC: CONTACTO IGUAL QUE EL ENCABEZADO (de punta a punta)
-   ===================================================================== */
-@media (min-width: 769px) {
-
-    .contact-section {
-        width: 100%;
-        max-width: none;
-        margin: 30px 0 0;
-    }
-
-    .contact-card {
-        background-color: rgba(255, 255, 255, 0.171);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-radius: 0;
-        padding: 30px var(--pad);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    }
+/* Títulos y precios con más carácter */
+.product-info h3,
+.faq-card h2,
+.contact-card h2 {
+    font-weight: 800;
 }
-/* Footer dentro del recuadro de contacto */
-.contact-card footer {
-    width: auto;
-    margin: 10px 0 0;
-    padding: 12px 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.685);
+
+.product-price,
+.dp-pagina .dp-precio {
+    font-weight: 800;
 }
 /* =====================================================================
-   PC: ENCABEZADO CENTRADO
+   TÍTULOS DE SECCIÓN (Catálogo, Quiénes Somos)
    ===================================================================== */
-@media (min-width: 769px) {
-    .main-header {
-        padding-left: var(--pad);
-        padding-right: var(--pad);       /* mismo margen a los dos lados */
-    }
-}
-/* =====================================================================
-   PC: TODO EL CONTENIDO DEL MEDIO CON EL MISMO ANCHO Y MISMAS ESQUINAS
-   ===================================================================== */
-@media (min-width: 769px) {
-
-    /* Banner: mismo ancho que los productos, con esquinas redondeadas como las tarjetas */
-    #seccion-inicio {
-        padding-top: 24px;
-    }
-
-    .banner-promos {
-        width: min(100% - 2 * var(--pad), var(--max));
-        margin: 0 auto;
-        border-radius: 14px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-
-    .banner-promos img {
-        height: auto;
-        object-fit: contain;
-    }
-
-    /* Combos: mismo ancho que el banner (antes eran más angostos) */
-    #grid-combos {
-        width: min(100% - 2 * var(--pad), var(--max));
-    }
-
-    /* Preguntas frecuentes: mismo ancho que los productos */
-    .faq-section {
-        width: min(100% - 2 * var(--pad), var(--max));
-    }
-
-    /* Un poco de aire antes del contacto */
-    .faq-section {
-        margin-bottom: 10px;
-    }
-}
-/* =====================================================================
-   PC: ENCABEZADO FIJO AL SCROLLEAR (logo más grande, fondo más sólido)
-   ===================================================================== */
-@media (min-width: 769px) {
-    .main-header {
-        position: sticky;
-        top: 0;
-        z-index: 900;                    /* por debajo del carrito (1000) */
-        padding-top: 10px;
-        padding-bottom: 10px;
-        gap: 8px;
-        background-color: rgba(255, 255, 255, 0.171);  /* más sólido: se lee mejor */
-    }
-
-    .banner-img {
-        max-height: 95px;                /* logo más grande (antes 70) */
-    }
-
-    .nav-tabs {
-        padding-top: 8px;
-    }
-
-    /* El buscador lateral del catálogo queda debajo del encabezado fijo */
-    .sidebar {
-        top: 175px;
-    }
-}
-/* =====================================================================
-   CELULAR: ENCABEZADO FIJO + CONTACTO DE PUNTA A PUNTA
-   Solo se aplica hasta 768 px. Va al final a propósito.
-   ===================================================================== */
-@media (max-width: 768px) {
-
-    /* La página ocupa todo el ancho, sin márgenes del body */
-    body {
-        padding: 0;
-        align-items: flex-start;
-    }
-
-    .container {
-        gap: 0;
-    }
-
-    /* El contenido del medio conserva sus márgenes laterales */
-    .seccion-contenido {
-        padding: 15px;
-    }
-
-    /* --- ENCABEZADO: de punta a punta, fijo y compacto --- */
-    .main-header {
-        position: sticky;
-        top: 0;
-        z-index: 900;                    /* por debajo del carrito (1000) */
-        border-radius: 0;
-        padding: 8px 12px;
-        gap: 6px;
-        background-color: rgba(255, 255, 255, 0.137);
-    }
-
-    .banner-img {
-        max-height: 64px;                /* logo chico para no tapar la pantalla */
-    }
-
-    /* Los 3 botones del menú en una sola fila */
-    .nav-tabs {
-        flex-wrap: nowrap;
-        gap: 6px;
-        padding-top: 6px;
-    }
-
-    .tab-btn {
-        padding: 7px 10px;
-        font-size: 12px;
-    }
-
-    /* Carrito más chico, arriba a la derecha */
-    .cart-floating-btn {
-        top: 10px;
-        right: 10px;
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-
-    /* --- CONTACTO: igual que el encabezado, de punta a punta --- */
-    .contact-section {
-        margin-top: 20px;
-    }
-
-    .contact-card {
-        border-radius: 0;
-        padding: 24px 15px;
-        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.85);
-    }
-}
-/* CELULAR: carrito solo con ícono */
-@media (max-width: 768px) {
-    .cart-floating-btn {
-        padding: 8px 12px;
-        gap: 6px;
-        font-size: 16px;
-    }
-}
-/* =====================================================================
-   BARRA DE AVISO + BOTÓN VOLVER ARRIBA
-   ===================================================================== */
-.btn-subir {
-    position: fixed;
-    bottom: 90px;                 /* arriba del botón de WhatsApp */
-    right: 28px;
-    width: 44px;
-    height: 44px;
-    border: none;
-    border-radius: 50%;
-    background-color: #4f46e5;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 998;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+.section-title {
+    background-color: rgba(255, 255, 255, 0.342);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 16px 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    text-align: center;
 }
 
-.btn-subir.visible {
-    opacity: 1;
-    visibility: visible;
+.section-title h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1f2937;
+    text-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
 }
 
-.btn-subir:hover {
-    transform: translateY(-3px);
-}
-.btn-subir {
-        bottom: 84px;
-        right: 22px;
+/* La rayita violeta debajo del título */
+.section-title h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin: 10px auto 0;
+    border-radius: 4px;
+    background-color: var(--violeta);
 }
 
-/* =====================================================================
-   BARRA DE AVISO MÓVIL (marquesina)
-   ===================================================================== */
-.barra-aviso {
-    background-color: #ffffff2a;
-    color: #ffffff;
-    font-size: 13px;
+.section-title p {
+    font-size: 14px;
     font-weight: 600;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 8px 0;
-}
-
-.barra-aviso-pista {
-    display: inline-flex;
-    width: max-content;
-    animation: aviso-desplazar 30s linear infinite;
-}
-
-.barra-aviso-pista span {
-    padding: 0 40px;
-}
-
-/* Se frena al pasar el mouse o tocar la barra */
-.barra-aviso:hover .barra-aviso-pista,
-.barra-aviso:active .barra-aviso-pista {
-    animation-play-state: paused;
-}
-
-@keyframes aviso-desplazar {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-}
-
-/* Celular: un poco más chica y más rápida (el texto recorre menos pantalla) */
-@media (max-width: 768px) {
-    .barra-aviso {
-        font-size: 11px;
-        padding: 6px 0;
-    }
-
-    .barra-aviso-pista {
-        animation-duration: 22s;
-    }
-
-    .barra-aviso-pista span {
-        padding: 0 28px;
-    }
+    color: #374151;
+    margin-top: 6px;
 }

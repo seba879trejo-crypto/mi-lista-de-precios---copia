@@ -107,18 +107,46 @@ const PRODUCTOS = [
   {
     id: "cuadernillo-a4-con-espiral-cuadriculado",
     nombre: "Cuadernillo A4 Con Espiral cuadriculado",
-    descripcion: "Cuadernillo Húsares cuadriculado.",
+    descripcion: "Cuadernillo Húsares cuadriculado 80 hojas tapa blanda.",
     precio: 2500,
     categorias: ["cuadernos"],
-    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
+    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
+    imagenes: [
+            "Img-Productos/husares-amarillo.jpg",
+              "Img-Productos/husares-azul.jpg",
+              "Img-Productos/husares-naranja.jpg",
+              "Img-Productos/husares-verde.jpg",
+              "Img-Productos/husares-violeta.jpg" 
+   ]
   },
   {
     id: "cuadernillo-a4-con-espiral-rayado",
     nombre: "Cuadernillo A4 Con Espiral Rayado",
-    descripcion: "Cuadernillo Húsares rayado .",
+    descripcion: "Cuadernillo Húsares rayado 80 hojas tapa blanda.",
     precio: 2500,
     categorias: ["cuadernos"],
-    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
+    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
+    imagenes: [
+            "Img-Productos/husares-amarillo.jpg",
+              "Img-Productos/husares-azul.jpg",
+              "Img-Productos/husares-naranja.jpg",
+              "Img-Productos/husares-verde.jpg",
+              "Img-Productos/husares-violeta.jpg"
+   ]
+  },
+  {
+    id: "cuadernillo-rivadavia",
+    nombre: "Cuaderno A4 Rivadavia",
+    descripcion: "Cuaderno A4 Rivadavia tapa dura de 100 hojas rayado, sin puntillado ni perforado.",
+    precio: null, 
+    categorias: ["cuadernos", "escolares", "oficina"],
+    imagen: "Img-Productos/Cuadernos-rivadavia.jpg",
+    imagenes: [
+            "Img-Productos/CR-amarillo.jpg",
+              "Img-Productos/CR-azul.jpg",
+              "Img-Productos/CR-Rojo.jpg",
+              "Img-Productos/CR-verde.jpg" 
+   ]
   },
   {
     id: "resaltador-pastel-rosa",
@@ -161,7 +189,7 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Corrector-Intro.jpg"
   },
   {
-    id: "goma-de-borrar",
+    id: "goma-de-borrar-filgo",
     nombre: "Goma de Borrar",
     descripcion: "Borrador Blanco Filgo.",
     precio: 250,
@@ -193,7 +221,7 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Lapices-de-colores-filgo-x12.jpg"
   },
   {
-    id: "lapices",
+    id: "lapices-mas-2-hb",
     nombre: "Lapices + 2 Lapices HB",
     descripcion: "Lapices Filgo x 12 + 2 Lapices HB.",
     precio: 2300,
@@ -442,7 +470,7 @@ const PRODUCTOS = [
     imagen: "Img-Productos/mandalas-12-hojas.jpg"
   },
   {
-    id: "libros-de-mandalas-40-hojas",
+    id: "libros-de-mandalas-32-hojas",
     nombre: "Mandalas Libsa",
     descripcion: "Mandalas Libsa de diseño para ninos de 32 hojas",
     precio: 8000,
@@ -473,7 +501,7 @@ const PRODUCTOS = [
     ]
   },
   {
-    id: "libro-coleccion-juegos",
+    id: "libro-pasatiempos-vol1",
     nombre: "Libro Pasatiempos Vol.1 ",
     descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
     precio: 2800,
@@ -481,7 +509,7 @@ const PRODUCTOS = [
     imagen: "Img-Productos/pasatiempo-vol1.jpg"
   },
   {
-    id: "libro-coleccion-juegos",
+    id: "libro-pasatiempos-vol3",
     nombre: "Libro Pasatiempos Vol.3",
     descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
     precio: 2800,
@@ -489,7 +517,7 @@ const PRODUCTOS = [
     imagen: "Img-Productos/pasatiempo-vol3.jpg"
   },
   {
-    id: "libro-coleccion-juegos",
+    id: "libro-pasatiempos-vol4",
     nombre: "Libro Pasatiempos Vol.4",
     descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
     precio: 2800,
@@ -519,12 +547,20 @@ const PRODUCTOS = [
     imagen: "Img-Productos/ADC_LIBRO-AMOPINTAR_ANIMALES-DE-LA-SELVA_Tapa.jpg"
   },
   {
-    id: "cinta-adhesiva",
-    nombre: "Cinta Adhesiva",
-    descripcion: "Cinta adhesiva Stiko",
+    id: "cinta-adhesiva-12mm",
+    nombre: "Cinta Adhesiva Transparente",
+    descripcion: "Cinta adhesiva Stiko 12mmx7mm N10",
     precio: 400,
-    categorias: ["oficina"],
+    categorias: ["oficina", "cintas adhesivas"],
     imagen: "Img-Productos/Cinta-Adhesiva-Stiko.jpg"
+  },
+  {
+    id: "cinta-adhesiva-48mm",
+    nombre: "Cinta Adhesiva Transparente",
+    descripcion: "Cinta adhesiva Stiko 48mmx50m",
+    precio: null,
+    categorias: ["oficina", "cintas adhesivas"],
+    imagen: "Img-Productos/cinta-stiko.jpg"
   },
   {
     id: "cuentos-infantiles",
@@ -763,7 +799,14 @@ const PRODUCTOS = [
     descripcion: "Cuadernos A5 rayado Húsares.",
     precio: 1900,
     categorias: ["cuadernos"],
-    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
+    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
+    imagenes: [
+            "Img-Productos/husares-amarillo.jpg",
+              "Img-Productos/husares-azul.jpg",
+              "Img-Productos/husares-naranja.jpg",
+              "Img-Productos/husares-verde.jpg",
+              "Img-Productos/husares-violeta.jpg"
+   ]
   },
   {
     id: "cuadernos-a5-con-espiral-cuadriculado",
@@ -771,11 +814,18 @@ const PRODUCTOS = [
     descripcion: "Cuadernos A5 cuadriculado Húsares.",
     precio: 1900,
     categorias: ["cuadernos"],
-    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg"
+    imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
+    imagenes: [
+            "Img-Productos/husares-amarillo.jpg",
+              "Img-Productos/husares-azul.jpg",
+              "Img-Productos/husares-naranja.jpg",
+              "Img-Productos/husares-verde.jpg",
+              "Img-Productos/husares-violeta.jpg"
+   ]
   },
   {
     id: "Marcador-azul-permanente",
-    nombre: "Marcador Permanente Trabi",
+    nombre: "Marcador Permanente Trabi Azul",
     descripcion: "Marcador permanente azul Trabi",
     precio: 1500,
     categorias: ["marcadores", "oficina", "escolares"],
@@ -783,7 +833,7 @@ const PRODUCTOS = [
   },
   {
     id: "Marcador-rojo-permanente",
-    nombre: "Marcador Permanente Trabi",
+    nombre: "Marcador Permanente Trabi Rojo",
     descripcion: "Marcador permanente rojo Trabi",
     precio: 1500,
     categorias: ["marcadores", "oficina", "escolares"],
@@ -791,7 +841,7 @@ const PRODUCTOS = [
   },
   {
     id: "Marcador-verde-permanente",
-    nombre: "Marcador Permanente Trabi",
+    nombre: "Marcador Permanente Trabi Verde",
     descripcion: "Marcador permanente verde Trabi",
     precio: 1500,
     categorias: ["marcadores", "oficina", "escolares"],
@@ -868,5 +918,13 @@ const PRODUCTOS = [
     precio: 1800,
     categorias: ["señaladores", "escolares", "oficina"],
     imagen: "Img-Productos/Señalador-Medoro.jpg"
+  },
+  {
+    id: "acuarelas",
+    nombre: "Acuarelas Escolares Filgo",
+    descripcion: "Acuarelas Escolares Filgo 12 colores brillantes incluye pincel.",
+    precio: null,
+    categorias: ["escolares", "infantil"],
+    imagen: "Img-Productos/acuarelas-filgo.jpg"
   },
 ];

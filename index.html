@@ -13,6 +13,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <!-- Ícono de la pestaña (provisorio, mientras no tengas tu logo en tamaño chico) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✏️</text></svg>">
+        <!-- Tipografía: Nunito (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="detalle.css">
 </head>
@@ -150,6 +154,7 @@
 
                     <ul class="category-list" id="lista-categorias">
                         <li><a href="#" onclick="filtrarCategoria('todos'); return false;">Ver Todos (<span id="total-menu">0</span>)</a></li>
+                        <li><a href="#" onclick="filtrarCategoria('cintas adhesivas'); return false;">Cintas Adhesivas</a></li>
                         <li><a href="#" onclick="filtrarCategoria('corrector'); return false;">Corrector</a></li>
                         <li><a href="#" onclick="filtrarCategoria('cuadernos'); return false;">Cuadernos</a></li>
                         <li><a href="#" onclick="filtrarCategoria('escolares'); return false;">Escolares</a></li>
