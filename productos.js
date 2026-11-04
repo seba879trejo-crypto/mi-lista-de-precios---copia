@@ -28,7 +28,8 @@ const PRODUCTOS = [
     precio: null,
     categorias: [],
     imagen: "Img-Productos/images.png",
-    combo: true
+    combo: true,
+    activo: false
   },
   {
     id: "combo-a-eleccion",
