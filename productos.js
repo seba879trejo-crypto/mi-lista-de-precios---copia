@@ -24,7 +24,7 @@ const PRODUCTOS = [
   {
     id: "combo-escolar-inicial",
     nombre: "Combo Escolar Inicial",
-    descripcion: "",
+    descripcion: "1 carpeta N3 C/Anillos - 1 Pack de hojas Rivadavia - 1 Kit de Separadores - 1 Lapicera borrable Simball - 2 Lapiceras de Color (a eleccion) - 1 Goma de borrar (a eleccion).",
     precio: null,
     categorias: [],
     imagen: "Img-Productos/images.png",
@@ -88,7 +88,7 @@ const PRODUCTOS = [
   {
     id: "combo-infantil-N1",
     nombre: "Combo Infantil N°1",
-    descripcion: "1 Tijera Filgo - 1 Borrador - 1 Sacapunta Filgo - 2 Lapices Negros Filgo - 1 Fibras Filgo - 1 Libro de Biblioteca Interactiva a eleccion.",
+    descripcion: "1 Tijera Filgo - 1 Borrador - 1 Sacapunta Filgo - 2 Lapices Negros Filgo - 1 Fibras Filgo - 1 Libro de Biblioteca Interactiva (a eleccion).",
     precio: 6300,
     categorias: [],
     imagen: "Img-Productos/Combo-inf-1.jpg",
@@ -97,18 +97,59 @@ const PRODUCTOS = [
   {
     id: "combo-infantil-N2",
     nombre: "Combo Infantil N°2",
-    descripcion: "1 Tijera Filgo - 1 Borrador - 2 Sacapunta Filgo - 2 Lápices Negros Filgo - 1 Caja de Lapices de colores Filgo - 1 Libro de Biblioteca Interactiva a eleccion.",
+    descripcion: "1 Tijera Filgo - 1 Borrador - 2 Sacapunta Filgo - 2 Lápices Negros Filgo - 1 Caja de Lapices de colores Filgo - 1 Libro de Biblioteca Interactiva (a eleccion).",
     precio: 7000,
     categorias: [],
     imagen: "Img-Productos/Combo-inf-2.jpg",
     combo: true
   },
+  {
+    id: "combo-vacaciones",
+    nombre: "Combo Vacaciones",
+    descripcion: "1 Libro para pintar con crayones Juega y Modela (a eleccion) - 1 Libro de Cuentos (a eleccion) - 1 Libro de Biblioteca Interactiva (a eleccion).",
+    precio: null,
+    categorias: [],
+    imagen: "Img-Productos/Combo-inf-2.jpg",
+    combo: true,
+    activo: false
+  },
+{
+    id: "combo-aprendo-pintando",
+    nombre: "Combo Aprendo Pintando",
+    descripcion: "1 Libro Aprendo pintando (a eleccion) - 1 pincel - 3 Temperas Señoritas - 1 Caja de Lapices de colores x12 Filgo.",
+    precio: null,
+    categorias: [],
+    imagen: "Img-Productos/Combo-inf-2.jpg",
+    combo: true,
+    activo: false
+  },
+{
+    id: "combo-libros-mandalas",
+    nombre: "Combo Mis Mandalas ",
+    descripcion: "1 Libro de Mandalas (a eleccion) - 1 Caja de Lapices de Colores+2HB - 1 Libro de Pasatiempos (a eleccion).",
+    precio: null,
+    categorias: [],
+    imagen: "Img-Productos/Combo-inf-2.jpg",
+    combo: true,
+    activo: false
+  },
+{
+    id: "combo-regreso-a-clases",
+    nombre: "Combo Regresos a Clases",
+    descripcion: "1 Cuaderno Húsares A5 - Resaltadores Filgo x 3 (a eleccion) - 4 Lapiceras de Color (a eleccion) - 1 Goma de borrar Simball.",
+    precio: null,
+    categorias: [],
+    imagen: "Img-Productos/Combo-inf-2.jpg",
+    combo: true,
+    activo: false
+  },
+
 
   // ---------------- CATÁLOGO ----------------
   {
     id: "cuadernillo-a4-con-espiral-cuadriculado",
     nombre: "Cuadernillo A4 Con Espiral cuadriculado",
-    descripcion: "Cuadernillo Húsares cuadriculado 80 hojas tapa blanda.",
+    descripcion: "Cuadernillo Húsares cuadriculado 80 hojas tapa blanda. La eleccion del modelo se realiza al momento del pago y en base al stock del producto.",
     precio: 2500,
     categorias: ["cuadernos"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
@@ -123,7 +164,7 @@ const PRODUCTOS = [
   {
     id: "cuadernillo-a4-con-espiral-rayado",
     nombre: "Cuadernillo A4 Con Espiral Rayado",
-    descripcion: "Cuadernillo Húsares rayado 80 hojas tapa blanda.",
+    descripcion: "Cuadernillo Húsares rayado 80 hojas tapa blanda. La eleccion del modelo se realiza al momento del pago y en base al stock del producto.",
     precio: 2500,
     categorias: ["cuadernos"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
@@ -138,8 +179,8 @@ const PRODUCTOS = [
   {
     id: "cuadernillo-rivadavia",
     nombre: "Cuaderno A4 Rivadavia",
-    descripcion: "Cuaderno A4 Rivadavia tapa dura de 100 hojas rayado, sin puntillado ni perforado.",
-    precio: null, 
+    descripcion: "Cuaderno A4 Rivadavia tapa dura de 100 hojas rayado, sin puntillado ni perforado. La eleccion del modelo se realiza al momento del pago y en base al stock del producto.",
+    precio: 13000, 
     categorias: ["cuadernos", "escolares", "oficina"],
     imagen: "Img-Productos/Cuadernos-rivadavia.jpg",
     imagenes: [
@@ -336,7 +377,7 @@ const PRODUCTOS = [
   {
     id: "carpeta-n3-c-anillos",
     nombre: "Carpeta N3 c/anillos",
-    descripcion: "Carpetas Basicas Tapa Dura.",
+    descripcion: "Carpetas Basicas Tapa Dura. La eleccion del modelo se realiza al momento del pago y en base al stock del producto",
     precio: 4000,
     categorias: ["escolares"],
     imagen: "Img-Productos/Carpetas-lisas-N°3.jpeg"
@@ -352,7 +393,7 @@ const PRODUCTOS = [
   {
     id: "cartulinas",
     nombre: "Cartulinas",
-    descripcion: "Cartulinas Luma varieadad de colores.",
+    descripcion: "Cartulinas Luma varieadad de colores. La eleccion del color se realiza al momento del pago.",
     precio: 500,
     categorias: ["escolares"],
     imagen: "Img-Productos/Cartulinas-Luma.jpg"
@@ -393,7 +434,7 @@ const PRODUCTOS = [
     id: "resaltador-vintage",
     nombre: "Resaltador Vintage",
     descripcion: "Resaltadores Trabi Vintage.",
-    precio: 3200,
+    precio: 3500,
     categorias: ["resaltadores"],
     imagen: "Img-Productos/Resaltadores-Vintage x4.jpg"
   },
@@ -416,7 +457,7 @@ const PRODUCTOS = [
   {
     id: "libro-p-pintar-c-crayones",
     nombre: "Libro p/pintar c/crayones",
-    descripcion: "Libros didacticos para pintar con crayones incluidos Juega y Modela.",
+    descripcion: "Libros didacticos para pintar con crayones incluidos Juega y Modela. La eleccion del modelo se realiza al momento del pago y en base al stock del producto",
     precio: 3900,
     categorias: ["infantil"],
     imagen: "Img-Productos/Libros-para-Colorear-+-crayones.jpeg",
@@ -559,7 +600,7 @@ const PRODUCTOS = [
     id: "cinta-adhesiva-48mm",
     nombre: "Cinta Adhesiva Transparente",
     descripcion: "Cinta adhesiva Stiko 48mmx50m",
-    precio: null,
+    precio: 1700,
     categorias: ["oficina", "cintas adhesivas"],
     imagen: "Img-Productos/cinta-stiko.jpg"
   },
@@ -582,7 +623,7 @@ const PRODUCTOS = [
   {
     id: "aprendo-pintando",
     nombre: "Aprendo Pintando",
-    descripcion: "Libros didacticos para pintar Aprendo Pintando",
+    descripcion: "Libros didacticos para pintar Aprendo Pintando. La eleccion del modelo se realiza al momento del pago y en base al stock del producto.",
     precio: 2600,
     categorias: ["infantil"],
     imagen: "Img-Productos/todos-AP.jpg",
@@ -669,7 +710,7 @@ const PRODUCTOS = [
     id: "resaltadores-pastel-x4",
     nombre: "Resaltadores Pastel x4",
     descripcion: "Resaltadores pastel Trabi.",
-    precio: 3000,
+    precio: 3500,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/Resaltadores-Trabi-pastel-x4.webp"
   },
@@ -741,7 +782,7 @@ const PRODUCTOS = [
   {
     id: "temperas-colores-varios",
     nombre: "Temperas Colores Varios",
-    descripcion: "Tempera Señoritas variedad de colores.",
+    descripcion: "Tempera Señoritas variedad de colores. Precio x unidad. La eleccion del color se coordina al momento del pago.",
     precio: 300,
     categorias: ["escolares"],
     imagen: "Img-Productos/Temperas-señorita.jpg"
@@ -797,9 +838,9 @@ const PRODUCTOS = [
   {
     id: "cuadernos-a5-con-espiral-rayadas",
     nombre: "Cuadernos A5 Con Espiral rayadas",
-    descripcion: "Cuadernos A5 rayado Húsares.",
+    descripcion: "Cuadernos A5 rayado Húsares. La eleccion del modelo se realiza al momento del pago y en base al stock del producto.",
     precio: 1900,
-    categorias: ["cuadernos"],
+    categorias: ["cuadernos", "escolares"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
     imagenes: [
             "Img-Productos/husares-amarillo.jpg",
@@ -812,9 +853,9 @@ const PRODUCTOS = [
   {
     id: "cuadernos-a5-con-espiral-cuadriculado",
     nombre: "Cuadernos A5 Con Espiral cuadriculado",
-    descripcion: "Cuadernos A5 cuadriculado Húsares.",
+    descripcion: "Cuadernos A5 cuadriculado Húsares. La eleccion del modelo se realiza al momento del pago y en base al stock del producto.",
     precio: 1900,
-    categorias: ["cuadernos"],
+    categorias: ["cuadernos", "escolares"],
     imagen: "Img-Productos/Cuadernillo-Husares-A4.jpg",
     imagenes: [
             "Img-Productos/husares-amarillo.jpg",
@@ -924,8 +965,16 @@ const PRODUCTOS = [
     id: "acuarelas",
     nombre: "Acuarelas Escolares Filgo",
     descripcion: "Acuarelas Escolares Filgo 12 colores brillantes incluye pincel.",
-    precio: null,
+    precio: 1350,
     categorias: ["escolares", "infantil"],
     imagen: "Img-Productos/acuarelas-filgo.jpg"
+  },
+  {
+    id: "lapiz-con-borrador",
+    nombre: "Lapiz negro con Borrador",
+    descripcion: "Lapiz Negro con borrador de distintas formas.",
+    precio: 1000,
+    categorias: ["escolares", "infantil"],
+    imagen: "Img-Productos/Lapiz-Negro-con-Borrador-con-Forma.jpg",
   },
 ];
