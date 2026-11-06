@@ -784,7 +784,7 @@ const PRODUCTOS = [
     nombre: "Temperas Colores Varios",
     descripcion: "Tempera Señoritas variedad de colores. Precio x unidad. La eleccion del color se coordina al momento del pago.",
     precio: 300,
-    categorias: ["escolares"],
+    categorias: ["escolares", "temperas"],
     imagen: "Img-Productos/Temperas-señorita.jpg"
   },
   {
@@ -976,5 +976,62 @@ const PRODUCTOS = [
     precio: 1000,
     categorias: ["escolares", "infantil"],
     imagen: "Img-Productos/Lapiz-Negro-con-Borrador-con-Forma.jpg",
+  },
+  {
+    id: "temperas-amarillo-triunfante",
+    nombre: "Temperas Triunfante Amarillo",
+    descripcion: "Tempera escolares Triunfante Tintoretto x 10 unidades de 8cm³.",
+    precio: 1700,
+    categorias: ["escolares", "temperas"],
+    imagen: "Img-Productos/TT-amarillo.jpg"
+  },
+  {
+    id: "temperas-celeste-triunfante",
+    nombre: "Temperas Triunfante Celeste",
+    descripcion: "Tempera escolares Triunfante Tintoretto x 10 unidades de 8cm³.",
+    precio: 1700,
+    categorias: ["escolares", "temperas"],
+    imagen: "Img-Productos/TT-celeste.jpg"
+  },
+  {
+    id: "temperas-naranja-triunfante",
+    nombre: "Temperas Triunfante Naranja",
+    descripcion: "Tempera escolares Triunfante Tintoretto x 10 unidades de 8cm³.",
+    precio: 1700,
+    categorias: ["escolares", "temperas"],
+    imagen: "Img-Productos/TT-naranja.jpg"
+  },
+  {
+    id: "temperas-negro-triunfante",
+    nombre: "Temperas Triunfante Negro",
+    descripcion: "Tempera escolares Triunfante Tintoretto x 10 unidades de 8cm³.",
+    precio: 1700,
+    categorias: ["escolares", "temperas"],
+    imagen: "Img-Productos/TT-negro.jpg"
+  },
+  {
+    id: "temperas-rojo-triunfante",
+    nombre: "Temperas Triunfante Rojo",
+    descripcion: "Tempera escolares Triunfante Tintoretto x 10 unidades de 8cm³.",
+    precio: 1700,
+    categorias: ["escolares", "temperas"],
+    imagen: "Img-Productos/TT-rojo.jpg"
+  },
+  {
+    id: "temperas-verde-triunfante",
+    nombre: "Temperas Triunfante Verde",
+    descripcion: "Tempera escolares Triunfante Tintoretto x 10 unidades de 8cm³.",
+    precio: 1700,
+    categorias: ["escolares", "temperas"],
+    imagen: "Img-Productos/TT-verde.jpg"
+  },
+  {
+    id: "pinceles-picassito",
+    nombre: "Pinceles Picassito",
+    descripcion: "Pinceles Picassito x 6 unidades de varios colores.",
+    precio: null,
+    categorias: ["escolares", "infantil"],
+    imagen: "Img-Productos/TT-verde.jpg",
+    activo: false
   },
 ];
