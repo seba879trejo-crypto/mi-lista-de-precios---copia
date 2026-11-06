@@ -186,7 +186,7 @@ const PRODUCTOS = [
     imagenes: [
             "Img-Productos/CR-amarillo.jpg",
               "Img-Productos/CR-azul.jpg",
-              "Img-Productos/CR-Rojo.jpg",
+              "Img-Productos/CR-rojo.jpg",
               "Img-Productos/CR-verde.jpg" 
    ]
   },
@@ -241,7 +241,7 @@ const PRODUCTOS = [
   {
     id: "sacapuntas",
     nombre: "Sacapuntas",
-    descripcion: "Sacapuntas Filgo.",
+    descripcion: "Sacapuntas Filgo. Precio x Unidad.",
     precio: 250,
     categorias: ["sacapuntas", "escolares"],
     imagen: "Img-Productos/Sacapuntas-Filgo.jpg"
@@ -249,7 +249,7 @@ const PRODUCTOS = [
   {
     id: "reglas",
     nombre: "Reglas",
-    descripcion: "Reglas Filgo 15cm.",
+    descripcion: "Reglas Filgo 15cm. Precio x Unidad.",
     precio: 800,
     categorias: ["reglas"],
     imagen: "Img-Productos/Regla-15cm-Filgo.jpg"
@@ -273,7 +273,7 @@ const PRODUCTOS = [
   {
     id: "lapicera-negra",
     nombre: "Lapicera Negra",
-    descripcion: "Lapicera Negra Filgo Trazo Fino.",
+    descripcion: "Lapicera Negra Filgo Trazo Fino. Precio x Unidad.",
     precio: 400,
     categorias: ["lapiceras"],
     imagen: "Img-Productos/Lapicera-Negra.jpg"
@@ -281,7 +281,7 @@ const PRODUCTOS = [
   {
     id: "lapicera-azul",
     nombre: "Lapicera Azul",
-    descripcion: "Lapicera azul Filgo Trazo Grueso.",
+    descripcion: "Lapicera azul Filgo Trazo Grueso. Precio x Unidad.",
     precio: 400,
     categorias: ["lapiceras"],
     imagen: "Img-Productos/Lapicera-Azul.jpg"
@@ -289,7 +289,7 @@ const PRODUCTOS = [
   {
     id: "lapicera-roja",
     nombre: "Lapicera Roja",
-    descripcion: "Lapicera Roja Filgo Trazo Fino.",
+    descripcion: "Lapicera Roja Filgo Trazo Fino. Precio x Unidad.",
     precio: 400,
     categorias: ["lapiceras"],
     imagen: "Img-Productos/Lapicera-Roja.jpg"
@@ -297,7 +297,7 @@ const PRODUCTOS = [
   {
     id: "lapicera-verde",
     nombre: "Lapicera Verde",
-    descripcion: "Lapicera Verde Filgo Trazo Fino.",
+    descripcion: "Lapicera Verde Filgo Trazo Fino. Precio x Unidad.",
     precio: 400,
     categorias: ["lapiceras"],
     imagen: "Img-Productos/Lapicera-verde.jpg"
@@ -313,7 +313,7 @@ const PRODUCTOS = [
   {
     id: "folios-x-10-n3",
     nombre: "Folios x 10 N3",
-    descripcion: "Folios escolares standard Luma.",
+    descripcion: "Folios escolares standard Luma. Precio x 10 unidades.",
     precio: 1800,
     categorias: ["folios", "oficina"],
     imagen: "Img-Productos/Folios-Escolares-Luma.jpg"
@@ -337,7 +337,7 @@ const PRODUCTOS = [
   {
     id: "anillo-de-carpeta",
     nombre: "Anillo de Carpeta",
-    descripcion: "",
+    descripcion: "Anillo de Carpeta metalico del N3. Precio x el par",
     precio: 500,
     categorias: ["escolares"],
     imagen: "Img-Productos/Anillos-de-Carpeta.jpg"
@@ -361,7 +361,7 @@ const PRODUCTOS = [
   {
     id: "papel-crepe",
     nombre: "Papel Crepe",
-    descripcion: "Papel creepe variedad de colores.",
+    descripcion: "Papel creepe Luma variedad de colores. Precio x Unidad. La eleccion del color se coordina al momento de la compra.",
     precio: 500,
     categorias: ["oficina"],
     imagen: "Img-Productos/Papel-Crepé-Luma.jpeg"
@@ -369,7 +369,7 @@ const PRODUCTOS = [
   {
     id: "papel-afiche",
     nombre: "Papel Afiche",
-    descripcion: "Papel afiche variedad de colores.",
+    descripcion: "Papel afiche Luma variedad de colores. Precio x Unidad. La eleccion del color se coordina al momento de la compra.",
     precio: 800,
     categorias: ["oficina"],
     imagen: "Img-Productos/Papel-Afiche-Luma.jpeg"
@@ -393,7 +393,7 @@ const PRODUCTOS = [
   {
     id: "cartulinas",
     nombre: "Cartulinas",
-    descripcion: "Cartulinas Luma varieadad de colores. La eleccion del color se realiza al momento del pago.",
+    descripcion: "Cartulinas Luma varieadad de colores. Precio x Unidad. La eleccion del color se realiza al momento del pago.",
     precio: 500,
     categorias: ["escolares"],
     imagen: "Img-Productos/Cartulinas-Luma.jpg"
@@ -417,7 +417,7 @@ const PRODUCTOS = [
   {
     id: "etiquetas-autoadhesivos",
     nombre: "Etiquetas Autoadhesivos",
-    descripcion: "Etiquetas Autoadhesivas Ori-Tec",
+    descripcion: "Etiquetas Autoadhesivas Ori-Tec 25 planchas 22mm x 16mm.",
     precio: 600,
     categorias: ["oficina", "notas-adhesivas"],
     imagen: "Img-Productos/Etiquetas-Adhesivas-Ori-Tec.jpg"
@@ -425,7 +425,7 @@ const PRODUCTOS = [
   {
     id: "papel-carbonico-pelikan-x-10",
     nombre: "Papel Carbonico Pelikan x 10",
-    descripcion: "",
+    descripcion: "Precio x 10 unidades. Tamaño oficio.",
     precio: 3800,
     categorias: ["oficina"],
     imagen: "Img-Productos/Papel-Carbonico-Pelikan.jpg"
@@ -482,7 +482,7 @@ const PRODUCTOS = [
   {
     id: "escarapela",
     nombre: "Escarapela",
-    descripcion: "Escarapela Argentina.",
+    descripcion: "",
     precio: 400,
     categorias: ["escolares"],
     imagen: "Img-Productos/escarapela-lista.jpg"
@@ -591,7 +591,7 @@ const PRODUCTOS = [
   {
     id: "cinta-adhesiva-12mm",
     nombre: "Cinta Adhesiva Transparente",
-    descripcion: "Cinta adhesiva Stiko 12mmx7mm N10",
+    descripcion: "Cinta adhesiva Stiko 12mmx7mm N10. Precio x Unidad.",
     precio: 400,
     categorias: ["oficina", "cintas adhesivas"],
     imagen: "Img-Productos/Cinta-Adhesiva-Stiko.jpg"
@@ -599,7 +599,7 @@ const PRODUCTOS = [
   {
     id: "cinta-adhesiva-48mm",
     nombre: "Cinta Adhesiva Transparente",
-    descripcion: "Cinta adhesiva Stiko 48mmx50m",
+    descripcion: "Cinta adhesiva Stiko 48mmx50m. Precio x Unidad.",
     precio: 1700,
     categorias: ["oficina", "cintas adhesivas"],
     imagen: "Img-Productos/cinta-stiko.jpg"
@@ -615,7 +615,7 @@ const PRODUCTOS = [
   {
     id: "crayones",
     nombre: "Crayones",
-    descripcion: "Crayones Trabi colores varios .",
+    descripcion: "Crayones Trabi de 6 colores varios .",
     precio: 750,
     categorias: ["escolares"],
     imagen: "Img-Productos/Crayones-Cera-Trabi.jpg"
@@ -653,7 +653,7 @@ const PRODUCTOS = [
   {
     id: "lapiz-negro",
     nombre: "Lapiz Negro",
-    descripcion: "Lapiz negro HB N2 Filgo",
+    descripcion: "Lapiz negro HB N2 Filgo. Precio x Unidad.",
     precio: 300,
     categorias: ["lapices"],
     imagen: "Img-Productos/Lapiz-negro-Filgo.jpg"
@@ -661,7 +661,7 @@ const PRODUCTOS = [
   {
     id: "tijera",
     nombre: "Tijera",
-    descripcion: "Tijeras para niños Filgo",
+    descripcion: "Tijeras para niños Filgo. Precio x Unidad. La eleccion del color se realiza al momento de la compra y en base a la disponibilidad del stock.",
     precio: 1300,
     categorias: ["tijeras", "escolares"],
     imagen: "Img-Productos/Tijeras-Filgo.jpg"
@@ -669,7 +669,7 @@ const PRODUCTOS = [
   {
     id: "resaltadores-fluo-x-4",
     nombre: "Resaltadores Fluo x 4",
-    descripcion: "Resaltadores fluo Filgo.",
+    descripcion: "Resaltadores fluo Filgo. La eleccion del color se realiza al momento de la compra y en base a la disponibilidad del stock.",
     precio: 2000,
     categorias: ["resaltadores", "escolares"],
     imagen: "Img-Productos/Resaltadores-Filgo-Fluo.jpg"
@@ -717,7 +717,7 @@ const PRODUCTOS = [
   {
     id: "folios",
     nombre: "Folios",
-    descripcion: "Folio escolares x unidad Luma",
+    descripcion: "Folio escolares Luma. Precio x Unidad.",
     precio: 300,
     categorias: ["folios", "escolares"],
     imagen: "Img-Productos/Folios-Escolares-Luma.jpg"
@@ -725,7 +725,7 @@ const PRODUCTOS = [
   {
     id: "folios-a4",
     nombre: "Folios A4",
-    descripcion: "Folios A4 x unidad Luma",
+    descripcion: "Folios A4 x unidad Luma. Precio x Unidad.",
     precio: 500,
     categorias: ["folios", "escolares"],
     imagen: "Img-Productos/Folios-A4-Luma.jpg"
@@ -765,7 +765,7 @@ const PRODUCTOS = [
   {
     id: "marcador-permanente-411-plus-x4-unidades",
     nombre: "Marcador Permanente 411 Plus x4 Unidades",
-    descripcion: "Marcador Permanente 411 Plus Trabi",
+    descripcion: "Marcador Permanente 411 Plus Trabi recargable x 4 unidades.",
     precio: 4400,
     categorias: ["marcadores"],
     imagen: "Img-Productos/Marcadores-x4-trabi.jpg",
@@ -774,7 +774,7 @@ const PRODUCTOS = [
   {
     id: "broche-n-10-para-abrochadora",
     nombre: "Broche N°10 para Abrochadora",
-    descripcion: "Broche 2010 flexibles Skycolor",
+    descripcion: "Broche 2010 flexibles Skycolor. Precio x Unidad.",
     precio: 1000,
     categorias: ["oficina"],
     imagen: "Img-Productos/Broches-N10.jpeg"
@@ -822,7 +822,7 @@ const PRODUCTOS = [
   {
     id: "repuesto-color-n5",
     nombre: "Repuesto Color N5",
-    descripcion: "Gama completa de colores.",
+    descripcion: "",
     precio: 1200,
     categorias: ["escolares"],
     imagen: "Img-Productos/Repuesto-dibujo-N°3.jpg"
@@ -900,7 +900,7 @@ const PRODUCTOS = [
   {
     id: "fibras",
     nombre: "Fibras",
-    descripcion: "Marcadores escolares 2210 x10 .",
+    descripcion: "Marcadores escolares 2210 x10.",
     precio: 1500,
     categorias: ["fibras", "escolares"],
     imagen: "Img-Productos/Fibras-Filgo-x10.jpg"
@@ -972,7 +972,7 @@ const PRODUCTOS = [
   {
     id: "lapiz-con-borrador",
     nombre: "Lapiz negro con Borrador",
-    descripcion: "Lapiz Negro con borrador de distintas formas.",
+    descripcion: "Lapiz Negro con borrador de distintas formas. Precio x Unidad. La eleccion del producto se realiza al momento de la compra y en base al stock del producto.",
     precio: 1000,
     categorias: ["escolares", "infantil"],
     imagen: "Img-Productos/Lapiz-Negro-con-Borrador-con-Forma.jpg",
