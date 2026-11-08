@@ -22,16 +22,6 @@ const PRODUCTOS = [
 
   // ---------------- COMBOS (se ven en Inicio) ----------------
   {
-    id: "combo-escolar-inicial",
-    nombre: "Combo Escolar Inicial",
-    descripcion: "1 carpeta N3 C/Anillos - 1 Pack de hojas Rivadavia - 1 Kit de Separadores - 1 Lapicera borrable Simball - 2 Lapiceras de Color (a eleccion) - 1 Goma de borrar (a eleccion).",
-    precio: null,
-    categorias: [],
-    imagen: "Img-Productos/images.png",
-    combo: true,
-    activo: false
-  },
-  {
     id: "combo-a-eleccion",
     nombre: "Combo a Eleccion",
     descripcion: "Elegi los productos que quieras y te armamos un combo. (Minimo requerido 5 productos variados)",
@@ -40,13 +30,22 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Combo-a-eleccion.jpg",
     combo: true
   },
+  {
+    id: "combo-escolar",
+    nombre: "Combo Escolar",
+    descripcion: "1 carpeta N3 C/Anillos - 1 Pack de hojas Rivadavia - 1 Kit de Separadores - 1 Lapicera borrable Simball - 2 Lapiceras de Color - 1 Goma de borrar - 1 Lapiz Negro Filgo.",
+    precio: 16500,
+    categorias: [],
+    imagen: "Img-Productos/combo-escolar.jpg",
+    combo: true
+  },
    {
     id: "combo-universitario",
     nombre: "Combo Universitario",
     descripcion: "1 Corrector Intro - 1 Lapiz Negro Filgo - 2 Borradores - 4 Lapiceras de Color Filgo - 1 Cuadernillo A4 Húsares - 1 Cuaderno A5 Húsares - 1 Caja de Resaltadores Pastel Trabi.",
     precio: 9000,
     categorias: [],
-    imagen: "Img-Productos/combo-universitario.jpeg",
+    imagen: "Img-Productos/combo-universitario.jpg",
     combo: true
   },
   {
@@ -55,7 +54,7 @@ const PRODUCTOS = [
     descripcion: "1 Corrector Intro - 2 Borradores - 1 Lapices Negros Filgo - 4 Lapiceras de Color Filgo - 3 Resaltadores Fluo Filgo - 3 Resaltadores Pastel Filgo - 1 Cuadernillo A4 Húsares.",
     precio: 8500,
     categorias: [],
-    imagen: "Img-Productos/Combo-2.jpeg",
+    imagen: "Img-Productos/Combo-2.jpg",
     combo: true
   },
   {
@@ -64,7 +63,7 @@ const PRODUCTOS = [
     descripcion: "1 Corrector Intro - 2 Borradores - 2 Lapices Negros Filgo - 4 Lapiceras de Color Filgo - 1 Cuadernillo A4 Húsares - 1 Caja de Resaltadores Pastel Trabi.",
     precio: 7800,
     categorias: [],
-    imagen: "Img-Productos/Combo-3.jpeg",
+    imagen: "Img-Productos/Combo-3.jpg",
     combo: true
   },
   {
@@ -73,7 +72,7 @@ const PRODUCTOS = [
     descripcion: "1 Block de Notas adhesivas Transparentes Skycolor - 1 cuadernillo A4 Húsares - 2 Resaltadores Vintage Trabi- 4 Resaltadores Filgo (2 pastel y 2 fluo).",
     precio: 8000,
     categorias: [],
-    imagen: "Img-Productos/Combo-4.jpeg",
+    imagen: "Img-Productos/Combo-4.jpg",
     combo: true
   },
   {
@@ -82,13 +81,13 @@ const PRODUCTOS = [
     descripcion: "1 Block de Notas Transparentes Skycolor - 2 Resaltadores Vintage Trabi - 5 Resaltadores Filgo (3 pastel y 2 fluo) - 4 Lapiceras Filgo - 1 Corrector Intro.",
     precio: 9000,
     categorias: [],
-    imagen: "Img-Productos/Combo-5.jpeg",
+    imagen: "Img-Productos/Combo-5.jpg",
     combo: true
   },
   {
     id: "combo-infantil-N1",
     nombre: "Combo Infantil N°1",
-    descripcion: "1 Tijera Filgo - 1 Borrador - 1 Sacapunta Filgo - 2 Lapices Negros Filgo - 1 Fibras Filgo - 1 Libro de Biblioteca Interactiva (a eleccion).",
+    descripcion: "1 Tijera Filgo - 1 Borrador - 1 Sacapunta Filgo - 2 Lapices Negros Filgo - 1 Fibras Filgo - 1 Libro de Biblioteca Interactiva.",
     precio: 6300,
     categorias: [],
     imagen: "Img-Productos/Combo-inf-1.jpg",
@@ -97,7 +96,7 @@ const PRODUCTOS = [
   {
     id: "combo-infantil-N2",
     nombre: "Combo Infantil N°2",
-    descripcion: "1 Tijera Filgo - 1 Borrador - 2 Sacapunta Filgo - 2 Lápices Negros Filgo - 1 Caja de Lapices de colores Filgo - 1 Libro de Biblioteca Interactiva (a eleccion).",
+    descripcion: "1 Tijera Filgo - 1 Borrador - 2 Sacapunta Filgo - 2 Lápices Negros Filgo - 1 Caja de Lapices de colores Filgo - 1 Libro de Biblioteca Interactiva.",
     precio: 7000,
     categorias: [],
     imagen: "Img-Productos/Combo-inf-2.jpg",
@@ -106,7 +105,7 @@ const PRODUCTOS = [
   {
     id: "combo-vacaciones",
     nombre: "Combo Vacaciones",
-    descripcion: "1 Libro para pintar con crayones Juega y Modela (a eleccion) - 1 Libro de Cuentos (a eleccion) - 1 Libro de Biblioteca Interactiva (a eleccion).",
+    descripcion: "1 Libro para pintar con crayones Juega y Modela - 1 Libro de Cuentos - 1 Libro de Biblioteca Interactiva.",
     precio: null,
     categorias: [],
     imagen: "Img-Productos/Combo-inf-2.jpg",
@@ -116,32 +115,29 @@ const PRODUCTOS = [
 {
     id: "combo-aprendo-pintando",
     nombre: "Combo Aprendo Pintando",
-    descripcion: "1 Libro Aprendo pintando (a eleccion) - 1 pincel - 3 Temperas Señoritas - 1 Caja de Lapices de colores x12 Filgo.",
-    precio: null,
+    descripcion: "1 Libro Aprendo pintando - Pinceles Picassito - 3 Temperas Señoritas - 1 Caja de Lapices de colores x12 Filgo.",
+    precio: 6000,
     categorias: [],
-    imagen: "Img-Productos/Combo-inf-2.jpg",
-    combo: true,
-    activo: false
+    imagen: "Img-Productos/combo-aprendo-pintando.jpg",
+    combo: true
   },
 {
     id: "combo-libros-mandalas",
     nombre: "Combo Mis Mandalas ",
-    descripcion: "1 Libro de Mandalas (a eleccion) - 1 Caja de Lapices de Colores+2HB - 1 Libro de Pasatiempos (a eleccion).",
-    precio: null,
+    descripcion: "1 Libro de Mandalas 12 hojas - 1 Caja de Lapices de Colores+2HB - 1 Libro de Pasatiempos.",
+    precio: 7500,
     categorias: [],
-    imagen: "Img-Productos/Combo-inf-2.jpg",
-    combo: true,
-    activo: false
+    imagen: "Img-Productos/combo-libros-mandalas.jpg",
+    combo: true
   },
 {
     id: "combo-regreso-a-clases",
     nombre: "Combo Regresos a Clases",
-    descripcion: "1 Cuaderno Húsares A5 - Resaltadores Filgo x 3 (a eleccion) - 4 Lapiceras de Color (a eleccion) - 1 Goma de borrar Simball.",
-    precio: null,
+    descripcion: "1 Cuaderno Húsares A5 - Resaltadores Filgo x 3 - 4 Lapiceras de Color - 1 Goma de borrar Simball.",
+    precio: 6500,
     categorias: [],
-    imagen: "Img-Productos/Combo-inf-2.jpg",
-    combo: true,
-    activo: false
+    imagen: "Img-Productos/combo-regreso-a-clases.jpg",
+    combo: true
   },
 
 
@@ -974,7 +970,7 @@ const PRODUCTOS = [
     nombre: "Lapiz negro con Borrador",
     descripcion: "Lapiz Negro con borrador de distintas formas. Precio x Unidad. La eleccion del producto se realiza al momento de la compra y en base al stock del producto.",
     precio: 1000,
-    categorias: ["escolares", "infantil"],
+    categorias: ["escolares", "infantil", "lapices"],
     imagen: "Img-Productos/Lapiz-Negro-con-Borrador-con-Forma.jpg",
   },
   {

@@ -357,32 +357,28 @@ video {
     color: #374151;
 }
 
-/* --- Catálogo y "También te puede interesar": tarjetas más limpias ---
+/* --- Combos, Catálogo y "También te puede interesar": tarjetas más limpias ---
    Se ve solo nombre, precio y "Agregar al carrito". La descripción y el botón
-   de WhatsApp se ven al entrar al producto. Los combos de Inicio no cambian.
+   de WhatsApp se ven al entrar al producto.
    (Los selectores son largos a propósito para ganarle a detalle.css.) */
+#grid-combos .product-card .product-info p,
 #grid-productos .product-card .product-info p,
 #grid-relacionados .product-card .product-info p {
     display: none;
 }
 
+#grid-combos .product-card .btn-wpp,
 #grid-productos .product-card .btn-wpp,
 #grid-relacionados .product-card .btn-wpp {
     display: none;
 }
 
 /* Sin descripción, el precio baja al fondo y los botones quedan alineados */
+#grid-combos .product-price,
 #grid-productos .product-price,
 #grid-relacionados .product-price {
     margin-top: auto;
 }
-
-/* Precio dentro de la página del producto (pisa el violeta de detalle.css) */
-.dp-pagina .dp-precio {
-    color: var(--color-precio);
-}
-
-
 /* =====================================================================
    7. CATÁLOGO (buscador a la izquierda, productos a la derecha)
    ===================================================================== */
@@ -1207,6 +1203,40 @@ footer {
     }
 
     #grid-productos .btn-add-cart {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+        /* Combos de Inicio: de a 2 por fila, igual que el catálogo */
+    #grid-combos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    #grid-combos .product-card img {
+        height: 120px;
+    }
+
+    #grid-combos .product-info {
+        padding: 10px;
+        gap: 6px;
+    }
+
+    #grid-combos .product-info h3 {
+        font-size: 14px;
+        line-height: 1.25;
+    }
+
+    #grid-combos .product-price {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    #grid-combos .btn-add-cart {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+
+    #grid-combos .btn-wpp {
         font-size: 12px;
         padding: 6px 0;
     }
