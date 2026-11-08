@@ -639,7 +639,7 @@ const PRODUCTOS = [
     nombre: "Pinceles p/tempera",
     descripcion: "",
     precio: 400,
-    categorias: ["escolares"],
+    categorias: ["escolares", "pinceles", "infantil"],
     imagen: "Img-Productos/Pincel-Tempera.jpg"
   },
   {
@@ -1028,10 +1028,9 @@ const PRODUCTOS = [
   {
     id: "pinceles-picassito",
     nombre: "Pinceles Picassito",
-    descripcion: "Pinceles Picassito x 6 unidades de varios colores.",
-    precio: null,
-    categorias: ["escolares", "infantil"],
-    imagen: "Img-Productos/TT-verde.jpg",
-    activo: false
+    descripcion: "Pinceles Picassito x 6 unidades de varios colores N1 al N6.",
+    precio: 1400,
+    categorias: ["escolares", "infantil", "pinceles"],
+    imagen: "Img-Productos/PP.jpg",
   },
 ];
