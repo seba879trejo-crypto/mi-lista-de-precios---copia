@@ -116,14 +116,14 @@ const PRODUCTOS = [
     id: "combo-aprendo-pintando",
     nombre: "Combo Aprendo Pintando",
     descripcion: "1 Libro Aprendo pintando - Pinceles Picassito - 3 Temperas Señoritas - 1 Caja de Lapices de colores x12 Filgo.",
-    precio: 6000,
+    precio: 6800,
     categorias: [],
     imagen: "Img-Productos/combo-aprendo-pintando.jpg",
     combo: true
   },
 {
-    id: "combo-libros-mandalas",
-    nombre: "Combo Mis Mandalas ",
+    id: "combo-pasatiempos",
+    nombre: "Combo Pasatiempos ",
     descripcion: "1 Libro de Mandalas 12 hojas - 1 Caja de Lapices de Colores+2HB - 1 Libro de Pasatiempos.",
     precio: 7500,
     categorias: [],
@@ -131,8 +131,8 @@ const PRODUCTOS = [
     combo: true
   },
 {
-    id: "combo-regreso-a-clases",
-    nombre: "Combo Regresos a Clases",
+    id: "combo-mis-notas",
+    nombre: "Combo Mis Notas",
     descripcion: "1 Cuaderno Húsares A5 - Resaltadores Filgo x 3 - 4 Lapiceras de Color - 1 Goma de borrar Simball.",
     precio: 6500,
     categorias: [],
