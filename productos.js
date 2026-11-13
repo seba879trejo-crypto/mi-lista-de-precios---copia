@@ -267,36 +267,52 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Lapiz-Filgo-2HB.jpg"
   },
   {
-    id: "lapicera-negra",
-    nombre: "Lapicera Negra",
+    id: "lapicera-negra-filgo",
+    nombre: "Lapicera Negra FIlgo",
     descripcion: "Lapicera Negra Filgo Trazo Fino. Precio x Unidad.",
     precio: 400,
-    categorias: ["lapiceras"],
+    categorias: ["lapiceras", "oficina"],
     imagen: "Img-Productos/Lapicera-Negra.jpg"
   },
   {
-    id: "lapicera-azul",
-    nombre: "Lapicera Azul",
+    id: "lapicera-azul-filgo",
+    nombre: "Lapicera Azul Filgo",
     descripcion: "Lapicera azul Filgo Trazo Grueso. Precio x Unidad.",
     precio: 400,
-    categorias: ["lapiceras"],
+    categorias: ["lapiceras", "oficina"],
     imagen: "Img-Productos/Lapicera-Azul.jpg"
   },
   {
-    id: "lapicera-roja",
-    nombre: "Lapicera Roja",
+    id: "lapicera-roja-filgo",
+    nombre: "Lapicera Roja Filgo",
     descripcion: "Lapicera Roja Filgo Trazo Fino. Precio x Unidad.",
     precio: 400,
-    categorias: ["lapiceras"],
+    categorias: ["lapiceras", "oficina"],
     imagen: "Img-Productos/Lapicera-Roja.jpg"
   },
   {
-    id: "lapicera-verde",
-    nombre: "Lapicera Verde",
+    id: "lapicera-verde-filgo",
+    nombre: "Lapicera Verde Filgo",
     descripcion: "Lapicera Verde Filgo Trazo Fino. Precio x Unidad.",
     precio: 400,
-    categorias: ["lapiceras"],
+    categorias: ["lapiceras", "oficina"],
     imagen: "Img-Productos/Lapicera-verde.jpg"
+  },
+  {
+    id: "lapicera-negra-bic",
+    nombre: "Lapicera Negra Bic",
+    descripcion: "Lapicera Negra Bic Trazo grueso. Precio x Unidad.",
+    precio: null,
+    categorias: ["lapiceras", "oficina"],
+    imagen: "Img-Productos/bic-negra.jpg"
+  },
+  {
+    id: "lapicera-azul-bic",
+    nombre: "Lapicera Azul Bic",
+    descripcion: "Lapicera Azul Bic Trazo grueso. Precio x Unidad.",
+    precio: null,
+    categorias: ["lapiceras", "oficina"],
+    imagen: "Img-Productos/bic-azul.jpg"
   },
   {
     id: "marcadores",
