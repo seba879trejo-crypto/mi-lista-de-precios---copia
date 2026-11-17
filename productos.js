@@ -302,7 +302,7 @@ const PRODUCTOS = [
     id: "lapicera-negra-bic",
     nombre: "Lapicera Negra Bic",
     descripcion: "Lapicera Negra Bic Trazo grueso. Precio x Unidad.",
-    precio: null,
+    precio: 750,
     categorias: ["lapiceras", "oficina"],
     imagen: "Img-Productos/bic-negra.jpg"
   },
@@ -310,7 +310,7 @@ const PRODUCTOS = [
     id: "lapicera-azul-bic",
     nombre: "Lapicera Azul Bic",
     descripcion: "Lapicera Azul Bic Trazo grueso. Precio x Unidad.",
-    precio: null,
+    precio: 750,
     categorias: ["lapiceras", "oficina"],
     imagen: "Img-Productos/bic-azul.jpg"
   },
@@ -558,7 +558,7 @@ const PRODUCTOS = [
     id: "libro-pasatiempos-vol1",
     nombre: "Libro Pasatiempos Vol.1 ",
     descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
-    precio: 2800,
+    precio: 3800,
     categorias: ["infantil", "libros"],
     imagen: "Img-Productos/pasatiempo-vol1.jpg"
   },
@@ -566,7 +566,7 @@ const PRODUCTOS = [
     id: "libro-pasatiempos-vol3",
     nombre: "Libro Pasatiempos Vol.3",
     descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
-    precio: 2800,
+    precio: 3800,
     categorias: ["infantil", "libros"],
     imagen: "Img-Productos/pasatiempo-vol3.jpg"
   },
@@ -574,7 +574,7 @@ const PRODUCTOS = [
     id: "libro-pasatiempos-vol4",
     nombre: "Libro Pasatiempos Vol.4",
     descripcion: "Coleccion de libros Tripulante de juegos edicíon especial.",
-    precio: 2800,
+    precio: 3800,
     categorias: ["infantil", "libros"],
     imagen: "Img-Productos/pasatiempos4.jpg"
   },
@@ -840,10 +840,10 @@ const PRODUCTOS = [
     imagen: "Img-Productos/Repuesto-dibujo-N°3.jpg"
   },
   {
-    id: "repuesto-blanco-n5",
-    nombre: "Repuesto Blanco N5",
+    id: "repuesto-blanco-n5-luma",
+    nombre: "Repuesto Blanco N5 Luma",
     descripcion: "",
-    precio: 870,
+    precio: 1000,
     categorias: ["escolares"],
     imagen: "Img-Productos/Repuestos-Hojas-Dibujo-N5-blanco.jpg"
   },
